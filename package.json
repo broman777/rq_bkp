@@ -1,0 +1,24 @@
+{
+  "name": "RQ",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "brother91",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-watch": "*",
+    "gulp-sass": "*",
+    "gulp-util": "*",
+    "gulp-rigger": "*",
+    "rimraf": "*",
+    "node-neat": "*",
+    "browser-sync": "*" 
+  },
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
+}

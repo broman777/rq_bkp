@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Constantine";
+    src: url("fonts/ConstantineRegular.eot");
+    src: url("fonts/ConstantineRegular.eot?#iefix")format("embedded-opentype"),
+    url("fonts/ConstantineRegular.woff") format("woff"),
+    url("fonts/ConstantineRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Gotham Pro";
+    src: url("fonts/GothamProLight.eot");
+    src: url("fonts/GothamProLight.eot?#iefix")format("embedded-opentype"),
+    url("fonts/GothamProLight.woff") format("woff"),
+    url("fonts/GothamProLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Gotham Pro";
+    src: url("fonts/GothamProRegular.eot");
+    src: url("fonts/GothamProRegular.eot?#iefix")format("embedded-opentype"),
+    url("fonts/GothamProRegular.woff") format("woff"),
+    url("fonts/GothamProRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Gotham Pro";
+    src: url("fonts/GothamProBold.eot");
+    src: url("fonts/GothamProBold.eot?#iefix")format("embedded-opentype"),
+    url("fonts/GothamProBold.woff") format("woff"),
+    url("fonts/GothamProBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
