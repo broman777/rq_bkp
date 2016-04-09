@@ -13,6 +13,20 @@ $(document).ready(function(){
 		directionNav: false,
 		controlNav:true
 	});
+	$('#about-slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav:true
+	});
+	// плавная прокрутка
+	$('a[data-anchor]').on('click',function(e){
+		e.preventDefault();
+		var body = $("html, body"), 
+			dest = $(this).attr('href'),
+			speed = $(this).attr('data-anchor') || 500;
+			console.log(speed);
+		body.stop().animate({scrollTop:$(dest).offset().top}, speed, 'swing');
+	});
 });
 $(window).on('scroll',function(){
 	$('#menu').removeClass('open');
