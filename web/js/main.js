@@ -31,3 +31,6 @@ $(document).ready(function(){
 $(window).on('scroll',function(){
 	$('#menu').removeClass('open');
 });
+$(window).on('load',function(){
+	$('#loader').fadeOut(900);
+});

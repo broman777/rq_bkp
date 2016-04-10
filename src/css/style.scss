@@ -47,6 +47,16 @@ nav, footer .menu {
 		}
 	}
 }
+#loader {
+	display: block;
+	position: fixed;
+	z-index: 120;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #EAE9E8;
+}
 #menu {
 	overflow: hidden;
 	position: fixed;
@@ -145,6 +155,21 @@ nav, footer .menu {
 			letter-spacing: 0.05em;
 			&:hover {color: #fff;}
 		}
+	}
+	#user {
+		position: absolute;
+		top: 200px;
+		width: 60px;
+		left: 0;
+		a {
+			margin: 0 auto 58px;
+			display: block;
+			width: 30px;
+			height: 20px;
+			background: url("../img/ui/user_sprite.png") no-repeat 0 0;
+		}
+		.user {background-position: 0 0}
+		.cart {background-position: 0 -20px}
 	}
 	nav {
 		position: absolute;
@@ -304,7 +329,9 @@ aside {
 	color: $mainDark;
 	font-size: 9px;
 	text-decoration: none;
+	transition: all 0.2s ease;
 	&:before {
+	transition: all 0.2s ease;
 		content:'';
 		position: absolute;
 		top: 50%;
@@ -315,6 +342,7 @@ aside {
 		background-color: $dark;
 	}
 	&:after {
+	transition: all 0.2s ease;
 		content:'';
 		position: absolute;
 		top: 50%;
@@ -324,6 +352,12 @@ aside {
 		width: 1px;
 		background-color: $dark;
 	}
+	&:hover {
+		background-color: #87918E;
+		color: #fff;
+		&:before {transform: rotate(90deg);}
+		&:after {transform: rotate(-90deg);}
+	}
 }
 .other {
 	.title {
@@ -331,6 +365,7 @@ aside {
 		color: #fff;
 		display: block;
 		position: absolute;
+		top: 0;
 		left: 0px;
 		width: 70px;
 		height: 100%;
@@ -430,17 +465,20 @@ aside {
 			display: block;
 			width: 100%;
 		}
+		.btn {margin: -22px 0 40px;}
 	}
 	#about {
 		padding-left: 70px;
 		color: #fff;
 		background-color: $dark;
 		#about-slider {
+			position: relative;
+			z-index: 10;
 			padding-top: 55px;
 			padding-bottom: 165px;
 			.flex-control-nav {
 				bottom: 100px;
-				left: 70px;
+				left: 0px;
 				right: 0;
 				width: auto;
 			}
@@ -472,18 +510,51 @@ aside {
 				padding: 22px 0 26px 50px;
 				border-bottom: 1px solid rgba(135,145,142,0.1);
 				border-right: 1px solid rgba(135,145,142,0.1);
+				overflow: hidden;
+				&:hover {
+					overflow: visible;
+					.hint{
+						opacity: 1;
+						transform:scale(1,1);
+					}
+				}
 				p {
 					font: 30px/30px "Constantine";
 					color: $lgreen;
 					margin-bottom: 10px;
 				}
-				span {
-					font-size: 12px;
+				span {font-size: 12px;}
+			}
+			.hint {
+				position: absolute;
+				bottom: 0;
+				left: -25px;
+				right: -25px;
+				font-size: 12px;
+				font: italic 12px/14px "Times New Roman", serif;
+				color: #87918e;
+				background-color: #fff;
+				text-align: center;
+				padding: 15px 25px;
+				border-bottom: 3px solid $mainDark;
+				opacity: 0;
+				transition: all 0.2s ease;
+				transform:scale(0,0);
+				overflow: hidden;
+				&:after {
+					content:'';
+					position: absolute;
+					background-color: $mainDark;
+					width: 10px;
+					height: 10px;
+					border-radius: 50%;
+					left: 50%;
+					bottom: -5px;
 				}
 			}
 		}
 		.text {
-			width: 700px;
+			width: 696px;
 			margin:0 auto;
 			font-size: 12px;
 			line-height: 18px;
@@ -497,11 +568,14 @@ aside {
 				position: relative;
 				width: 100%;
 				height: 390px;
-				padding-left: 70px;
+				padding: 0 50px 0 120px;
 				box-sizing: border-box;
-				background-color: #FFF;
+				&:first-child {
+					height: 440px;
+					padding-top: 50px;
+				}
 				&:nth-child(2n-1) {
-					background-color: #EAE9E8;
+					.cell {background-color: #FFF;}
 					.bg {float: right;}
 				}
 				.cell {
@@ -597,6 +671,57 @@ footer {
 	}
 }
 
-@media screen and (max-width: 1280px) {
-	
+@media screen and (max-width: 1440px) {
+	aside {
+		img {max-width: 90%;}
+		.btn-group {width: 90%;}
+	}
+	.other {
+		#banners .banner-list li {
+			padding: 0 0 0 70px;
+			&:first-child {
+				padding-top: 0;
+				height: 390px;
+			}
+		}
+	}
+}
+@media screen and (max-height: 800px) {
+	aside {
+		.content {bottom: 8%;}
+		#aside-slider .flex-control-nav {bottom: -208px;}
+		img {max-width: 80%;}
+		.hr {display: none}
+		.btn-group {
+			width: 80%;
+			 a{
+				line-height: 20px;
+			}
+		}
+	}
+	#first {
+		h1 {margin-top: -225px;}
+		.more{
+			left: 158px;
+			width: 90px;
+			height: 112px;
+			text-align: center;
+			span {
+				position: relative;
+				left: auto;
+				top: auto;
+				margin: 0;
+				width: auto;
+				line-height: 11px;
+				height: 24px;
+				transform: rotate(0);
+			}
+		}
+	}
+	.other #hist{
+		.box {
+			width: 760px;
+			.col:nth-child(2n) {margin-left: 68px;	width: 300px;}
+		}
+	}
 }
