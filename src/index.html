@@ -9,7 +9,7 @@
 	<script src="js/vendor/jquery.flexslider-min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script> 
 </head>
-<body>
+<body class="hidden">
 	<div id="loader"></div>
 	//= partials/menu.html
 	//= partials/aside.html
@@ -18,7 +18,7 @@
 		<a href="#news-slider" class="more" data-anchor="800"><span>Узнать больше</span></a>
 	</section>
 	<div class="other">
-		<section id="news-slider">
+		<section id="news-slider" data-animate>
 			<div class="title"><p>Новости</p></div>
 			<ul class="slides">
 				<li>
@@ -90,104 +90,42 @@
 				<ul class="slides">
 					<li>
 						<div class="bottle">
-							<table>
-								<tr>
-									<td>
-										<div class="cell">
-											<p>SI</p>
-											<span>Кремний: 5</span>
-											<div class="hint">
-												Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="cell">
-											<p>CA</p>
-											<span>Кальций: 68</span>
-											<div class="hint">
-												Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="cell">
-											<p>NA</p>
-											<span>Натрий: 10</span>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="cell">
-											<p>K</p>
-											<span>Калий: 0,1</span>
-											<div class="hint">
-												Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
-											</div>
-										</div>
-									</td>
-									<td>
-										<div class="cell">
-											<p>MG</p>
-											<span>Магний: 29</span>
-										</div>
-									</td>
-									<td>
-										<div class="cell">
-											<p>F</p>
-											<span>Фтор: 0,3</span>
-										</div>
-									</td>
-								</tr>
-							</table>
-						</div>
-						<p class="text">*Анализ произведен Испытательной лабораторией минеральных вод Всероссийского научно-исследовательского института пивоваренной, безалкогольной и винодельческой промышленности Российской академии сельскохозяйственных наук.</p>
-					</li>
-					<li>
-						<div class="bottle">
-							<table>
-								<tr>
-									<td>
-										<div class="cell">
-											<p>SI</p>
-											<span>Кремний: 5</span>
-										</div>
-									</td>
-									<td>
-										<div class="cell">
-											<p>CA</p>
-											<span>Кальций: 68</span>
-										</div>
-									</td>
-									<td>
-										<div class="cell">
-											<p>NA</p>
-											<span>Натрий: 10</span>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="cell">
-											<p>K</p>
-											<span>Калий: 0,1</span>
-										</div>
-									</td>
-									<td>
-										<div class="cell">
-											<p>MG</p>
-											<span>Магний: 29</span>
-										</div>
-									</td>
-									<td>
-										<div class="cell">
-											<p>F</p>
-											<span>Фтор: 0,3</span>
-										</div>
-									</td>
-								</tr>
-							</table>
+							<div class="table">
+								<div class="cell">
+									<p>SI</p>
+									<span>Кремний: 5</span>
+									<div class="hint">
+										Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
+									</div>
+								</div>
+								<div class="cell">
+									<p>CA</p>
+									<span>Кальций: 68</span>
+									<div class="hint">
+										Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
+									</div>
+								</div>
+								<div class="cell">
+									<p>NA</p>
+									<span>Натрий: 10</span>
+								</div>
+								<div class="cell">
+									<p>K</p>
+									<span>Калий: 0,1</span>
+									<div class="hint">
+										Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
+									</div>
+								</div>
+								<div class="cell">
+									<p>MG</p>
+									<span>Магний: 29</span>
+								</div>
+								<div class="cell">
+									<p>F</p>
+									<span>Фтор: 0,3</span>
+								</div>
+								<div class="clear"></div>
+							</div>
 						</div>
 						<p class="text">*Анализ произведен Испытательной лабораторией минеральных вод Всероссийского научно-исследовательского института пивоваренной, безалкогольной и винодельческой промышленности Российской академии сельскохозяйственных наук.</p>
 					</li>
@@ -196,7 +134,7 @@
 		</section>
 		<section id="banners">
 			<ul class="banner-list">
-				<li>
+				<li data-animate>
 					<div class="title"><p>Наша философия</p></div>
 					<div class="cell bg" style="background-image: url(img/bottom1.jpg);"></div>
 					<div class="cell text">
@@ -208,7 +146,7 @@
 						</div>
 					</div>
 				</li>
-				<li>
+				<li data-animate>
 					<div class="title"><p>Продукция</p></div>
 					<div class="cell bg" style="background-image: url(img/bottom2.jpg);"></div>
 					<div class="cell text">
@@ -220,7 +158,7 @@
 						</div>
 					</div>
 				</li>
-				<li>
+				<li data-animate>
 					<div class="title"><p>Партнеры</p></div>
 					<div class="cell bg" style="background-image: url(img/bottom3.jpg);"></div>
 					<div class="cell text">
