@@ -1,19 +1,21 @@
-<!DOCTYPE html> 
-<html>
-<head>
-	<title>RQ Main</title>
-	<meta charset="UTF-8">
-	<link href="css/vendor/flexslider.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	<script src="js/vendor/jquery.flexslider-min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script> 
-</head>
-<body class="hidden">
+	<!-- top start -->
+	<!DOCTYPE html> 
+	<html>
+	<head>
+		<title>RQ</title>
+		<meta charset="UTF-8">
+		<link href="css/vendor/flexslider.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="js/vendor/jquery.flexslider-min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script> 
+	</head>
+	<body>
 	<div id="loader"></div>
+	<!-- top end -->
 	<!-- menu start -->
 	<div id="menu" class="hidden">
-		<a href="" class="toggle"></a>
+		<a href="" class="toggle"><span></span></a>
 		<span class="menu">меню</span>
 		<div class="line">
 			<ul class="lang">
@@ -27,12 +29,12 @@
 			<li><a href="" class="user"></a></li>
 		</ul>
 		<nav>
-			<a href="#" class="active">главная</a>
-			<a href="#">о компании</a>
-			<a href="#">продукция</a>
-			<a href="#">контакты</a>
-			<a href="#">партнеры</a>
-			<a href="#">новости</a>
+			<a href="index.html">главная</a>
+			<a href="about.html">о компании</a>
+			<a href="prod.html">продукция</a>
+			<a href="contacts.html">контакты</a>
+			<a href="partners.html">партнеры</a>
+			<a href="news.html">новости</a>
 		</nav>
 		<ul class="soc">
 			<li><a href="#" class="fb"></a></li>
@@ -68,7 +70,7 @@
 	</section>
 	<div class="other">
 		<section id="news-slider" data-animate>
-			<div class="title"><p>Новости</p></div>
+			<div class="title"><a href="#"></a><p><span>Новости</span></p></div>
 			<ul class="slides">
 				<li>
 					<div class="text">
@@ -112,7 +114,7 @@
 			</ul>
 		</section>
 		<section id="hist">
-			<div class="title"><p>О компании</p></div>
+			<div class="title"><a href="#"></a><p><span>О компании</span></p></div>
 			<div class="box">
 				<h2>Завод RusseQuelle был создан в 2010 году благодаря сотрудничеству с Австрийскими<br> и Итальянскими партнерами.</h2>
 				<div class="text">
@@ -134,7 +136,7 @@
 			<img src="img/hist.jpg" alt="">
 		</section>
 		<section id="about">
-			<div class="title"><p>О воде Russequelle</p></div>
+			<div class="title"><a href="#"></a><p><span>О воде Russequelle</span></p></div>
 			<div id="about-slider">
 				<ul class="slides">
 					<li>
@@ -144,14 +146,14 @@
 									<p>SI</p>
 									<span>Кремний: 5</span>
 									<div class="hint">
-										Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
+										<p>Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.</p>
 									</div>
 								</div>
 								<div class="cell">
 									<p>CA</p>
 									<span>Кальций: 68</span>
 									<div class="hint">
-										Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
+										<p>Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору.</p> 
 									</div>
 								</div>
 								<div class="cell">
@@ -162,7 +164,48 @@
 									<p>K</p>
 									<span>Калий: 0,1</span>
 									<div class="hint">
-										Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.
+										<p>Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.</p>
+									</div>
+								</div>
+								<div class="cell">
+									<p>MG</p>
+									<span>Магний: 29</span>
+								</div>
+								<div class="cell">
+									<p>F</p>
+									<span>Фтор: 0,3</span>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<p class="text">*Анализ произведен Испытательной лабораторией минеральных вод Всероссийского научно-исследовательского института пивоваренной, безалкогольной и винодельческой промышленности Российской академии сельскохозяйственных наук.</p>
+					</li>
+					<li>
+						<div class="bottle">
+							<div class="table">
+								<div class="cell">
+									<p>SI</p>
+									<span>Кремний: 5</span>
+									<div class="hint">
+										<p>Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.</p>
+									</div>
+								</div>
+								<div class="cell">
+									<p>CA</p>
+									<span>Кальций: 68</span>
+									<div class="hint">
+										<p>Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. </p>
+									</div>
+								</div>
+								<div class="cell">
+									<p>NA</p>
+									<span>Натрий: 10</span>
+								</div>
+								<div class="cell">
+									<p>K</p>
+									<span>Калий: 0,1</span>
+									<div class="hint">
+										<p>Кремний активизирует воду, меняет её структуру, выводит в осадок соединения тяжелых металлов, подавляет болезнетворную микрофлору. Кремень во много раз ускоряет окислительно-восстановительные реакции в воде, придавая ей целебные свойства.</p>
 									</div>
 								</div>
 								<div class="cell">
@@ -184,7 +227,7 @@
 		<section id="banners">
 			<ul class="banner-list">
 				<li data-animate>
-					<div class="title"><p>Наша философия</p></div>
+					<div class="title"><a href="#"></a><p><span>Наша философия</span></p></div>
 					<div class="cell bg" style="background-image: url(img/bottom1.jpg);"></div>
 					<div class="cell text">
 						<div class="tr">
@@ -196,7 +239,7 @@
 					</div>
 				</li>
 				<li data-animate>
-					<div class="title"><p>Продукция</p></div>
+					<div class="title"><a href="#"></a><p><span>Продукция</span></p></div>
 					<div class="cell bg" style="background-image: url(img/bottom2.jpg);"></div>
 					<div class="cell text">
 						<div class="tr">
@@ -208,7 +251,7 @@
 					</div>
 				</li>
 				<li data-animate>
-					<div class="title"><p>Партнеры</p></div>
+					<div class="title"><a href="#"></a><p><span>Партнеры</span></p></div>
 					<div class="cell bg" style="background-image: url(img/bottom3.jpg);"></div>
 					<div class="cell text">
 						<div class="tr">
@@ -222,19 +265,36 @@
 			</ul>
 		</section>
 	</div>
-	<!-- footer start -->
-	<footer>
-		<img src="img/ui/logo.png" alt="">
-		<ul class="menu">
-			<li><a href="#" class="active">главная</a></li>
-			<li><a href="#">о компании</a></li>
-			<li><a href="#">продукция</a></li>
-			<li><a href="#">контакты</a></li>
-			<li><a href="#">партнеры</a></li>
-			<li><a href="#">новости</a></li>
-		</ul>
-		<p class="copyright">© 2013-2016 RusseQuelle</p>
-	</footer>
-	<!-- footer end -->
+<!-- footer start -->
+<footer>
+	<img src="img/ui/logo.png" alt="">
+	<ul class="menu">
+		<li><a href="#">главная</a></li>
+		<li><a href="#">о компании</a></li>
+		<li><a href="#">продукция</a></li>
+		<li><a href="#">контакты</a></li>
+		<li><a href="#">партнеры</a></li>
+		<li><a href="#">новости</a></li>
+	</ul>
+	<p class="copyright">© 2013-2016 RusseQuelle</p>
+</footer>
+<!-- footer end -->
+<script type="text/javascript">
+	$('#aside-slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav:true
+	});
+	$('#news-slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav:true
+	});
+	$('#about-slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav:true
+	});
+</script>
 </body>
 </html>

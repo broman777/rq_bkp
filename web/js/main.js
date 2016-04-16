@@ -15,21 +15,6 @@ $(document).ready(function(){
 		menu.removeClass('open');
 		fix.removeClass('visible');
 	});
-	$('#aside-slider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav:true
-	});
-	$('#news-slider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav:true
-	});
-	$('#about-slider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav:true
-	});
 	// плавная прокрутка
 	$('a[data-anchor]').on('click',function(e){
 		e.preventDefault();
