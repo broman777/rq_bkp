@@ -100,11 +100,7 @@
 					</div> 
 					<div class="price"> 
 						<span>цена за </span>
-						<select class="select">
-							<option value="12">12</option>
-							<option value="18">18</option>
-							<option value="24">24</option>
-						</select>
+						<a href="#qty" class="select" data-popup>12</a>
 						<span>шт</span>
 						<span class="uah">900 р.</span> 
 					</div>
@@ -215,7 +211,18 @@
 		</div>
 		<!-- about end -->
 	</div> 
-	<a href="#" class="link-next"><span>загрузить еще</span></a>
+	<div class="bottom-line">
+		<a href="products.html" class="back">в каталог продукции</a>
+		<a href="#top" data-anchor class="top">в начало страницы</a>
+		<div class="share">
+			<span>Поделиться:</span> 
+			<ul class="share-list">
+				<li><a href="#" class="fb"></a></li>
+				<li><a href="#" class="vk"></a></li>
+				<li><a href="#" class="tw"></a></li>
+			</ul>
+		</div>
+	</div>
 <!-- footer start -->
 <footer>
 	<img src="img/ui/logo.png" alt="">
@@ -229,12 +236,32 @@
 	</ul>
 	<p class="copyright">© 2013-2016 RusseQuelle</p>
 </footer>
+<div id="pop-bg"></div>
+<div id="qty" class="popup">
+	<a href="" class="close"></a>
+	<p class="header">Укажите количество бутылок <br> (упакованы по 12 штук)</p>
+	<div class="in">
+		<ul class="qty-list">
+			<li class="active">12</li>
+			<li>24</li>
+			<li>36</li>
+			<li>48</li>
+			<li>60</li>
+			<li>72</li>
+		</ul>
+		<a href="" class="btn">Готово</a>
+	</div>
+</div>
 <!-- footer end -->
 </section>
 <script>
 $(document).ready(function(){
-	$( ".select" ).selectmenu();
 	$('#prod-slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav: true
+	});
+	$('#about-slider').flexslider({
 		animation: "slide",
 		directionNav: false,
 		controlNav: true

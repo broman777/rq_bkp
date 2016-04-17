@@ -24,6 +24,28 @@ $(document).ready(function(){
 			console.log(speed);
 		body.stop().animate({scrollTop:$(dest).offset().top}, speed, 'swing');
 	});
+	// плавная прокрутка
+	$('a[data-popup]').on('click',function(e){
+		e.preventDefault();
+		$("#pop-bg").addClass('visible');
+		var target = $(this).attr("href"),
+			num = parseInt($(this).text());
+		$(target).addClass('visible')
+		if ($(target+' ul').is('.qty-list')) {
+			$(target).find('li:contains('+num+')').addClass('active');
+			window.select = this;
+		}
+	});
+	$(".qty-list li").on('click',function(){
+		$(".qty-list li").removeClass('active');
+		$(this).addClass('active');
+	});
+	$('#pop-bg, .popup .close , .popup .btn').on('click',function(e){
+		e.preventDefault();
+		$('#pop-bg, .popup').removeClass('visible');
+		var num = $(".qty-list .active").index();
+		$(window.select).text(num*12);
+	});
 });
 $(window).on('scroll',function(){
 	$('#menu').removeClass('open');
