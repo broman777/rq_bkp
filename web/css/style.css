@@ -795,14 +795,20 @@ aside {
   text-align: center; }
   #top .box {
     position: relative;
-    padding: 80px 0 100px 60px;
+    padding: 80px 0 60px 60px;
     z-index: 2; }
+    #top .box .logo {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 auto 36px; }
     #top .box .hr {
       height: 70px;
       width: 1px;
       background-color: #AA8A51;
-      margin: 32px auto 0;
+      margin: 0 auto 40px;
       display: block; }
+    #top .box h2 {
+      margin-bottom: 32px; }
   #top:before {
     z-index: 1;
     content: '';
@@ -816,9 +822,7 @@ aside {
   #top h1 {
     margin-bottom: 22px;
     color: #87918e;
-    font: 30px/42px "Constantine", serif;
-    padding-top: 133px;
-    background: url("../img/ui/logo.png") no-repeat 50% 0; }
+    font: 30px/42px "Constantine", serif; }
   #top h2 {
     color: #87918e;
     font: italic 18px/30px "Times New Roman", serif; }
@@ -875,7 +879,13 @@ aside {
     #news-page #news-list li {
       height: 440px;
       padding-left: 60px;
-      display: block; }
+      display: block;
+      opacity: 0;
+      transition: opacity 0.6s ease-in; }
+      #news-page #news-list li.animated {
+        opacity: 1; }
+      #news-page #news-list li.hidden {
+        display: none; }
       #news-page #news-list li:nth-child(odd) {
         background-color: #FFF; }
       #news-page #news-list li .cell {
@@ -895,6 +905,7 @@ aside {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 5;
   background-color: #EAE9E8; }
   .short span {
     display: block;
@@ -925,26 +936,43 @@ aside {
       position: relative;
       border-right: 1px solid #EBEDEC;
       border-bottom: 1px solid #EBEDEC;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-size: auto 440px;
-      transition: background-size 15s ease-out;
+      transition: all 0.5s ease-in;
       width: 33.3%;
       height: 440px;
-      float: left; }
+      float: left;
+      opacity: 1;
+      overflow: hidden; }
+      #products-page #products-list .item .img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        transition: all 30s linear;
+        transform: scale(1, 1); }
       #products-page #products-list .item:nth-child(3n) {
         width: 33.4%; }
+      #products-page #products-list .item.hidden {
+        opacity: 0;
+        display: none; }
       #products-page #products-list .item:hover {
-        background-size: auto 880px; }
+        background-size: 150%; }
         #products-page #products-list .item:hover .info {
           opacity: 1; }
+        #products-page #products-list .item:hover .img {
+          transform: scale(1.2, 1.2); }
     #products-page #products-list .info {
       opacity: 0;
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      z-index: 6;
       background-color: rgba(0, 69, 65, 0.9);
       transition: opacity 0.4s ease;
       color: #87918e; }
@@ -968,13 +996,12 @@ aside {
         #products-page #products-list .info .qty .what {
           position: relative;
           margin-left: 5px;
-          font-size: 11px;
           display: inline-block;
           vertical-align: top;
           width: 14px;
           height: 14px;
           border-radius: 50%;
-          background-color: #AA8A51;
+          font-size: 0;
           color: #fff;
           line-height: 14px;
           cursor: pointer; }
@@ -1064,12 +1091,13 @@ ol {
       content: counter(olcounter) ".";
       counter-increment: olcounter; }
 
+.what {
+  background: url(../img/ui/what.png) no-repeat 50% 50% #AA8A51; }
+
 #one-page {
   margin: 0; }
   #one-page #top {
     background: url("../img/ui/bg_prod.jpg") no-repeat 50% 50%; }
-    #one-page #top .box {
-      padding-bottom: 210px; }
   #one-page .bottom-line {
     padding-left: 60px;
     min-width: 1200px; }
@@ -1130,12 +1158,12 @@ ol {
         position: relative;
         margin-left: 5px;
         font-size: 11px;
+        font-size: 0;
         display: inline-block;
         vertical-align: top;
         width: 14px;
         height: 14px;
         border-radius: 50%;
-        background-color: #AA8A51;
         color: #fff;
         line-height: 14px;
         cursor: pointer; }
@@ -1164,26 +1192,14 @@ ol {
       #one-page #product .order .price .uah {
         margin-left: 5px;
         font: 22px/30px 'Constantine', sans-serif; }
-    #one-page #product .order .add {
-      line-height: 60px;
-      display: inline-block;
-      vertical-align: top;
-      background-color: #004541;
-      text-decoration: none;
-      width: 100%;
-      font-size: 9px;
-      text-transform: uppercase;
-      font-weight: bold;
-      color: #fff !important;
-      letter-spacing: 0.2em;
-      transition: all 0.2s ease; }
-      #one-page #product .order .add:before {
-        display: none; }
-      #one-page #product .order .add:hover {
-        background-color: #AA8A51; }
     #one-page #product .order .btn-group {
       width: 304px;
       margin: 0 auto 24px; }
+      #one-page #product .order .btn-group li:first-child a {
+        background-color: #AA8A51;
+        color: #fff; }
+        #one-page #product .order .btn-group li:first-child a:before {
+          background-color: #a48142; }
       #one-page #product .order .btn-group a {
         position: relative;
         display: block;
@@ -1247,7 +1263,10 @@ ol {
   width: 100%;
   box-sizing: border-box;
   height: 60px;
-  background-color: #87918E; }
+  background-color: #87918E;
+  transition: background-color 0.3s ease; }
+  .bottom-line:hover {
+    background-color: #AA8A51; }
   .bottom-line .back {
     position: absolute;
     display: block;
@@ -1334,8 +1353,10 @@ ol {
 
 #new-page #top {
   background: url("../img/ui/bg_news.jpg") no-repeat 50% 50%; }
-  #new-page #top .box {
-    padding-bottom: 210px; }
+  #new-page #top .box, #new-page #top .title {
+    padding-left: 0; }
+    #new-page #top .box:after, #new-page #top .title:after {
+      margin-left: -5px; }
   #new-page #top .back {
     position: absolute;
     display: block;
@@ -1354,13 +1375,12 @@ ol {
       width: 48px;
       background: url("../img/ui/arrows.png") no-repeat 0 0; }
 
-#new-page .box {
-  width: 900px;
-  padding: 60px 0 0; }
-
 #new-page #text {
   width: 100%;
   position: relative; }
+  #new-page #text .box {
+    width: 900px;
+    padding: 60px 0 0; }
   #new-page #text p {
     font-size: 12px;
     line-height: 24px;
@@ -1477,9 +1497,14 @@ ol {
   .popup .in {
     padding: 20px;
     font-size: 0; }
+    .popup .in p {
+      font-size: 12px;
+      line-height: 24px;
+      margin-bottom: 24px; }
   .popup .btn {
     display: block;
     width: 100%;
+    margin-top: 0;
     text-align: center;
     padding: 0;
     line-height: 40px;
@@ -1487,20 +1512,22 @@ ol {
     background-color: #AA8A51; }
     .popup .btn:after, .popup .btn:before {
       display: none; }
-  .popup li {
-    display: inline-block;
-    vertical-align: top;
-    width: 40px;
-    margin: 0 7px;
-    font: italic 18px/40px "Times New Roman", serif;
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.2s ease; }
-    .popup li:hover {
-      color: #AA8A51; }
-    .popup li.active {
-      background-color: #EAE9E8; }
+  .popup .qty-list {
+    margin-bottom: 34px; }
+    .popup .qty-list li {
+      display: inline-block;
+      vertical-align: top;
+      width: 40px;
+      margin: 0 7px;
+      font: italic 18px/40px "Times New Roman", serif;
+      text-align: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease; }
+      .popup .qty-list li:hover {
+        color: #AA8A51; }
+      .popup .qty-list li.active {
+        background-color: #EAE9E8; }
 
 @media screen and (max-width: 1440px) {
   aside img {
@@ -1558,7 +1585,7 @@ ol {
     width: 80%; }
     aside .btn-group a {
       line-height: 20px; }
-  #news-page #top .box .hr {
+  #top .box .hr {
     height: 35px; }
   #first h1 {
     margin-top: -225px; }

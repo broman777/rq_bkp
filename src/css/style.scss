@@ -874,15 +874,21 @@ aside {
 	text-align: center;
 	.box {
 		position: relative;
-		padding: 80px 0 100px 60px;
+		padding: 80px 0 60px 60px;
 		z-index: 2;
+		.logo {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 auto 36px;
+		}
 		.hr {
 			height: 70px;
 			width: 1px;
 			background-color: $mainDark;
-			margin: 32px auto 0;
+			margin: 0 auto 40px;
 			display: block;
 		}
+		h2 {margin-bottom: 32px;}
 	}
 	&:before {
 		z-index: 1;
@@ -899,8 +905,6 @@ aside {
 		margin-bottom: 22px;
 		color: $lgreen;
 		font: 30px/42px "Constantine", serif;
-		padding-top: 133px;
-		background: url("../img/ui/logo.png") no-repeat 50% 0;
 	}
 	h2 {
 		color: $lgreen;
@@ -961,6 +965,10 @@ aside {
 			height: 440px;
 			padding-left: 60px;
 			display: block;
+			opacity: 0;
+			transition: opacity 0.6s ease-in;
+			&.animated {opacity: 1;}
+			&.hidden {display: none}
 			&:nth-child(odd) {background-color: #FFF}
 			.cell {
 				width: 380px;
@@ -983,6 +991,7 @@ aside {
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 5;
 	background-color: #EAE9E8;
 	span {
 		display: block;
@@ -1014,26 +1023,44 @@ aside {
 			position: relative;
 			border-right: 1px solid #EBEDEC;
 			border-bottom: 1px solid #EBEDEC;
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			background-size: auto 440px;
-			transition: background-size 15s ease-out;
+			transition: all 0.5s ease-in;
 			width: 33.3%;
 			height: 440px;
 			float: left;
+			opacity: 1;
+			overflow: hidden;
+			.img {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-size: contain;
+				display: block;
+				transition: all 30s linear;
+				transform: scale(1,1);
+			}
 			&:nth-child(3n) {width: 33.4%;}
+			&.hidden {
+				opacity: 0;
+				display: none;
+			}
 			&:hover {
-				background-size: auto 880px;
+				background-size: 150%;
 				.info {opacity: 1;}
+				.img {transform: scale(1.2,1.2);}
 			}
 		}
 		.info {
 			opacity: 0;
 			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
+			top: -1px;
+			left: -1px;
+			right: -1px;
+			bottom: -1px;
+			z-index: 6;
 			background-color: rgba(0,69,65,0.9);
 			transition: opacity 0.4s ease;
 			color: #87918e;
@@ -1060,13 +1087,12 @@ aside {
 				.what {
 					position: relative;
 					margin-left: 5px;
-					font-size: 11px;
 					display: inline-block;
 					vertical-align: top;
 					width: 14px;
 					height: 14px;
 					border-radius: 50%;
-					background-color: $mainDark;
+					font-size: 0;
 					color: #fff;
 					line-height: 14px;
 					cursor: pointer;
@@ -1173,12 +1199,12 @@ ol {
 		}
 	}
 }
+.what {
+	background: url(../img/ui/what.png) no-repeat 50% 50% $mainDark;
+}
 #one-page {
 	margin: 0;
-	#top {
-		background: url("../img/ui/bg_prod.jpg") no-repeat 50% 50%;
-		.box {padding-bottom: 210px;}
-	}
+	#top {background: url("../img/ui/bg_prod.jpg") no-repeat 50% 50%;}
 	.bottom-line {
 		padding-left: 60px;
 		min-width: 1200px;
@@ -1253,12 +1279,12 @@ ol {
 					position: relative;
 					margin-left: 5px;
 					font-size: 11px;
+					font-size: 0;
 					display: inline-block;
 					vertical-align: top;
 					width: 14px;
 					height: 14px;
 					border-radius: 50%;
-					background-color: $mainDark;
 					color: #fff;
 					line-height: 14px;
 					cursor: pointer;
@@ -1295,25 +1321,16 @@ ol {
 					font: 22px/30px 'Constantine', sans-serif;
 				}
 			}
-			.add {
-				line-height: 60px;
-				display: inline-block;
-				vertical-align: top;
-				background-color: $bggreen;
-				text-decoration: none;
-				width: 100%;
-				font-size: 9px;
-				text-transform: uppercase;
-				font-weight: bold;
-				color: #fff!important; 
-				letter-spacing: 0.2em;
-				transition: all 0.2s ease;
-				&:before {display: none;}
-				&:hover {background-color: $mainDark;}
-			}
 			.btn-group {
 				width: 304px;
 				margin: 0 auto 24px;
+				li:first-child a{
+					background-color: $mainDark; 
+					color: #fff;
+					&:before {
+						background-color: #a48142;
+					}
+				}
 				a {
 					position: relative;
 					display: block;
@@ -1385,6 +1402,8 @@ ol {
 	box-sizing: border-box;
 	height: 60px;
 	background-color: #87918E;
+	transition: background-color 0.3s ease;
+	&:hover {background-color: $mainDark}
 	.back {
 		position: absolute;
 		display: block;
@@ -1471,7 +1490,12 @@ ol {
 	.back {left: 0!important;}
 	#top {
 		background: url("../img/ui/bg_news.jpg") no-repeat 50% 50%;
-		.box {padding-bottom: 210px;}
+		.box, .title {
+			padding-left: 0;
+			&:after {
+				margin-left: -5px;
+			}
+		}
 		.back {
 			position: absolute;
 			display: block;
@@ -1492,13 +1516,13 @@ ol {
 			}
 		}
 	}
-	.box {
-		width: 900px;
-		padding: 60px 0 0;
-	}
 	#text {
 		width: 100%;
 		position: relative;
+		.box {
+			width: 900px;
+			padding: 60px 0 0;
+		}
 		p {
 			font-size: 12px;
 			line-height: 24px;
@@ -1627,29 +1651,38 @@ ol {
 	.in {
 		padding: 20px;
 		font-size: 0;
+		p {
+			font-size: 12px;
+			line-height: 24px;
+			margin-bottom: 24px;
+		}
 	}
 	.btn {
 		&:after, &:before {display: none;}
 		display: block;
 		width: 100%;
+		margin-top: 0;
 		text-align: center;
 		padding: 0;
 		line-height: 40px;
 		color: #fff;
 		background-color: $mainDark;
 	}
-	li {
-		display: inline-block;
-		vertical-align: top;
-		width: 40px;
-		margin: 0 7px;
-		font: italic 18px/40px "Times New Roman", serif;
-		text-align: center;
-		border-radius: 50%;
-		cursor: pointer;
-		transition: all 0.2s ease;
-		&:hover {color: $mainDark}
-		&.active {background-color: #EAE9E8;}
+	.qty-list {
+		margin-bottom: 34px;
+		li {
+			display: inline-block;
+			vertical-align: top;
+			width: 40px;
+			margin: 0 7px;
+			font: italic 18px/40px "Times New Roman", serif;
+			text-align: center;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			&:hover {color: $mainDark}
+			&.active {background-color: #EAE9E8;}
+		}
 	}
 }
 @media screen and (max-width: 1440px) {
@@ -1719,7 +1752,7 @@ ol {
 			a{line-height: 20px;}
 		}
 	}
-	#news-page #top .box .hr {height: 35px;}
+	#top .box .hr {height: 35px;}
 	#first {
 		h1 {margin-top: -225px;}
 		.more{

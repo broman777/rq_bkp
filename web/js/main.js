@@ -27,12 +27,12 @@ $(document).ready(function(){
 	// плавная прокрутка
 	$('a[data-popup]').on('click',function(e){
 		e.preventDefault();
-		$("#pop-bg").addClass('visible');
 		var target = $(this).attr("href"),
-			num = parseInt($(this).text());
-		$(target).addClass('visible')
+			num = parseInt($(this).text())/12;
+		$(target+", #pop-bg").addClass('visible');
 		if ($(target+' ul').is('.qty-list')) {
-			$(target).find('li:contains('+num+')').addClass('active');
+			$(target).find('li').removeClass('active');
+			$(target).find('li:eq('+(num-1)+')').addClass('active');
 			window.select = this;
 		}
 	});
@@ -42,9 +42,19 @@ $(document).ready(function(){
 	});
 	$('#pop-bg, .popup .close , .popup .btn').on('click',function(e){
 		e.preventDefault();
+		if ($('.visible .qty-list').length) {
+			var num = $(".qty-list .active").index()+1,
+			priceEl = $(window.select).siblings('.uah'),
+			price = parseInt(priceEl.text())*num;
+			$(window.select).text(num*12);
+			priceEl.text(price+' р.');
+		}
 		$('#pop-bg, .popup').removeClass('visible');
-		var num = $(".qty-list .active").index();
-		$(window.select).text(num*12);
+	});
+	// замінити аяксом
+	$('.link-next').on('click',function(){
+		$(this).prev().find('.hidden').eq(0).removeClass('hidden');
+		return false;
 	});
 });
 $(window).on('scroll',function(){
