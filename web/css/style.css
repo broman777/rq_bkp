@@ -952,7 +952,7 @@ aside {
         background-repeat: no-repeat;
         background-size: contain;
         display: block;
-        transition: all 30s linear;
+        transition: all 0.3s linear;
         transform: scale(1, 1); }
       #products-page #products-list .item:nth-child(3n) {
         width: 33.4%; }
@@ -964,6 +964,7 @@ aside {
         #products-page #products-list .item:hover .info {
           opacity: 1; }
         #products-page #products-list .item:hover .img {
+          transition: all 30s linear;
           transform: scale(1.2, 1.2); }
     #products-page #products-list .info {
       opacity: 0;
@@ -1433,6 +1434,24 @@ ol {
   width: 100%;
   position: relative;
   margin-bottom: 53px; }
+  #new-page .preview .date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; }
+    #new-page .preview .date .day {
+      float: left;
+      text-align: center;
+      width: 60px;
+      font: 30px/60px 'Constantine', serif;
+      color: #e9e9e9;
+      background-color: #87918E; }
+    #new-page .preview .date .month {
+      background-color: #fff;
+      float: left;
+      padding: 0 20px;
+      font: italic 11px/60px 'Times New Roman', serif;
+      color: #AA8A51; }
   #new-page .preview .share {
     position: absolute;
     top: 0;
@@ -1459,7 +1478,7 @@ ol {
   top: 50%;
   left: 50%;
   width: 320px;
-  margin: -100px 0 0 -160px;
+  margin: -180px 0 0 -160px;
   transform: translate(0, 1000px);
   transition: all 0.4s ease; }
   .popup.visible {
@@ -1494,13 +1513,17 @@ ol {
       top: 100%;
       left: 50%;
       margin: -5px; }
+  .popup .text {
+    max-height: 144px;
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    font-size: 12px;
+    line-height: 24px;
+    margin-bottom: 24px; }
   .popup .in {
     padding: 20px;
     font-size: 0; }
-    .popup .in p {
-      font-size: 12px;
-      line-height: 24px;
-      margin-bottom: 24px; }
   .popup .btn {
     display: block;
     width: 100%;
