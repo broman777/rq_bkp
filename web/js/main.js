@@ -45,8 +45,9 @@ $(document).ready(function(){
 		if ($('.visible .qty-list').length) {
 			var num = $(".qty-list .active").index()+1,
 			priceEl = $(window.select).siblings('.uah'),
-			price = parseInt(priceEl.text())*num;
+			price = 900*num;
 			$(window.select).text(num*12);
+			console.log(num);
 			priceEl.text(price+' р.');
 		}
 		$('#pop-bg, .popup').removeClass('visible');
