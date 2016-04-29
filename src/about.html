@@ -1,0 +1,110 @@
+	//= partials/top.html
+	//= partials/menu.html
+	//= partials/aside.html
+<section id="about-page">
+	<div id="top">
+		<div class="box"> 
+			<a href="index.html" class="logo"><img src="img/ui/logo.png" alt=""></a>
+			<h1>Мы производим <br>самую чистую воду России</h1>
+			<h2>Окунитесь в глубины истории и откройте для себя тайны RusseQuelle</h2>
+			<div class="hr"></div>
+		</div>
+		<div class="title"><span>О компании</span></div>
+	</div>
+	<section id="hist"> 
+		<div class="box">
+			<h2>Завод RusseQuelle был создан в 2010 году благодаря сотрудничеству с Австрийскими<br> и Итальянскими партнерами.</h2>
+			<div class="text">
+				<div class="col">
+					<p>В основу концепции RusseQuelle заложен принцип абсолютной чистоты. Источник имеет историю более 500 лет и находится в уникальном месте России, городе Гороховец, входящем в Золотое Кольцо страны.</p>
+					<img src="img/ui/map.png" alt="">
+				</div>
+				<div class="col">
+					<p>В наши дни технология производства заключается лишь в угольной фильтрации воды и абсолютной чистоте на линии розлива. Для обеспечения высокого качества продукции мы используем только экологически чистое сырье немецкого и российского производства.</p>
+					<center><a href="#"class="btn">Подробнее о компании</a></center>
+				</div>
+			</div>
+			<div class="text">
+				<blockquote>Состав воды RusseQuelle не изменяется искусственно и остаётся
+				полностью натуральным, потому что мы искренне хотим передать вам
+				освежающую искру нашего родника.</blockquote>
+			</div>
+		</div>
+		<img src="img/hist.jpg" alt="">
+	</section>
+	<section id="sliders">
+		<div id="princ" class="slider">
+			<p class="bg">Наши принципы</p>
+			<ul class="slides">
+				<li>
+					<span class="num">1.</span>
+					<h2>100% экологичность</h2>
+					<div class="text">
+						<p>Подобно великим мастерам, мы трепетно и внимательно относимся ко всему, <br>	
+что касается качества воды RusseQuelle. Наша цель – заслужить признание каждого, кто хоть однажды попробовал нашей родниковой воды.</p>
+					</div>
+				</li>
+				<li>
+					<span class="num">2.</span>
+					<h2>100% экологичность</h2>
+					<div class="text">
+						<p>Подобно великим мастерам, мы трепетно и внимательно относимся ко всему, <br>	
+что касается качества воды RusseQuelle. Наша цель – заслужить признание каждого, кто хоть однажды попробовал нашей родниковой воды.</p>
+					</div>
+				</li>
+				<li> 
+					<span class="num">3.</span>
+					<h2>100% экологичность</h2>
+					<div class="text">
+						<p>Подобно великим мастерам, мы трепетно и внимательно относимся ко всему, <br>	
+что касается качества воды RusseQuelle. Наша цель – заслужить признание каждого, кто хоть однажды попробовал нашей родниковой воды.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<img src="img/about1.jpg" alt="">
+		<div id="awards" class="slider">
+			<p class="bg">Наши награды</p>
+			<ul class="slides">
+				<li>
+					<img src="img/bio.png" alt="">
+					<h2>Выбор Росконтроль 2015</h2>
+					<div class="text">
+						<p>Минеральная вода RusseQuelle<br>признана в 2015 году самой безопасной и вкусной водой в России<br>по данным исследования Росконтроль</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/bio.png" alt="">
+					<h2>Выбор Росконтроль 2015</h2>
+					<div class="text">
+						<p>Минеральная вода RusseQuelle<br>признана в 2015 году самой безопасной и вкусной водой в России<br>по данным исследования Росконтроль</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/bio.png" alt="">
+					<h2>Выбор Росконтроль 2015</h2>
+					<div class="text">
+						<p>Минеральная вода RusseQuelle<br>признана в 2015 году самой безопасной и вкусной водой в России<br>по данным исследования Росконтроль</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+</section>
+//= partials/footer.html
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#awards').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav:true
+	}); 
+	$('#princ').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav:true
+	}); 
+});
+</script>
+</body>
+</html>

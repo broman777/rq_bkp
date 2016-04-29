@@ -21,6 +21,10 @@ section {
 .right {
   float: right; }
 
+.text {
+  font-size: 12px;
+  line-height: 18px; }
+
 nav a, footer .menu a {
   display: inline-block;
   font: 14px/14px "Constantine";
@@ -635,6 +639,8 @@ aside {
     position: relative;
     display: block;
     width: 100%; }
+  #hist .text {
+    font-size: 0; }
   #hist .btn {
     margin: -22px 0 40px; }
 
@@ -1257,6 +1263,63 @@ ol {
       padding-left: 93px; }
       #one-page .title a.back:before {
         left: 31px; }
+
+#about-page {
+  margin-left: 0; }
+  #about-page #top {
+    background: url("../img/ui/bg_about.jpg") no-repeat 50% 50%; }
+  #about-page #hist {
+    padding-left: 60px;
+    margin: 0 auto; }
+  #about-page #sliders {
+    width: 100%;
+    padding-left: 60px;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative; }
+    #about-page #sliders img {
+      display: block; }
+  #about-page #sliders .slider {
+    position: relative;
+    color: #87918e;
+    width: 100%;
+    padding: 104px 0 0;
+    text-align: center;
+    background-color: #1A1A1A; }
+    #about-page #sliders .slider img {
+      margin: 0 auto 30px; }
+    #about-page #sliders .slider h2 {
+      font: 30px/30px "Constantine", serif;
+      margin-bottom: 30px; }
+    #about-page #sliders .slider li {
+      height: 518px; }
+    #about-page #sliders .slider .bg {
+      position: absolute;
+      display: block;
+      font: 180px/180px "Constantine", serif;
+      text-transform: uppercase;
+      color: #1d1d1d;
+      width: 100%;
+      top: 70px;
+      left: 0; }
+    #about-page #sliders .slider .num {
+      display: block;
+      margin: 0 auto;
+      font: 18px/44px "Constantine", serif;
+      width: 39px;
+      padding-left: 5px;
+      text-align: center;
+      border: 1px solid #AA8A51;
+      border-radius: 50%;
+      margin-bottom: 32px; }
+    #about-page #sliders .slider .flex-control-nav {
+      bottom: -340px; }
+  #about-page #princ.slider {
+    padding-top: 164px; }
+    #about-page #princ.slider li {
+      height: 460px; }
+    #about-page #princ.slider .flex-control-nav {
+      bottom: -250px; }
 
 .bottom-line {
   position: relative;

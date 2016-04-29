@@ -21,6 +21,10 @@ section {
 }
 .left {float: left}
 .right {float: right}
+.text {
+	font-size: 12px;
+	line-height: 18px; 
+}
 nav, footer .menu {
 	a {
 		display: inline-block;
@@ -689,6 +693,7 @@ aside {
 		display: block;
 		width: 100%;
 	}
+	.text {font-size: 0;}
 	.btn {margin: -22px 0 40px;}
 }
 #about {
@@ -1393,6 +1398,63 @@ ol {
 				left: 31px;
 			}
 		}
+	}
+}
+#about-page {
+	margin-left: 0; 
+	#top {background: url("../img/ui/bg_about.jpg") no-repeat 50% 50%;}
+	#hist {
+		padding-left: 60px;
+		margin: 0 auto;
+	}
+	#sliders {
+		width: 100%;
+		padding-left: 60px;
+		box-sizing: border-box;
+		margin: 0;
+		position: relative; 
+		img {display: block}
+	}
+	#sliders .slider {
+		position: relative;
+		color: #87918e;
+		width: 100%; 
+		padding: 104px 0 0;
+		text-align: center;
+		background-color: #1A1A1A;
+		img {margin: 0 auto 30px;}
+		h2 {
+			font: 30px/30px "Constantine", serif;
+			margin-bottom: 30px;
+		}
+		li {height: 518px;}
+		.bg {
+			position: absolute;
+			display: block;
+			font: 180px/180px "Constantine", serif;
+			text-transform: uppercase;
+			color: #1d1d1d;
+			width: 100%;
+			top: 70px;
+			left: 0;
+		}
+		.num {
+			display: block;
+			margin: 0 auto;
+			font: 18px/44px "Constantine", serif;
+			width: 39px;
+			padding-left: 5px;
+			text-align: center;
+			border: 1px solid $mainDark;
+			border-radius: 50%; 
+			margin-bottom: 32px;
+		}
+		.flex-control-nav {bottom: -340px;}
+	}
+	#princ.slider {
+		padding-top: 164px;
+		li {height: 460px;}
+		.flex-control-nav {bottom: -250px;}
 	}
 }
 .bottom-line {
