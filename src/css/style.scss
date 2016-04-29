@@ -312,23 +312,23 @@ footer {
 		top: 100%;
 		margin-top: -207px;
 		left: 23px;
-		a {
-			display: block;
-			width: 17px;
-			height: 12px;
-			background: url("../img/ui/soc.png") no-repeat 0 0; 
-			position: relative;
-			margin-bottom: 20px;
-			&.fb {background-position: 0 0;}
-			&.in {background-position: 0 -12px;}
-			&.vk {background-position: 0 -24px;}
-			&.tw {background-position: 0 -36px;}
-			&.fb:hover {background-position: -17px 0;}
-			&.in:hover {background-position: -17px -12px;}
-			&.vk:hover {background-position: -17px -24px;}
-			&.tw:hover {background-position: -17px -36px;}
-		}
 	}
+}
+.soc a {
+	display: block;
+	width: 17px;
+	height: 12px;
+	background: url("../img/ui/soc.png") no-repeat 0 0; 
+	position: relative;
+	margin-bottom: 20px;
+	&.fb {background-position: 0 0;}
+	&.in {background-position: 0 -12px;}
+	&.vk {background-position: 0 -24px;}
+	&.tw {background-position: 0 -36px;}
+	&.fb:hover {background-position: -17px 0;}
+	&.in:hover {background-position: -17px -12px;}
+	&.vk:hover {background-position: -17px -24px;}
+	&.tw:hover {background-position: -17px -36px;}
 }
 .flex-control-nav {
 	li {
@@ -989,6 +989,64 @@ aside {
 				display: table-cell;
 				vertical-align: middle;
 			}
+		}
+	}
+}
+#contacts-page {
+	margin-left: 0;
+	#top {background: url("../img/ui/bg_cont.jpg") no-repeat 50% 50%;}
+}
+#cont-list {
+	position: relative;
+	z-index: 4;
+	padding: 25px 25px 25px 85px;
+	font-size: 0;
+	text-align: center;
+	&>li {
+		height: 390px;
+		width: 50%;
+		margin-bottom: 50px;
+		float: left;
+		.text {
+			margin: 25px;
+			background-color: #fff;
+		}
+		.cell {
+			width: 320px;
+			height: 390px;
+			margin: 0 auto;
+			font-size: 12px;
+			line-height: 18px;
+		}
+		.inner {
+			width: 320px;
+			height: 390px;
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.header { 
+			font: 22px/30px 'Constantine', serif;
+			margin-bottom: 19px;
+		}
+		.icon {
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin: 0 auto 22px;
+			background: url(../img/ui/cont_spr.png) no-repeat 0 0;
+			&.loc {background-position: 0 0}
+			&.tel {background-position: 100% 0}
+			&.email {background-position: 0 100%}
+			&.soc {background-position: 100% 100%}
+		}
+	}
+	.soc {
+		margin-top: 32px;
+		li {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 5px;
 		}
 	}
 }
