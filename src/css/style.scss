@@ -1040,6 +1040,10 @@ aside {
 			&.email {background-position: 0 100%}
 			&.soc {background-position: 100% 100%}
 		}
+		.soc a.fb:hover {background-position: 100% 0}
+		.soc a.in:hover {background-position: 100% -12px}
+		.soc a.vk:hover {background-position: 100% -24px}
+		.soc a.tw:hover {background-position: 100% -36px}
 	}
 	.soc {
 		margin-top: 32px;
@@ -1466,26 +1470,28 @@ ol {
 		margin: 0 auto;
 	}
 	#sliders {
+		background-color: #1A1A1A;
 		width: 100%;
 		padding-left: 60px;
 		box-sizing: border-box;
 		margin: 0;
 		position: relative; 
-		img {display: block}
+		img {display: block; max-width: 100%;}
+		.text {
+			max-width: 720px;
+			margin: 0 auto;
+		}
 	}
 	#sliders .slider {
 		position: relative;
 		color: #87918e;
 		width: 100%; 
-		padding: 104px 0 0;
 		text-align: center;
-		background-color: #1A1A1A;
 		img {margin: 0 auto 30px;}
 		h2 {
 			font: 30px/30px "Constantine", serif;
 			margin-bottom: 30px;
 		}
-		li {height: 518px;}
 		.bg {
 			position: absolute;
 			display: block;
@@ -1513,6 +1519,24 @@ ol {
 		padding-top: 164px;
 		li {height: 460px;}
 		.flex-control-nav {bottom: -250px;}
+	}
+	#awards.slider {
+		opacity: 0;
+		transition: opacity 0.6s ease-in;
+		&.animated {
+			opacity: 1;
+		}
+		.img {
+			margin-bottom: 100px;
+		}
+		.text {
+			height: 320px;
+		}
+		.bg {
+			top: auto!important;
+			bottom: 190px;
+		}
+		.flex-control-nav {bottom: 192px; z-index: 50}
 	}
 }
 .bottom-line {

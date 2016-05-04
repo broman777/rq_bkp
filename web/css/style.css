@@ -956,6 +956,14 @@ aside {
         background-position: 0 100%; }
       #cont-list > li .icon.soc {
         background-position: 100% 100%; }
+    #cont-list > li .soc a.fb:hover {
+      background-position: 100% 0; }
+    #cont-list > li .soc a.in:hover {
+      background-position: 100% -12px; }
+    #cont-list > li .soc a.vk:hover {
+      background-position: 100% -24px; }
+    #cont-list > li .soc a.tw:hover {
+      background-position: 100% -36px; }
   #cont-list .soc {
     margin-top: 32px; }
     #cont-list .soc li {
@@ -1328,27 +1336,28 @@ ol {
     padding-left: 60px;
     margin: 0 auto; }
   #about-page #sliders {
+    background-color: #1A1A1A;
     width: 100%;
     padding-left: 60px;
     box-sizing: border-box;
     margin: 0;
     position: relative; }
     #about-page #sliders img {
-      display: block; }
+      display: block;
+      max-width: 100%; }
+    #about-page #sliders .text {
+      max-width: 720px;
+      margin: 0 auto; }
   #about-page #sliders .slider {
     position: relative;
     color: #87918e;
     width: 100%;
-    padding: 104px 0 0;
-    text-align: center;
-    background-color: #1A1A1A; }
+    text-align: center; }
     #about-page #sliders .slider img {
       margin: 0 auto 30px; }
     #about-page #sliders .slider h2 {
       font: 30px/30px "Constantine", serif;
       margin-bottom: 30px; }
-    #about-page #sliders .slider li {
-      height: 518px; }
     #about-page #sliders .slider .bg {
       position: absolute;
       display: block;
@@ -1376,6 +1385,21 @@ ol {
       height: 460px; }
     #about-page #princ.slider .flex-control-nav {
       bottom: -250px; }
+  #about-page #awards.slider {
+    opacity: 0;
+    transition: opacity 0.6s ease-in; }
+    #about-page #awards.slider.animated {
+      opacity: 1; }
+    #about-page #awards.slider .img {
+      margin-bottom: 100px; }
+    #about-page #awards.slider .text {
+      height: 320px; }
+    #about-page #awards.slider .bg {
+      top: auto !important;
+      bottom: 190px; }
+    #about-page #awards.slider .flex-control-nav {
+      bottom: 192px;
+      z-index: 50; }
 
 .bottom-line {
   position: relative;

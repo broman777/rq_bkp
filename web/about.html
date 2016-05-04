@@ -127,32 +127,37 @@
 				</li>
 			</ul>
 		</div>
-		<img src="img/about1.jpg" alt="">
-		<div id="awards" class="slider">
+		<div id="awards" class="slider" data-animate>
 			<p class="bg">Наши награды</p>
 			<ul class="slides">
 				<li>
-					<img src="img/bio.png" alt="">
+					<img src="img/av1.jpg" alt="" class="img">
+					<img src="img/av1.png" alt="">
+					<h2>Лучший продукт 2013</h2>
+					<div class="text">
+						<p>Минеральная вода RusseQuelle <br>	
+награждена золотой медалью в номинации “Товар года” <br>
+международного конкурса продовольственных товаров “ПродЭкспо”</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/av2.jpg" alt="" class="img">
+					<img src="img/av3.png" alt="">
 					<h2>Выбор Росконтроль 2015</h2>
 					<div class="text">
 						<p>Минеральная вода RusseQuelle<br>признана в 2015 году самой безопасной и вкусной водой в России<br>по данным исследования Росконтроль</p>
 					</div>
 				</li>
 				<li>
-					<img src="img/bio.png" alt="">
-					<h2>Выбор Росконтроль 2015</h2>
-					<div class="text">
-						<p>Минеральная вода RusseQuelle<br>признана в 2015 году самой безопасной и вкусной водой в России<br>по данным исследования Росконтроль</p>
-					</div>
-				</li>
-				<li>
-					<img src="img/bio.png" alt="">
+					<img src="img/av3.jpg" alt="" class="img">
+					<img src="img/av3.png" alt="">
 					<h2>Выбор Росконтроль 2015</h2>
 					<div class="text">
 						<p>Минеральная вода RusseQuelle<br>признана в 2015 году самой безопасной и вкусной водой в России<br>по данным исследования Росконтроль</p>
 					</div>
 				</li>
 			</ul>
+			<div class="clear"></div>
 		</div>
 	</section>
 </section>
@@ -209,10 +214,15 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#awards').flexslider({
-		animation: "slide",
+		animation: "fade",
 		directionNav: false,
 		controlNav:true
 	}); 
+	$('#aside-slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav:true
+	});
 	$('#princ').flexslider({
 		animation: "slide",
 		directionNav: false,
