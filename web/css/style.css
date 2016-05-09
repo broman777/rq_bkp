@@ -646,7 +646,6 @@ aside {
     margin: -22px 0 40px; }
 
 #about {
-  padding-left: 70px;
   color: #fff;
   background: url("../img/ui/circle.png") no-repeat 50% 50% #1a1a1a;
   background-size: contain; }
@@ -1437,7 +1436,7 @@ ol {
     top: 0;
     left: 50%;
     width: 165px;
-    margin-left: -45px;
+    margin-left: -75px;
     text-align: center; }
     .bottom-line .top:before {
       content: '';
@@ -1558,20 +1557,22 @@ ol {
     #new-page #text .btn:hover {
       text-decoration: none;
       color: #fff; }
-  #new-page #text .text ul li {
-    position: relative;
-    padding-left: 63px;
-    margin-bottom: 26px; }
-    #new-page #text .text ul li:before {
-      content: '';
-      position: absolute;
-      top: 11px;
-      left: 0;
-      width: 34px;
-      height: 1px;
-      background-color: #1a1a1a; }
-  #new-page #text .text ol, #new-page #text .text ul {
-    margin-bottom: 16px; }
+  #new-page #text .text {
+    font-size: 0; }
+    #new-page #text .text ul li {
+      position: relative;
+      padding-left: 63px;
+      margin-bottom: 26px; }
+      #new-page #text .text ul li:before {
+        content: '';
+        position: absolute;
+        top: 11px;
+        left: 0;
+        width: 34px;
+        height: 1px;
+        background-color: #1a1a1a; }
+    #new-page #text .text ol, #new-page #text .text ul {
+      margin-bottom: 16px; }
 
 #new-page .preview {
   width: 100%;

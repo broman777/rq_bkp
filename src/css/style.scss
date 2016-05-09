@@ -697,7 +697,6 @@ aside {
 	.btn {margin: -22px 0 40px;}
 }
 #about {
-	padding-left: 70px;
 	color: #fff;
 	background: url("../img/ui/circle.png") no-repeat 50% 50% $dark;
 	background-size: contain;
@@ -1576,7 +1575,7 @@ ol {
 		top: 0;
 		left: 50%;
 		width: 165px;
-		margin-left: -45px;
+		margin-left: -75px;
 		text-align: center;
 		&:before {
 			content:'';
@@ -1704,6 +1703,7 @@ ol {
 			&:hover {text-decoration: none; color: #fff;}
 		}
 		.text {
+			font-size: 0;
 			ul {
 				li {
 					position: relative;
