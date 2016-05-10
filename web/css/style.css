@@ -855,7 +855,7 @@ aside {
       width: 10px;
       height: 10px; }
 
-.link-next {
+.link-next, .paging {
   margin-top: -1px;
   z-index: 8;
   position: relative;
@@ -867,13 +867,49 @@ aside {
   font: italic 14px/14px 'Times New Roman', sans-serif;
   padding: 23px 0;
   transition: background-color 0.4s ease; }
-  .link-next span {
+  .link-next span, .paging span {
     display: inline-block;
     vertical-align: top;
     padding-left: 44px;
     background: url("../img/ui/more-news.png") no-repeat 0 50%; }
-  .link-next:hover {
+  .link-next:hover, .paging:hover {
     background-color: #AA8A51; }
+
+.paging {
+  font-size: 0;
+  line-height: 40px;
+  padding: 10px 0; }
+  .paging li {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    position: relative;
+    height: 40px;
+    margin: 0 2px; }
+  .paging a {
+    display: block;
+    cursor: pointer;
+    line-height: 40px;
+    width: 38px;
+    height: 38px;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    transition: border-color 0.3s ease; }
+    .paging a:active {
+      cursor: default;
+      border-color: #fff; }
+    .paging a:hover {
+      border-color: #fff; }
+  .paging .next, .paging .prev {
+    width: 43px;
+    height: 14px;
+    margin: 13px 20px;
+    border: none !important;
+    background: url(../img/ui/arrows-lr.png) no-repeat 0 0; }
+  .paging .next {
+    background-position: 0 100%; }
 
 #news-page {
   margin-left: 0; }
@@ -1180,6 +1216,101 @@ aside {
         background-color: #FFF; }
       #partners-page #partners-list .info .btn:before, #partners-page #partners-list .info .btn:after {
         background-color: #AA8A51; }
+
+#gal-page {
+  margin-left: 0; }
+  #gal-page #top {
+    background: url("../img/ui/bg_gal.jpg") no-repeat 50% 50%; }
+  #gal-page #gal-list {
+    background-color: #EAE9E8;
+    padding: 50px 45px 45px 105px;
+    text-align: center; }
+    #gal-page #gal-list .types {
+      font-size: 0;
+      margin-bottom: 35px; }
+      #gal-page #gal-list .types li {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 18px;
+        font: 14px/30px 'Constantine', serif;
+        color: #87918e;
+        cursor: pointer;
+        border-bottom: 1px solid transparent; }
+        #gal-page #gal-list .types li.active {
+          cursor: default;
+          border-color: #AA8A51;
+          color: #1a1a1a; }
+    #gal-page #gal-list .list li {
+      box-sizing: border-box;
+      position: relative;
+      width: 33.3%;
+      float: left;
+      padding: 15px;
+      overflow: hidden; }
+      #gal-page #gal-list .list li.video .bg a {
+        background-image: url("../img/ui/zoom-vid.png"); }
+      #gal-page #gal-list .list li .bg {
+        overflow: hidden;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        background-color: #FFF; }
+        #gal-page #gal-list .list li .bg:before {
+          z-index: 10;
+          content: '';
+          position: absolute;
+          bottom: 30px;
+          right: 30px;
+          width: 6px;
+          height: 6px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          border-bottom: 3px solid #AA8A51;
+          border-right: 3px solid #AA8A51; }
+        #gal-page #gal-list .list li .bg:after {
+          z-index: 10;
+          content: '';
+          position: absolute;
+          bottom: 30px;
+          left: 30px;
+          width: 6px;
+          height: 6px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          border-bottom: 3px solid #AA8A51;
+          border-left: 3px solid #AA8A51; }
+        #gal-page #gal-list .list li .bg a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: url(../img/ui/zoom-img.png) no-repeat 50% 50% rgba(255, 255, 255, 0.7);
+          opacity: 0;
+          transition: opacity 0.3s ease; }
+          #gal-page #gal-list .list li .bg a:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 6px;
+            height: 6px;
+            border-top: 3px solid #AA8A51;
+            border-right: 3px solid #AA8A51; }
+          #gal-page #gal-list .list li .bg a:after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 6px;
+            height: 6px;
+            border-top: 3px solid #AA8A51;
+            border-left: 3px solid #AA8A51; }
+        #gal-page #gal-list .list li .bg:hover a, #gal-page #gal-list .list li .bg:hover:before, #gal-page #gal-list .list li .bg:hover:after {
+          opacity: 1; }
+      #gal-page #gal-list .list li img {
+        display: block;
+        width: 100%; }
 
 .select {
   position: relative;

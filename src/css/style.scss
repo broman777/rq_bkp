@@ -941,7 +941,7 @@ aside {
 		}
 	}
 }
-.link-next {
+.link-next, .paging {
 	margin-top: -1px;
 	z-index: 8;
 	position: relative;
@@ -960,6 +960,48 @@ aside {
 		background: url("../img/ui/more-news.png") no-repeat 0 50%;
 	}
 	&:hover {background-color: $mainDark}
+}
+.paging {
+	font-size: 0;
+	line-height: 40px; 
+	padding: 10px 0;
+	li {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 14px;
+		position: relative;
+		height: 40px;
+		margin: 0 2px;
+	}
+	a {
+		display: block;
+		cursor: pointer;
+		line-height: 40px;
+		width: 38px;
+		height: 38px; 
+		text-decoration: none;
+		color: #fff;
+    	border: 1px solid transparent;
+    	border-radius: 50%;
+    	transition: border-color 0.3s ease;
+		&:active {
+			cursor: default;
+			border-color: #fff; 
+		}
+		&:hover {
+			border-color: #fff; 
+		}
+	}
+	.next, .prev{
+		width: 43px;
+		height: 14px;
+		margin: 13px 20px;
+		border: none!important;
+		background: url(../img/ui/arrows-lr.png) no-repeat 0 0;
+	}
+	.next {
+		background-position: 0 100%;
+	}
 }
 #news-page {
 	margin-left: 0;
@@ -1285,6 +1327,114 @@ aside {
 					background-color: #FFF;
 				}
 				&:before, &:after {background-color: $mainDark;}
+			}
+		}
+	}
+}
+#gal-page {
+	margin-left: 0;
+	#top {background: url("../img/ui/bg_gal.jpg") no-repeat 50% 50%;}
+	#gal-list { 
+		background-color: #EAE9E8; 
+		padding: 50px 45px 45px 105px;
+		text-align: center;
+		.types {
+			font-size: 0;
+			margin-bottom: 35px;
+			li {
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 18px;
+				font: 14px/30px 'Constantine', serif;
+				color: #87918e;
+				cursor: pointer;
+				border-bottom: 1px solid transparent;
+				&.active {
+					cursor: default;
+					border-color: $mainDark;
+					color: $dark;
+				}
+			}
+		}
+		.list li {
+			box-sizing: border-box;
+			position: relative;
+			width: 33.3%;
+			float: left;
+			padding: 15px;
+			overflow: hidden; 
+			&.video .bg a {background-image: url("../img/ui/zoom-vid.png")}  
+			.bg {
+				overflow: hidden;
+				position: absolute;
+				top: 15px;
+				left: 15px;
+				right: 15px;
+				bottom: 15px;
+				background-color: #FFF;
+				&:before {
+					z-index: 10;
+					content: '';
+					position: absolute;
+					bottom: 30px;
+					right: 30px;
+					width: 6px;
+					height: 6px;
+					opacity: 0;
+					transition: opacity 0.3s ease;
+					border-bottom: 3px solid $mainDark;
+					border-right: 3px solid $mainDark;
+				}
+				&:after {
+					z-index: 10;
+					content: '';
+					position: absolute;
+					bottom: 30px;
+					left: 30px;
+					width: 6px;
+					height: 6px;
+					opacity: 0;
+					transition: opacity 0.3s ease;
+					border-bottom: 3px solid $mainDark;
+					border-left: 3px solid $mainDark;
+				}
+				a {
+					display: block;
+					width: 100%; 
+					height: 100%;
+					background: url(../img/ui/zoom-img.png) no-repeat 50% 50% rgba(255,255,255,0.7); 
+					opacity: 0;
+					transition: opacity 0.3s ease;
+					&:before {
+						content: '';
+						position: absolute;
+						top: 30px;
+						right: 30px;
+						width: 6px;
+						height: 6px;
+						border-top: 3px solid $mainDark;
+						border-right: 3px solid $mainDark;
+					}
+					&:after {
+						content: '';
+						position: absolute;
+						top: 30px;
+						left: 30px;
+						width: 6px;
+						height: 6px;
+						border-top: 3px solid $mainDark;
+						border-left: 3px solid $mainDark;
+					}
+				}
+				&:hover {
+					a, &:before, &:after {
+						opacity: 1;
+					}
+				}
+			}
+			img {
+				display: block;
+				width: 100%;
 			}
 		}
 	}
