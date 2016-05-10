@@ -832,6 +832,8 @@ aside {
   #top h2 {
     color: #87918e;
     font: italic 18px/30px "Times New Roman", serif; }
+    #top h2 a {
+      color: #AA8A51; }
   #top .title {
     z-index: 2;
     position: absolute;
@@ -1112,6 +1114,71 @@ aside {
         color: #AA8A51;
         background-color: #FFF; }
       #products-page #products-list .info .btn:before, #products-page #products-list .info .btn:after {
+        background-color: #AA8A51; }
+
+#partners-page {
+  margin-left: 0; }
+  #partners-page #top {
+    background: url("../img/ui/bg_partners.jpg") no-repeat 50% 50%; }
+  #partners-page #partners-list {
+    background-color: #fff;
+    padding-left: 60px;
+    text-align: center; }
+    #partners-page #partners-list .item {
+      background-color: #fff;
+      transition: all 0.3s ease;
+      z-index: 6;
+      box-sizing: border-box;
+      position: relative;
+      border-right: 1px solid #EBEDEC;
+      border-bottom: 1px solid #EBEDEC;
+      width: 33.3%;
+      height: 440px;
+      float: left;
+      opacity: 1;
+      overflow: hidden; }
+      #partners-page #partners-list .item:nth-child(3n) {
+        width: 33.4%; }
+      #partners-page #partners-list .item:hover {
+        background-color: #EAE9E8; }
+        #partners-page #partners-list .item:hover img {
+          width: 170px; }
+        #partners-page #partners-list .item:hover .text {
+          max-height: 150px; }
+    #partners-page #partners-list .info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 6;
+      color: #87918e;
+      transition: all 0.4s ease; }
+      #partners-page #partners-list .info img {
+        display: block;
+        width: 304px;
+        margin: 0 auto;
+        transition: width 0.4s ease;
+        transform: scale(1); }
+      #partners-page #partners-list .info .cell {
+        width: 360px;
+        position: relative;
+        margin: 0 auto; }
+      #partners-page #partners-list .info .in {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        width: 360px;
+        height: 440px; }
+      #partners-page #partners-list .info .text {
+        padding-top: 55px;
+        transition: all 0.4s ease;
+        max-height: 0;
+        overflow: hidden; }
+      #partners-page #partners-list .info .btn:hover {
+        color: #AA8A51;
+        background-color: #FFF; }
+      #partners-page #partners-list .info .btn:before, #partners-page #partners-list .info .btn:after {
         background-color: #AA8A51; }
 
 .select {
@@ -1721,7 +1788,13 @@ ol {
       margin-left: 68px;
       width: 290px; }
   #products-page #products-list .info .cell, #products-page #products-list .info .in {
-    width: 374px; } }
+    width: 374px; }
+  #partners-page #partners-list .info .cell, #partners-page #partners-list .info .in, #partners-page #partners-list .info img {
+    width: 250px; }
+  #partners-page #partners-list .info .text {
+    padding-top: 25px; }
+  #partners-page #partners-list .info .btn {
+    margin-top: 14px; } }
 
 @media screen and (max-width: 1366px) {
   #hist .box, #new-page #text {
