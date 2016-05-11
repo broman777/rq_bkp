@@ -2,10 +2,11 @@
 <!DOCTYPE html> 
 <html>
 <head>
-	<title>RQ</title>
+	<title>RQ</title> 
 	<meta charset="UTF-8">
 	<link href="css/vendor/flexslider.css" rel="stylesheet">
 	<link href="css/vendor/jquery-ui.min.css" rel="stylesheet">
+	<link href="css/vendor/jquery.fancybox.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="js/vendor/jquery.flexslider-min.js"></script>
@@ -37,6 +38,7 @@
 		<a href="contacts.html">контакты</a>
 		<a href="partners.html">партнеры</a>
 		<a href="news.html">новости</a> 
+		<a href="gallery.html">галерея</a>  
 	</nav>
 	<ul class="soc">
 		<li><a href="#" class="fb"></a></li>
@@ -172,14 +174,14 @@
 </section>
 <!-- footer start -->
 <footer>
-	<img src="img/ui/logo.png" alt="">
+	<a href="index.html"><img src="img/ui/logo.png" alt=""></a>
 	<ul class="menu">
-		<li><a href="index.html">главная</a></li>
 		<li><a href="about.html">о компании</a></li>
 		<li><a href="products.html">продукция</a></li>
 		<li><a href="contacts.html">контакты</a></li>
 		<li><a href="partners.html">партнеры</a></li>
 		<li><a href="news.html">новости</a></li> 
+		<li><a href="gallery.html">галерея</a></li> 
 	</ul>
 	<p class="copyright">© 2013-2016 RusseQuelle</p>
 </footer>
@@ -220,14 +222,5 @@
 	</div>
 </div>
 <!-- footer end -->
-<script>
-	$(document).ready(function(){
-		$('#aside-slider').flexslider({
-			animation: "slide",
-			directionNav: false,
-			controlNav:true
-		});
-	});
-</script>
 </body>
 </html>

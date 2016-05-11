@@ -2,10 +2,11 @@
 <!DOCTYPE html> 
 <html>
 <head>
-	<title>RQ</title>
+	<title>RQ</title> 
 	<meta charset="UTF-8">
 	<link href="css/vendor/flexslider.css" rel="stylesheet">
 	<link href="css/vendor/jquery-ui.min.css" rel="stylesheet">
+	<link href="css/vendor/jquery.fancybox.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="js/vendor/jquery.flexslider-min.js"></script>
@@ -37,6 +38,7 @@
 		<a href="contacts.html">контакты</a>
 		<a href="partners.html">партнеры</a>
 		<a href="news.html">новости</a> 
+		<a href="gallery.html">галерея</a>  
 	</nav>
 	<ul class="soc">
 		<li><a href="#" class="fb"></a></li>
@@ -76,66 +78,60 @@
 	</div>
 	<div id="gal-list">
 		<ul class="types">
-			<li class="active">Все</li>
-			<li>Фото</li> 
-			<li>Видео</li>
+			<li class="active" data-mode="all">Все</li>
+			<li data-mode="photo">Фото</li> 
+			<li data-mode="video">Видео</li>
 		</ul> 
 		<ul class="list">
 			<li>
 				<div class="bg" style="background-image:url(../img/gal1.jpg)">
-					<a href="#"></a>
+					<a href="img/gal1.jpg" class="fancy" rel="gal"></a>
 				</div>
 				<img src="img/ui/4x3.png" alt="">
 			</li>
 			<li>
 				<div class="bg" style="background-image:url(../img/gal2.jpg)">
-					<a href="#"></a>
+					<a href="img/gal2.jpg" class="fancy" rel="gal"></a>
 				</div>
 				<img src="img/ui/4x3.png" alt="">
 			</li>
 			<li class="video">
-				<div class="bg" style="background-image:url(../img/gal3.jpg)">
-					<a href="#"></a>
-				</div>
-				<img src="img/ui/4x3.png" alt="">
-			</li>
-			<li class="video">
-				<div class="bg" style="background-image:url(../img/gal2.jpg)">
-					<a href="#"></a>
+				<div class="bg" style="background-image:url(../img/gal3.jpg)"> 
+					<a href="http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1" class="various fancybox.iframe"></a>
 				</div>
 				<img src="img/ui/4x3.png" alt="">
 			</li>
 			<li>
 				<div class="bg" style="background-image:url(../img/gal4.jpg)">
-					<a href="#"></a>
+					<a href="img/gal4.jpg" class="fancy" rel="gal"></a>
 				</div>
 				<img src="img/ui/4x3.png" alt="">
 			</li>
 			<li>
 				<div class="bg" style="background-image:url(../img/gal1.jpg)">
-					<a href="#"></a>
+					<a href="img/gal1.jpg" class="fancy" rel="gal"></a>
 				</div>
 				<img src="img/ui/4x3.png" alt="">
 			</li>
 			<li>
 				<div class="bg" style="background-image:url(../img/gal4.jpg)">
-					<a href="#"></a>
-				</div>
-				<img src="img/ui/4x3.png" alt="">
+					<a href="img/gal4.jpg" class="fancy" rel="gal"></a>
+				</div> 
+				<img src="img/ui/4x3.png" alt=""> 
 			</li>
-			<li>
+			<li class="video"> 
 				<div class="bg" style="background-image:url(../img/gal3.jpg)">
-					<a href="#"></a>
-				</div>
+					<a href="http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1" class="various fancybox.iframe"></a>
+				</div>  
 				<img src="img/ui/4x3.png" alt="">
-			</li>
+			</li> 
 		</ul>
 		<div class="clear"></div>
 	</div>
 	<ul class="paging">
 		<li><a href="#" class="prev"></a></li>
 		<li><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
+		<li><a href="#" class="active">2</a></li>
 		<li><a href="#">3</a></li>
 		<li><a href="#">4</a></li>
 		<li><a href="#" class="next"></a></li>
@@ -143,14 +139,14 @@
 </section>
 <!-- footer start -->
 <footer>
-	<img src="img/ui/logo.png" alt="">
+	<a href="index.html"><img src="img/ui/logo.png" alt=""></a>
 	<ul class="menu">
-		<li><a href="index.html">главная</a></li>
 		<li><a href="about.html">о компании</a></li>
 		<li><a href="products.html">продукция</a></li>
 		<li><a href="contacts.html">контакты</a></li>
 		<li><a href="partners.html">партнеры</a></li>
 		<li><a href="news.html">новости</a></li> 
+		<li><a href="gallery.html">галерея</a></li> 
 	</ul>
 	<p class="copyright">© 2013-2016 RusseQuelle</p>
 </footer>
@@ -191,5 +187,22 @@
 	</div>
 </div>
 <!-- footer end -->
+<script type="text/javascript" src="js/vendor/jquery.fancybox.pack.js"></script> 
+<script>
+	$(document).ready(function(){ 
+		$('.fancy').fancybox();  
+        $(".various").fancybox({ 
+			maxWidth	: 800,
+			maxHeight	: 600,
+			fitToView	: false,
+			width		: '70%',
+			height		: '70%',
+			autoSize	: false,
+			closeClick	: false,
+			openEffect	: 'elastic',
+			closeEffect	: 'none'
+		}); 
+	});
+</script>
 </body>
 </html>

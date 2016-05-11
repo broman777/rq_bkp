@@ -964,7 +964,7 @@ aside {
 .paging {
 	font-size: 0;
 	line-height: 40px; 
-	padding: 10px 0;
+	padding: 10px 0 10px 60px; 
 	li {
 		display: inline-block;
 		vertical-align: top;
@@ -1363,6 +1363,9 @@ aside {
 			float: left;
 			padding: 15px;
 			overflow: hidden; 
+			&.hidden {
+				display: none;
+			}
 			&.video .bg a {background-image: url("../img/ui/zoom-vid.png")}  
 			.bg {
 				overflow: hidden;

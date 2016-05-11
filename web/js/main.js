@@ -57,6 +57,22 @@ $(document).ready(function(){
 		$(this).prev().find('.hidden').eq(0).removeClass('hidden');
 		return false;
 	});
+	if ($('div').is('#aside-slider')) $('#aside-slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav:true
+	});
+	$("#gal-list .types li").on('click',function(){
+		if (!$(this).hasClass('active')) {
+			var list = $('#gal-list .list');
+			$('#gal-list .types').children('li').removeClass('active'); 
+			$(this).addClass('active');
+			list.children('li').addClass('hidden');
+			if ($(this).data('mode') == "video") list.children('.video').removeClass('hidden');
+			else if ($(this).data('mode') == "photo") list.children('li').not('.video').removeClass('hidden');
+			else list.children('li').removeClass('hidden');
+		}
+	});
 });
 $(window).on('scroll',function(){
 	$('#menu').removeClass('open');

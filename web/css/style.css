@@ -878,7 +878,7 @@ aside {
 .paging {
   font-size: 0;
   line-height: 40px;
-  padding: 10px 0; }
+  padding: 10px 0 10px 60px; }
   .paging li {
     display: inline-block;
     vertical-align: top;
@@ -1247,6 +1247,8 @@ aside {
       float: left;
       padding: 15px;
       overflow: hidden; }
+      #gal-page #gal-list .list li.hidden {
+        display: none; }
       #gal-page #gal-list .list li.video .bg a {
         background-image: url("../img/ui/zoom-vid.png"); }
       #gal-page #gal-list .list li .bg {
