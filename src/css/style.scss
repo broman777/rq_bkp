@@ -1356,17 +1356,30 @@ aside {
 				}
 			}
 		}
-		.list li {
+		.list > li {
 			box-sizing: border-box;
 			position: relative;
 			width: 33.3%;
 			float: left;
 			padding: 15px;
 			overflow: hidden; 
-			&.hidden {
-				display: none;
-			}
+			&.hidden {display: none;}
 			&.video .bg a {background-image: url("../img/ui/zoom-vid.png")}  
+			.share {
+				position: absolute;
+				bottom: 15px;
+				left: 15px;
+				right: 15px;
+				transition: opacity .3s ease;
+				opacity: 0;
+				text-align: center;
+				.share-list {width: 50%; padding: 0;}
+				span, li {
+					float: none;
+					display: inline-block;
+					vertical-align: top;
+				}
+			}
 			.bg {
 				overflow: hidden;
 				position: absolute;
@@ -1375,11 +1388,12 @@ aside {
 				right: 15px;
 				bottom: 15px;
 				background-color: #FFF;
+				background-size: cover; 
 				&:before {
 					z-index: 10;
 					content: '';
 					position: absolute;
-					bottom: 30px;
+					bottom: 90px;
 					right: 30px;
 					width: 6px;
 					height: 6px;
@@ -1392,7 +1406,7 @@ aside {
 					z-index: 10;
 					content: '';
 					position: absolute;
-					bottom: 30px;
+					bottom: 90px;
 					left: 30px;
 					width: 6px;
 					height: 6px;
@@ -1429,15 +1443,15 @@ aside {
 						border-left: 3px solid $mainDark;
 					}
 				}
-				&:hover {
-					a, &:before, &:after {
-						opacity: 1;
-					}
-				}
 			}
 			img {
 				display: block;
 				width: 100%;
+			}
+			&:hover {
+				.bg a, .bg:before, .bg:after, .share {
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -1996,6 +2010,19 @@ ol {
 	display: none;
 	&.visible {display: block;}
 }
+.close, .fancybox-close {
+	display: block;
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	width: 25px;
+	height: 25px;
+	background: url(../img/ui/close.png) no-repeat 50% 50% $body;
+	border-radius: 50%;
+	transform: rotate(0deg);
+	transition: all 0.2s ease;
+	&:hover {transform: rotate(90deg);}
+} 
 .popup {
 	background-color: #FFF;
 	z-index: 50;
@@ -2008,19 +2035,6 @@ ol {
 	transition: all 0.4s ease;
 	&.visible {
 		transform: translate(0,0);
-	}
-	.close {
-		display: block;
-		position: absolute;
-		top: -12px;
-		right: -12px;
-		width: 25px;
-		height: 25px;
-		background: url(../img/ui/close.png) no-repeat 50% 50% $body;
-		border-radius: 50%;
-		transform: rotate(0deg);
-		transition: all 0.2s ease;
-		&:hover {transform: rotate(90deg);}
 	}
 	.header {
 		position: relative;

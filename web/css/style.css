@@ -1240,30 +1240,46 @@ aside {
           cursor: default;
           border-color: #AA8A51;
           color: #1a1a1a; }
-    #gal-page #gal-list .list li {
+    #gal-page #gal-list .list > li {
       box-sizing: border-box;
       position: relative;
       width: 33.3%;
       float: left;
       padding: 15px;
       overflow: hidden; }
-      #gal-page #gal-list .list li.hidden {
+      #gal-page #gal-list .list > li.hidden {
         display: none; }
-      #gal-page #gal-list .list li.video .bg a {
+      #gal-page #gal-list .list > li.video .bg a {
         background-image: url("../img/ui/zoom-vid.png"); }
-      #gal-page #gal-list .list li .bg {
+      #gal-page #gal-list .list > li .share {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        transition: opacity .3s ease;
+        opacity: 0;
+        text-align: center; }
+        #gal-page #gal-list .list > li .share .share-list {
+          width: 50%;
+          padding: 0; }
+        #gal-page #gal-list .list > li .share span, #gal-page #gal-list .list > li .share li {
+          float: none;
+          display: inline-block;
+          vertical-align: top; }
+      #gal-page #gal-list .list > li .bg {
         overflow: hidden;
         position: absolute;
         top: 15px;
         left: 15px;
         right: 15px;
         bottom: 15px;
-        background-color: #FFF; }
-        #gal-page #gal-list .list li .bg:before {
+        background-color: #FFF;
+        background-size: cover; }
+        #gal-page #gal-list .list > li .bg:before {
           z-index: 10;
           content: '';
           position: absolute;
-          bottom: 30px;
+          bottom: 90px;
           right: 30px;
           width: 6px;
           height: 6px;
@@ -1271,11 +1287,11 @@ aside {
           transition: opacity 0.3s ease;
           border-bottom: 3px solid #AA8A51;
           border-right: 3px solid #AA8A51; }
-        #gal-page #gal-list .list li .bg:after {
+        #gal-page #gal-list .list > li .bg:after {
           z-index: 10;
           content: '';
           position: absolute;
-          bottom: 30px;
+          bottom: 90px;
           left: 30px;
           width: 6px;
           height: 6px;
@@ -1283,14 +1299,14 @@ aside {
           transition: opacity 0.3s ease;
           border-bottom: 3px solid #AA8A51;
           border-left: 3px solid #AA8A51; }
-        #gal-page #gal-list .list li .bg a {
+        #gal-page #gal-list .list > li .bg a {
           display: block;
           width: 100%;
           height: 100%;
           background: url(../img/ui/zoom-img.png) no-repeat 50% 50% rgba(255, 255, 255, 0.7);
           opacity: 0;
           transition: opacity 0.3s ease; }
-          #gal-page #gal-list .list li .bg a:before {
+          #gal-page #gal-list .list > li .bg a:before {
             content: '';
             position: absolute;
             top: 30px;
@@ -1299,7 +1315,7 @@ aside {
             height: 6px;
             border-top: 3px solid #AA8A51;
             border-right: 3px solid #AA8A51; }
-          #gal-page #gal-list .list li .bg a:after {
+          #gal-page #gal-list .list > li .bg a:after {
             content: '';
             position: absolute;
             top: 30px;
@@ -1308,11 +1324,11 @@ aside {
             height: 6px;
             border-top: 3px solid #AA8A51;
             border-left: 3px solid #AA8A51; }
-        #gal-page #gal-list .list li .bg:hover a, #gal-page #gal-list .list li .bg:hover:before, #gal-page #gal-list .list li .bg:hover:after {
-          opacity: 1; }
-      #gal-page #gal-list .list li img {
+      #gal-page #gal-list .list > li img {
         display: block;
         width: 100%; }
+      #gal-page #gal-list .list > li:hover .bg a, #gal-page #gal-list .list > li:hover .bg:before, #gal-page #gal-list .list > li:hover .bg:after, #gal-page #gal-list .list > li:hover .share {
+        opacity: 1; }
 
 .select {
   position: relative;
@@ -1815,6 +1831,20 @@ ol {
   #pop-bg.visible {
     display: block; }
 
+.close, .fancybox-close {
+  display: block;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 25px;
+  height: 25px;
+  background: url(../img/ui/close.png) no-repeat 50% 50% #EAE9E8;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: all 0.2s ease; }
+  .close:hover, .fancybox-close:hover {
+    transform: rotate(90deg); }
+
 .popup {
   background-color: #FFF;
   z-index: 50;
@@ -1827,19 +1857,6 @@ ol {
   transition: all 0.4s ease; }
   .popup.visible {
     transform: translate(0, 0); }
-  .popup .close {
-    display: block;
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    width: 25px;
-    height: 25px;
-    background: url(../img/ui/close.png) no-repeat 50% 50% #EAE9E8;
-    border-radius: 50%;
-    transform: rotate(0deg);
-    transition: all 0.2s ease; }
-    .popup .close:hover {
-      transform: rotate(90deg); }
   .popup .header {
     position: relative;
     text-align: center;
