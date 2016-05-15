@@ -1512,6 +1512,223 @@ ol {
 .what {
 	background: url(../img/ui/what.png) no-repeat 50% 50% $mainDark;
 }
+form {
+	display: block;
+	width: 662px;
+	width: 304px;
+	margin: 50px auto 0; 
+	background-color: #FFF;
+	padding: 60px 179px 95px;
+	text-align: center;
+	&.register .head-img{background-position: 100% 0} 
+	.head-img {
+		display: block;
+		width: 61px;
+		height: 61px;
+		margin: 0 auto 20px;
+		background: url(../img/ui/key.png) no-repeat 0 0; 
+	}
+	.header {
+		font: 22px/30px "Constantine", serif; 
+		margin-bottom: 32px; 
+	}
+	.row {
+		position: relative;
+		display: block;
+	}
+	.placeholder {
+		z-index: 5;
+		position: absolute;
+		top: 0;
+		left: 0; 
+		font-size: 12px;
+		transform: translate(20px,24px); 
+		transition: all 0.2s ease;
+	}
+	input {
+		position: relative;
+		z-index: 10;
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid $mainDark; 
+		display: block;
+		width: 100%;
+		height: 60px;
+		padding: 0 20px;
+		box-sizing: border-box; 
+		margin-bottom: 20px; 
+		&:focus+.placeholder,
+		&:valid+.placeholder {  
+			color:#87918e;
+			transform: translate(0, 0); 
+			font-size: 10px;
+		}
+		&:invalid{border-color: red;}
+	}
+	button {
+		line-height: 60px; 
+		border: none;
+		font-size: 9px;
+		text-transform: uppercase; 
+		display: block;
+		width: 100%;
+		font-weight: bold; 
+		letter-spacing: 0.2em;
+		color: #fff;
+		background-color: $mainDark;
+		margin-bottom: 36px;
+	}
+	a {
+		font: italic 18px/1.2em 'Times New Roman', serif; 
+		display: inline-block;
+		vertical-align: top;
+		margin-bottom: 40px; 
+	}
+	.fogot {  
+		font-size: 11px;
+		color: $dark; 
+		text-decoration: none;
+		border-bottom: 1px dotted $dark;
+	}
+	.reg {
+		color: $mainDark;
+	}
+}
+#cart-form {
+	form {
+		padding: 56px 20px; 
+		width: 760px;
+		text-align: left;
+	}
+	table {
+		border-top: 1px solid #E9EAEA;
+		table-layout: fixed;
+		border-collapse: collapse;
+		font-size: 12px;
+		line-height: 24px;
+		text-align: left;
+		margin-bottom: 60px;
+	}
+	.what {
+		position: relative;
+		margin: 5px 0 0 5px;
+		font-size: 11px;
+		font-size: 0;
+		display: inline-block;
+		vertical-align: top;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		color: #fff;
+		line-height: 14px;
+		cursor: pointer;
+		.hint {
+			width: 200px; 
+			left: -98px;
+			bottom: 15px;
+			right: auto;
+		}
+		&:hover .hint{
+			opacity: 1;
+			transform:scale(1,1);
+		}
+	}
+	td {
+		vertical-align: middle;
+		border-bottom: 1px solid #E9EAEA;
+		height: 110px;
+	}
+	.form-block {
+		font-size: 0;
+		.header {margin-bottom: 12px;}
+	}
+	.row {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 40px 34px;
+		display: inline-block;
+		vertical-align: top;
+		&.half {width: 49%;}
+		.placeholder {left: 40px;}
+	}
+	button {
+		width: 670px; 
+		display: block;
+		margin-left: 40px;
+		padding: 0;
+	}
+	.checkbox {
+		position: relative;
+		width: 100%;
+		height: 59px;
+		border-bottom: 1px solid $mainDark;
+		background-color: #EAE9E8;
+		input {
+			margin: 0;
+			position: absolute; 
+			opacity: 0;
+			top: 0;
+			left: 0;
+			cursor: pointer;
+			z-index: 8;
+			&:checked + label{background: url(../img/ui/checkbox.png) no-repeat 19px 50%;}
+		} 
+		label {
+			padding-left: 41px;
+			line-height: 59px;
+			font-size: 12px;
+		}
+		.what {
+			z-index: 10;
+			top: 18px; 
+			right: 20px; 
+			position: absolute;
+		}
+	}
+	tfoot td {
+		height: auto;
+		min-height: 56px;
+		.del { 
+			font: 22px/56px "Constantine", serif;  
+		}
+		.summ {
+			font: 22px/108px "Constantine", serif;
+			color: $mainDark;  
+		}
+	}
+	.select {color: #111;}
+	.header {padding-left: 60px;}
+	.img {
+		img {
+			display: block;
+			width: 194px; 
+		}
+	}
+	.desc p{
+		width: 220px;
+		padding-right: 44px;
+	}
+	.count p{
+		width: 128px;
+		color: #87918e;
+		font: italic 11px/30px "Times New Roman", serif;
+	} 
+	.price p{
+		width: 108px;
+		font: 22px/30px "Constantine", serif;
+	}  
+	.rem a{
+		display: block;
+		margin: 0px 36px 0 0;
+		width: 25px;
+		height: 25px;
+		background: url(../img/ui/close.png) no-repeat 50% 50% $body;
+		border-radius: 50%;
+		transform: rotate(0deg);
+		transition: all 0.2s ease;
+		&:hover {transform: rotate(90deg);}
+	}  
+}
 #one-page {
 	margin: 0;
 	#top {background: url("../img/ui/bg_prod.jpg") no-repeat 50% 50%;}
@@ -1695,7 +1912,7 @@ ol {
 			width: 48px;
 			background: url("../img/ui/arrows.png") no-repeat 0 0;
 		}
-		&.back {
+		&.back { 
 			top: 0;
 			left: 60px;
 			padding-left: 93px;
@@ -1704,6 +1921,12 @@ ol {
 			}
 		}
 	}
+}
+#form-page {
+	margin: 0;
+	#top {background-image: url("../img/ui/bg_login.jpg");}
+	footer {margin-right: 0;}
+	#form {padding-left: 60px;}
 }
 #about-page {
 	margin-left: 0; 

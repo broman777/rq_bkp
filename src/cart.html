@@ -1,0 +1,92 @@
+//= partials/top.html
+//= partials/menu.html
+<section id="form-page">  
+	<div id="top">
+		<div class="box"> 
+			<a href="index.html" class="logo"><img src="img/ui/logo.png" alt=""></a>
+			<div class="hr"></div>
+		</div>
+		<div class="title"><span>Корзина</span></div>
+	</div>
+	<div id="cart-form">
+		<form action="" class="login"> 
+			<p class="header">Ваш выбор:</p>  
+			<table>
+				<tbody>
+					<tr>
+						<td class="img">
+							<img src="img/bottle.jpg" alt="">
+						</td>
+						<td class="desc">
+							<p>Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p> 
+						</td>
+						<td class="count">
+							<p><a href="#qty" class="select" data-popup>12</a><span>шт</span></p>
+						</td>
+						<td class="price">
+							<p>900 р.</p>
+						</td>
+						<td class="rem"> 
+							<a href="#" class="remove"></a> 
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td></td> 
+						<td colspan="2">Доставка
+							<div class="what">?
+								<div class="hint">
+									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
+								</div>
+							</div>
+						</td>
+						<td colspan="2"><p class="del">100 р.</p></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2">Итого:</td>
+						<td colspan="2"><p class="summ">1000 р.</p></td> 
+					</tr>
+				</tfoot>
+			</table>
+			<div class="form-block"> 
+				<p class="header">Получатель:</p>
+				<div class="row half"><input type="text" required><span class="placeholder">Ваш email*</span></div>
+				<div class="row half"><input type="password" required><span class="placeholder">Пароль*</span></div>
+			</div>  
+			<div class="form-block">
+				<p class="header">Доставка:</p> 
+				<div class="row half"><input type="text" required><span class="placeholder">Ваш email*</span></div>
+				<div class="row half"><input type="password" required><span class="placeholder">Пароль*</span></div>
+			</div>  
+			<div class="form-block">
+				<p class="header">Способ оплаты:</p>   
+				<div class="row half">
+					<div class="checkbox"> 
+						<input type="radio" name="pay" checked><label>Наличными</label>
+						<div class="what">?
+							<div class="hint"> 
+								<p>Оплата наличными при получении заказа</p> 
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row half">
+					<div class="checkbox">
+						<input type="radio" name="pay"><label>Онлайн</label>
+						<div class="what">?
+							<div class="hint">
+								<p>Оплата онлайн</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+			<button type="submit">Отправить заказ</button>  
+		</form>
+	</div>
+//= partials/footer.html
+</section>
+</body>
+</html>

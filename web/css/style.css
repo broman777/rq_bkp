@@ -1382,6 +1382,213 @@ ol {
 .what {
   background: url(../img/ui/what.png) no-repeat 50% 50% #AA8A51; }
 
+form {
+  display: block;
+  width: 662px;
+  width: 304px;
+  margin: 50px auto 0;
+  background-color: #FFF;
+  padding: 60px 179px 95px;
+  text-align: center; }
+  form.register .head-img {
+    background-position: 100% 0; }
+  form .head-img {
+    display: block;
+    width: 61px;
+    height: 61px;
+    margin: 0 auto 20px;
+    background: url(../img/ui/key.png) no-repeat 0 0; }
+  form .header {
+    font: 22px/30px "Constantine", serif;
+    margin-bottom: 32px; }
+  form .row {
+    position: relative;
+    display: block; }
+  form .placeholder {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    transform: translate(20px, 24px);
+    transition: all 0.2s ease; }
+  form input {
+    position: relative;
+    z-index: 10;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #AA8A51;
+    display: block;
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px; }
+    form input:focus + .placeholder,
+    form input:valid + .placeholder {
+      color: #87918e;
+      transform: translate(0, 0);
+      font-size: 10px; }
+    form input:invalid {
+      border-color: red; }
+  form button {
+    line-height: 60px;
+    border: none;
+    font-size: 9px;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    color: #fff;
+    background-color: #AA8A51;
+    margin-bottom: 36px; }
+  form a {
+    font: italic 18px/1.2em 'Times New Roman', serif;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 40px; }
+  form .fogot {
+    font-size: 11px;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px dotted #1a1a1a; }
+  form .reg {
+    color: #AA8A51; }
+
+#cart-form form {
+  padding: 56px 20px;
+  width: 760px;
+  text-align: left; }
+
+#cart-form table {
+  border-top: 1px solid #E9EAEA;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: left;
+  margin-bottom: 60px; }
+
+#cart-form .what {
+  position: relative;
+  margin: 5px 0 0 5px;
+  font-size: 11px;
+  font-size: 0;
+  display: inline-block;
+  vertical-align: top;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: #fff;
+  line-height: 14px;
+  cursor: pointer; }
+  #cart-form .what .hint {
+    width: 200px;
+    left: -98px;
+    bottom: 15px;
+    right: auto; }
+  #cart-form .what:hover .hint {
+    opacity: 1;
+    transform: scale(1, 1); }
+
+#cart-form td {
+  vertical-align: middle;
+  border-bottom: 1px solid #E9EAEA;
+  height: 110px; }
+
+#cart-form .form-block {
+  font-size: 0; }
+  #cart-form .form-block .header {
+    margin-bottom: 12px; }
+
+#cart-form .row {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40px 34px;
+  display: inline-block;
+  vertical-align: top; }
+  #cart-form .row.half {
+    width: 49%; }
+  #cart-form .row .placeholder {
+    left: 40px; }
+
+#cart-form button {
+  width: 670px;
+  display: block;
+  margin-left: 40px;
+  padding: 0; }
+
+#cart-form .checkbox {
+  position: relative;
+  width: 100%;
+  height: 59px;
+  border-bottom: 1px solid #AA8A51;
+  background-color: #EAE9E8; }
+  #cart-form .checkbox input {
+    margin: 0;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 8; }
+    #cart-form .checkbox input:checked + label {
+      background: url(../img/ui/checkbox.png) no-repeat 19px 50%; }
+  #cart-form .checkbox label {
+    padding-left: 41px;
+    line-height: 59px;
+    font-size: 12px; }
+  #cart-form .checkbox .what {
+    z-index: 10;
+    top: 18px;
+    right: 20px;
+    position: absolute; }
+
+#cart-form tfoot td {
+  height: auto;
+  min-height: 56px; }
+  #cart-form tfoot td .del {
+    font: 22px/56px "Constantine", serif; }
+  #cart-form tfoot td .summ {
+    font: 22px/108px "Constantine", serif;
+    color: #AA8A51; }
+
+#cart-form .select {
+  color: #111; }
+
+#cart-form .header {
+  padding-left: 60px; }
+
+#cart-form .img img {
+  display: block;
+  width: 194px; }
+
+#cart-form .desc p {
+  width: 220px;
+  padding-right: 44px; }
+
+#cart-form .count p {
+  width: 128px;
+  color: #87918e;
+  font: italic 11px/30px "Times New Roman", serif; }
+
+#cart-form .price p {
+  width: 108px;
+  font: 22px/30px "Constantine", serif; }
+
+#cart-form .rem a {
+  display: block;
+  margin: 0px 36px 0 0;
+  width: 25px;
+  height: 25px;
+  background: url(../img/ui/close.png) no-repeat 50% 50% #EAE9E8;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: all 0.2s ease; }
+  #cart-form .rem a:hover {
+    transform: rotate(90deg); }
+
 #one-page {
   margin: 0; }
   #one-page #top {
@@ -1544,6 +1751,15 @@ ol {
       padding-left: 93px; }
       #one-page .title a.back:before {
         left: 31px; }
+
+#form-page {
+  margin: 0; }
+  #form-page #top {
+    background-image: url("../img/ui/bg_login.jpg"); }
+  #form-page footer {
+    margin-right: 0; }
+  #form-page #form {
+    padding-left: 60px; }
 
 #about-page {
   margin-left: 0; }
