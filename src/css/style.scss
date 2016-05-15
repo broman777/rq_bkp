@@ -1656,6 +1656,21 @@ form {
 		display: block;
 		margin-left: 40px;
 		padding: 0;
+		position: relative;
+		&:before {
+		    content: '';
+		    position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 0;
+		    z-index: -1;
+		    transition: height 0.2s ease;
+		    background-color: #a48142;
+		}
+		&:hover:before {
+			height: 100%;
+		}
 	}
 	.checkbox {
 		position: relative;
