@@ -1168,19 +1168,11 @@ aside {
       position: relative;
       border-right: 1px solid #EBEDEC;
       border-bottom: 1px solid #EBEDEC;
-      width: 33.3%;
+      width: 20%;
       height: 440px;
       float: left;
       opacity: 1;
       overflow: hidden; }
-      #partners-page #partners-list .item:nth-child(3n) {
-        width: 33.4%; }
-      #partners-page #partners-list .item:hover {
-        background-color: #EAE9E8; }
-        #partners-page #partners-list .item:hover img {
-          width: 170px; }
-        #partners-page #partners-list .item:hover .text {
-          max-height: 150px; }
     #partners-page #partners-list .info {
       position: absolute;
       top: 0;
@@ -1192,19 +1184,18 @@ aside {
       transition: all 0.4s ease; }
       #partners-page #partners-list .info img {
         display: block;
-        width: 304px;
-        margin: 0 auto;
-        transition: width 0.4s ease;
-        transform: scale(1); }
+        width: 80%;
+        margin: 0 auto; }
       #partners-page #partners-list .info .cell {
-        width: 360px;
+        width: 100%;
+        display: table;
         position: relative;
         margin: 0 auto; }
       #partners-page #partners-list .info .in {
         display: table-cell;
         vertical-align: middle;
         text-align: center;
-        width: 360px;
+        width: 100%;
         height: 440px; }
       #partners-page #partners-list .info .text {
         padding-top: 55px;
@@ -1429,8 +1420,6 @@ form {
       color: #87918e;
       transform: translate(0, 0);
       font-size: 10px; }
-    form input:invalid {
-      border-color: red; }
   form button {
     line-height: 60px;
     border: none;
@@ -1443,6 +1432,23 @@ form {
     color: #fff;
     background-color: #AA8A51;
     margin-bottom: 36px; }
+    form button span {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      vertical-align: top; }
+    form button:before {
+      z-index: 1;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      transition: height 0.2s ease;
+      background-color: #a48142; }
+    form button:hover:before {
+      height: 100%; }
   form a {
     font: italic 18px/1.2em 'Times New Roman', serif;
     display: inline-block;
@@ -1519,18 +1525,6 @@ form {
   margin-left: 40px;
   padding: 0;
   position: relative; }
-  #cart-form button:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    z-index: -1;
-    transition: height 0.2s ease;
-    background-color: #a48142; }
-  #cart-form button:hover:before {
-    height: 100%; }
 
 #cart-form .checkbox {
   position: relative;
@@ -2169,13 +2163,7 @@ form {
       margin-left: 68px;
       width: 290px; }
   #products-page #products-list .info .cell, #products-page #products-list .info .in {
-    width: 374px; }
-  #partners-page #partners-list .info .cell, #partners-page #partners-list .info .in, #partners-page #partners-list .info img {
-    width: 250px; }
-  #partners-page #partners-list .info .text {
-    padding-top: 25px; }
-  #partners-page #partners-list .info .btn {
-    margin-top: 14px; } }
+    width: 374px; } }
 
 @media screen and (max-width: 1366px) {
   #hist .box, #new-page #text {
