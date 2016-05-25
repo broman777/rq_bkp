@@ -2218,3 +2218,67 @@ form {
       line-height: 11px;
       height: 24px;
       transform: rotate(0); } }
+
+@media screen and (max-width: 1024px) {
+  body {
+    min-width: 0; }
+  .dt, aside, #first .more, #menu .menu {
+    display: none !important; }
+  #menu {
+    transform: translate(0, 0) !important;
+    bottom: auto;
+    width: 100% !important;
+    height: 60px; }
+    #menu .soc {
+      margin-top: -227px; }
+    #menu nav {
+      width: auto;
+      left: 50px;
+      right: 50px; }
+      #menu nav a {
+        display: block;
+        margin-bottom: 15px; }
+    #menu #user {
+      right: 15px;
+      top: 22px;
+      left: auto;
+      width: auto;
+      transition: all .3s ease; }
+      #menu #user li {
+        display: inline-block;
+        vertical-align: top; }
+      #menu #user a {
+        margin: 0 11px 60px; }
+    #menu .toggle {
+      width: 60px;
+      transition: width 0.3s ease; }
+    #menu .line {
+      transform: translate(0, 0); }
+    #menu.open {
+      height: 100%; }
+      #menu.open .toggle {
+        width: 100%; }
+      #menu.open #user {
+        right: auto;
+        left: 10px;
+        top: 173px;
+        width: 50px; }
+  #first {
+    padding-left: 0;
+    background-size: cover; }
+  #index aside {
+    position: relative;
+    display: block !important;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    min-width: 0;
+    background-color: #FFF; }
+    #index aside .content {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      right: auto; }
+  section {
+    margin: 0; } }
