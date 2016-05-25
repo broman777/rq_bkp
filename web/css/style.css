@@ -2276,9 +2276,87 @@ form {
     min-width: 0;
     background-color: #FFF; }
     #index aside .content {
+      padding: 170px 0 64px;
       position: relative;
       bottom: auto;
       left: auto;
       right: auto; }
+    #index aside .btn-group {
+      position: absolute;
+      top: -60px;
+      width: 100%; }
+      #index aside .btn-group a {
+        padding: 20px 0 19px; }
+    #index aside #aside-slider .flex-control-nav {
+      bottom: -64px; }
   section {
-    margin: 0; } }
+    margin: 0;
+    padding: 0 !important; }
+  .box .text blockquote {
+    padding-left: 30px;
+    margin-bottom: 40px; }
+  .other .title {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: auto;
+    left: auto; }
+    .other .title:after {
+      right: 50%;
+      top: 50px; }
+    .other .title p {
+      top: auto;
+      left: auto;
+      margin: 0;
+      width: auto;
+      height: 50px;
+      transform: rotate(0);
+      position: relative;
+      line-height: 50px; }
+  #hist .box, #new-page, #text {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 35px 20px 0; }
+    #hist .box h2, #new-page h2, #text h2 {
+      font-size: 26px;
+      line-height: 32px;
+      margin-bottom: 25px; }
+  #news-slider .slides {
+    height: auto; }
+  #news-slider .flex-control-nav {
+    bottom: 22px; }
+  #news-slider li .img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 250px; }
+    #news-slider li .img .month {
+      top: auto;
+      left: auto;
+      right: 0;
+      width: 124px;
+      padding: 0;
+      text-align: center;
+      bottom: 0; }
+  #news-slider li .text {
+    box-sizing: border-box;
+    padding: 275px 20px 75px;
+    width: 100%;
+    float: none; }
+    #news-slider li .text .day {
+      top: 190px;
+      right: 124px;
+      z-index: 5; }
+    #news-slider li .text .btn {
+      margin-top: 20px; }
+    #news-slider li .text .in {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      width: 100%;
+      margin-left: 0; }
+  #news-slider .flex-control-nav {
+    right: 0;
+    left: 0; }
+  #banners .banner-list li {
+    padding-left: 0; } }
