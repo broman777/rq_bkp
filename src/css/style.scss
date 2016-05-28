@@ -26,7 +26,7 @@ section {
 	font-size: 12px;
 	line-height: 18px; 
 }
-nav, footer .menu {
+#main-nav, footer .menu { 
 	a {
 		display: inline-block;
 		font: 14px/14px "Constantine";
@@ -176,7 +176,7 @@ footer {
 	&.open {
 		width: 320px;
 		.toggle span {background-position: 50% 100%;}
-		.line, nav {transform: translate(0, 0);}
+		.line, #main-nav {transform: translate(0, 0);}
 	}
 	.toggle {
 		z-index: 15;
@@ -300,7 +300,7 @@ footer {
 		.user:hover {background-position: -30px 0}
 		.cart:hover {background-position: -30px -20px}
 	}
-	nav {
+	#main-nav {
 		position: absolute;
 		left: 90px;
 		width: 140px;
@@ -2440,7 +2440,7 @@ form {
 		.soc {
 			margin-top: -227px;
 		}
-		nav {
+		#main-nav {
 			width: auto;
 			left: 50px;
 			right: 50px;
