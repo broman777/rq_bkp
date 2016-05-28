@@ -2266,7 +2266,7 @@ form {
   #first {
     padding-left: 0;
     background-size: cover; }
-  #index aside {
+  #index aside, #about-page aside {
     position: relative;
     display: block !important;
     top: auto;
@@ -2275,20 +2275,26 @@ form {
     width: 100%;
     min-width: 0;
     background-color: #FFF; }
-    #index aside .content {
-      padding: 170px 0 64px;
+    #index aside .content, #about-page aside .content {
+      padding: 240px 0 64px;
       position: relative;
       bottom: auto;
       left: auto;
       right: auto; }
-    #index aside .btn-group {
+    #index aside .hr, #about-page aside .hr {
+      display: none !important; }
+    #index aside .btn-group, #about-page aside .btn-group {
       position: absolute;
-      top: -60px;
+      top: 0;
       width: 100%; }
-      #index aside .btn-group a {
+      #index aside .btn-group a, #about-page aside .btn-group a {
         padding: 20px 0 19px; }
-    #index aside #aside-slider .flex-control-nav {
+    #index aside #aside-slider .flex-control-nav, #about-page aside #aside-slider .flex-control-nav {
       bottom: -64px; }
+  #index aside .content {
+    padding: 170px; }
+  #index aside .btn-group {
+    top: -70px; }
   section {
     margin: 0;
     padding: 0 !important; }
@@ -2445,6 +2451,8 @@ form {
     padding-top: 60px !important; }
     #about-page #sliders .text {
       padding: 0 20px; }
+    #about-page #sliders .slider {
+      opacity: 1 !important; }
     #about-page #sliders .slider .bg {
       font-size: 42px;
       line-height: 42px;
@@ -2454,6 +2462,12 @@ form {
       top: 30px; }
     #about-page #sliders .slider h2 {
       font-size: 24px; }
+    #about-page #sliders #awards.slider .text {
+      height: 162px; }
+    #about-page #sliders #awards.slider .bg {
+      bottom: 330px; }
+    #about-page #sliders #awards.slider .flex-control-nav {
+      bottom: 50px; }
     #about-page #princ.slider {
       padding-top: 48px; }
       #about-page #princ.slider li {

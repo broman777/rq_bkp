@@ -2482,26 +2482,26 @@ form {
 		padding-left: 0; 
 		background-size: cover;
 	}
-	#index aside {
+	#index aside, #about-page aside {
 		position: relative; 
 		display: block!important;
-
 		top: auto;
 		right: auto;
 		bottom: auto;
 		width: 100%; 
-		min-width: 0; 
+		min-width: 0;  
 		background-color: #FFF;
 		.content {
-			padding: 170px 0 64px; 
+			padding: 240px 0 64px; 
 			position: relative;
 			bottom: auto;
 			left: auto;
 			right: auto;
 		} 
+		.hr {display: none!important}
 		.btn-group {
 			position: absolute;
-			top: -60px;
+			top: 0;
 			width: 100%;
 			a {
 				padding: 20px 0 19px;
@@ -2510,6 +2510,10 @@ form {
 		#aside-slider {
 			.flex-control-nav {bottom: -64px}
 		}
+	}
+	#index aside {
+		.content {padding: 170px;}
+		.btn-group {top: -70px;}
 	}
 	section {
 		margin: 0; 
@@ -2708,6 +2712,7 @@ form {
 			.text {
 				padding: 0 20px;
 			}
+			.slider {opacity:1!important}
 			.slider .bg {
 				font-size: 42px;
 				line-height: 42px;
@@ -2718,6 +2723,13 @@ form {
 			}
 			.slider h2 {
 				font-size: 24px;
+			}
+			#awards.slider {
+				.text {height: 162px}
+				.bg {
+					bottom: 330px;
+				}
+				.flex-control-nav {bottom: 50px}
 			}
 		}
 		#princ.slider {
