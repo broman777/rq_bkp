@@ -148,7 +148,7 @@ footer {
 	left: 0;
 	bottom: 0;
 	width: 60px;
-	z-index: 20;
+	z-index: 40;
 	background-color: $bggreen; 
 	text-align: center;
 	transition: all 0.3s ease;
@@ -2482,15 +2482,21 @@ form {
 		padding-left: 0; 
 		background-size: cover;
 	}
-	#index aside, #about-page aside {
+	.slider {
+		z-index: 10;
+	}
+	#index aside, #about-page aside, #contacts-page aside, #partners-page aside,
+	#news-page aside {
 		position: relative; 
 		display: block!important;
 		top: auto;
 		right: auto;
 		bottom: auto;
 		width: 100%; 
+		height: auto;
 		min-width: 0;  
 		background-color: #FFF;
+		z-index: 30;
 		.content {
 			padding: 240px 0 64px; 
 			position: relative;
@@ -2512,8 +2518,8 @@ form {
 		}
 	}
 	#index aside {
-		.content {padding: 170px;}
-		.btn-group {top: -70px;}
+		.content {padding-top: 170px;}
+		.btn-group {top: -60px;}
 	}
 	section {
 		margin: 0; 
@@ -2736,6 +2742,84 @@ form {
 			padding-top: 48px;
 			li {
 				height: 320px;
+			}
+		}
+	}
+	#contacts-page {
+		padding-top: 60px!important;
+		#cont-list {
+			padding: 0;
+			& > li {
+				width: 100%;
+				float: none;
+				.text {
+					padding: 29px 0 36px;
+					height: auto;
+					&:before {
+						top: 43px;
+					}
+				}
+			}
+		}
+	}
+	#partners-page {
+		padding-top: 60px!important;
+		#partners-list {
+			padding-left: 0;
+			.item {
+				width: 50%; 
+				height: 180px;
+				.in {
+					height: 180px; 
+				}
+			}
+		}
+	}
+	#news-page {
+		padding-top: 60px!important;
+		#news-list li{
+			position: relative;
+			padding: 216px 0 0;
+			height: auto;
+			opacity: 1;
+			.cell {
+				width: auto;
+				height: auto;
+			}
+			.img {
+				height: 216px;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				.month {
+					top: auto;
+				    left: auto;
+				    right: 0;
+				    width: 124px;
+				    padding: 0;
+				    text-align: center;
+				    bottom: 0;
+				}
+			}
+			.btn {
+				margin-top: 20px;
+			}
+			.text {
+				float: none;
+				width: 100%;
+				height: auto;
+				position: static;
+				.day {
+				    top: 156px;
+				    right: 124px;
+				    z-index: 5;
+				}
+			}
+			.in {
+				padding: 24px 20px;
+				height: auto;
+				width: auto; 
 			}
 		}
 	}

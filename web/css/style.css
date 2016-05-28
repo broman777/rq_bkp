@@ -136,7 +136,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 60px;
-  z-index: 20;
+  z-index: 40;
   background-color: #004541;
   text-align: center;
   transition: all 0.3s ease;
@@ -2266,35 +2266,45 @@ form {
   #first {
     padding-left: 0;
     background-size: cover; }
-  #index aside, #about-page aside {
+  .slider {
+    z-index: 10; }
+  #index aside, #about-page aside, #contacts-page aside, #partners-page aside,
+  #news-page aside {
     position: relative;
     display: block !important;
     top: auto;
     right: auto;
     bottom: auto;
     width: 100%;
+    height: auto;
     min-width: 0;
-    background-color: #FFF; }
-    #index aside .content, #about-page aside .content {
+    background-color: #FFF;
+    z-index: 30; }
+    #index aside .content, #about-page aside .content, #contacts-page aside .content, #partners-page aside .content,
+    #news-page aside .content {
       padding: 240px 0 64px;
       position: relative;
       bottom: auto;
       left: auto;
       right: auto; }
-    #index aside .hr, #about-page aside .hr {
+    #index aside .hr, #about-page aside .hr, #contacts-page aside .hr, #partners-page aside .hr,
+    #news-page aside .hr {
       display: none !important; }
-    #index aside .btn-group, #about-page aside .btn-group {
+    #index aside .btn-group, #about-page aside .btn-group, #contacts-page aside .btn-group, #partners-page aside .btn-group,
+    #news-page aside .btn-group {
       position: absolute;
       top: 0;
       width: 100%; }
-      #index aside .btn-group a, #about-page aside .btn-group a {
+      #index aside .btn-group a, #about-page aside .btn-group a, #contacts-page aside .btn-group a, #partners-page aside .btn-group a,
+      #news-page aside .btn-group a {
         padding: 20px 0 19px; }
-    #index aside #aside-slider .flex-control-nav, #about-page aside #aside-slider .flex-control-nav {
+    #index aside #aside-slider .flex-control-nav, #about-page aside #aside-slider .flex-control-nav, #contacts-page aside #aside-slider .flex-control-nav, #partners-page aside #aside-slider .flex-control-nav,
+    #news-page aside #aside-slider .flex-control-nav {
       bottom: -64px; }
   #index aside .content {
-    padding: 170px; }
+    padding-top: 170px; }
   #index aside .btn-group {
-    top: -70px; }
+    top: -60px; }
   section {
     margin: 0;
     padding: 0 !important; }
@@ -2471,4 +2481,64 @@ form {
     #about-page #princ.slider {
       padding-top: 48px; }
       #about-page #princ.slider li {
-        height: 320px; } }
+        height: 320px; }
+  #contacts-page {
+    padding-top: 60px !important; }
+    #contacts-page #cont-list {
+      padding: 0; }
+      #contacts-page #cont-list > li {
+        width: 100%;
+        float: none; }
+        #contacts-page #cont-list > li .text {
+          padding: 29px 0 36px;
+          height: auto; }
+          #contacts-page #cont-list > li .text:before {
+            top: 43px; }
+  #partners-page {
+    padding-top: 60px !important; }
+    #partners-page #partners-list {
+      padding-left: 0; }
+      #partners-page #partners-list .item {
+        width: 50%;
+        height: 180px; }
+        #partners-page #partners-list .item .in {
+          height: 180px; }
+  #news-page {
+    padding-top: 60px !important; }
+    #news-page #news-list li {
+      position: relative;
+      padding: 216px 0 0;
+      height: auto;
+      opacity: 1; }
+      #news-page #news-list li .cell {
+        width: auto;
+        height: auto; }
+      #news-page #news-list li .img {
+        height: 216px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0; }
+        #news-page #news-list li .img .month {
+          top: auto;
+          left: auto;
+          right: 0;
+          width: 124px;
+          padding: 0;
+          text-align: center;
+          bottom: 0; }
+      #news-page #news-list li .btn {
+        margin-top: 20px; }
+      #news-page #news-list li .text {
+        float: none;
+        width: 100%;
+        height: auto;
+        position: static; }
+        #news-page #news-list li .text .day {
+          top: 156px;
+          right: 124px;
+          z-index: 5; }
+      #news-page #news-list li .in {
+        padding: 24px 20px;
+        height: auto;
+        width: auto; } }
