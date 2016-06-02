@@ -2499,7 +2499,7 @@ form {
 		z-index: 10;
 	}
 	#index aside, #about-page aside, #contacts-page aside, #partners-page aside,
-	#news-page aside, #gal-page aside, #news-page aside, #one-page aside { 
+	#news-page aside, #gal-page aside, #news-page aside, #new-page aside {
 		position: relative; 
 		display: block!important;
 		top: auto;
@@ -2913,6 +2913,36 @@ form {
 				display: block;
 				margin: 0 auto;
 			}
+		}
+	}
+	#new-page {
+		padding-top: 60px!important;
+		.preview {
+			margin-bottom: 24px;
+		}
+		#text {
+			width: 100%;
+			.box {
+				padding-top: 0;
+			}
+			h2, h3, h4, img, p, .btn {
+				margin-bottom: 20px!important;
+			}
+		}
+		#top .title {
+			a.back {
+				width: 48px;
+				left: 19px!important;
+				padding-left: 0;
+				font-size: 0;
+				&:before { 
+					left: 0;
+				}
+			}
+		}
+		.bottom-line {
+			min-width: 100%;
+			.back, .share {display: none}
 		}
 	}
 	#one-page {

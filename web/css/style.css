@@ -2282,7 +2282,7 @@ form {
   .slider {
     z-index: 10; }
   #index aside, #about-page aside, #contacts-page aside, #partners-page aside,
-  #news-page aside, #gal-page aside, #news-page aside, #one-page aside {
+  #news-page aside, #gal-page aside, #news-page aside, #new-page aside {
     position: relative;
     display: block !important;
     top: auto;
@@ -2294,25 +2294,25 @@ form {
     background-color: #FFF;
     z-index: 30; }
     #index aside .content, #about-page aside .content, #contacts-page aside .content, #partners-page aside .content,
-    #news-page aside .content, #gal-page aside .content, #news-page aside .content, #one-page aside .content {
+    #news-page aside .content, #gal-page aside .content, #news-page aside .content, #new-page aside .content {
       padding: 240px 0 64px;
       position: relative;
       bottom: auto;
       left: auto;
       right: auto; }
     #index aside .hr, #about-page aside .hr, #contacts-page aside .hr, #partners-page aside .hr,
-    #news-page aside .hr, #gal-page aside .hr, #news-page aside .hr, #one-page aside .hr {
+    #news-page aside .hr, #gal-page aside .hr, #news-page aside .hr, #new-page aside .hr {
       display: none !important; }
     #index aside .btn-group, #about-page aside .btn-group, #contacts-page aside .btn-group, #partners-page aside .btn-group,
-    #news-page aside .btn-group, #gal-page aside .btn-group, #news-page aside .btn-group, #one-page aside .btn-group {
+    #news-page aside .btn-group, #gal-page aside .btn-group, #news-page aside .btn-group, #new-page aside .btn-group {
       position: absolute;
       top: 0;
       width: 100%; }
       #index aside .btn-group a, #about-page aside .btn-group a, #contacts-page aside .btn-group a, #partners-page aside .btn-group a,
-      #news-page aside .btn-group a, #gal-page aside .btn-group a, #news-page aside .btn-group a, #one-page aside .btn-group a {
+      #news-page aside .btn-group a, #gal-page aside .btn-group a, #news-page aside .btn-group a, #new-page aside .btn-group a {
         padding: 20px 0 19px; }
     #index aside #aside-slider .flex-control-nav, #about-page aside #aside-slider .flex-control-nav, #contacts-page aside #aside-slider .flex-control-nav, #partners-page aside #aside-slider .flex-control-nav,
-    #news-page aside #aside-slider .flex-control-nav, #gal-page aside #aside-slider .flex-control-nav, #news-page aside #aside-slider .flex-control-nav, #one-page aside #aside-slider .flex-control-nav {
+    #news-page aside #aside-slider .flex-control-nav, #gal-page aside #aside-slider .flex-control-nav, #news-page aside #aside-slider .flex-control-nav, #new-page aside #aside-slider .flex-control-nav {
       bottom: -64px; }
   #gal-page {
     margin-top: 60px; }
@@ -2619,6 +2619,27 @@ form {
         height: auto;
         display: block;
         margin: 0 auto; }
+  #new-page {
+    padding-top: 60px !important; }
+    #new-page .preview {
+      margin-bottom: 24px; }
+    #new-page #text {
+      width: 100%; }
+      #new-page #text .box {
+        padding-top: 0; }
+      #new-page #text h2, #new-page #text h3, #new-page #text h4, #new-page #text img, #new-page #text p, #new-page #text .btn {
+        margin-bottom: 20px !important; }
+    #new-page #top .title a.back {
+      width: 48px;
+      left: 19px !important;
+      padding-left: 0;
+      font-size: 0; }
+      #new-page #top .title a.back:before {
+        left: 0; }
+    #new-page .bottom-line {
+      min-width: 100%; }
+      #new-page .bottom-line .back, #new-page .bottom-line .share {
+        display: none; }
   #one-page {
     padding-top: 60px !important; }
     #one-page #about {
