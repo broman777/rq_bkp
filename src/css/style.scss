@@ -1557,6 +1557,7 @@ form {
 		} 
 	}
 	button {
+		position: relative;
 		line-height: 60px; 
 		border: none;
 		font-size: 9px;
@@ -1611,10 +1612,10 @@ form {
 		width: 760px;
 		text-align: left;
 	}
-	table {
+	.table {
+		display: table;
+		width: 100%; 
 		border-top: 1px solid #E9EAEA;
-		table-layout: fixed;
-		border-collapse: collapse;
 		font-size: 12px;
 		line-height: 24px;
 		text-align: left;
@@ -1623,8 +1624,7 @@ form {
 	.what {
 		position: relative;
 		margin: 5px 0 0 5px;
-		font-size: 11px;
-		font-size: 0;
+		font-size: 0;	
 		display: inline-block;
 		vertical-align: top;
 		width: 14px;
@@ -1644,7 +1644,13 @@ form {
 			transform:scale(1,1);
 		}
 	}
-	td {
+	.tr {
+		display: block;
+		width: 100%;
+	}
+	.td {
+		font-size: 11px;
+		display: table-cell;
 		vertical-align: middle;
 		border-bottom: 1px solid #E9EAEA;
 		height: 110px;
@@ -1697,7 +1703,7 @@ form {
 			position: absolute;
 		}
 	}
-	tfoot td {
+	.tfoot .td {
 		height: auto;
 		min-height: 56px;
 		.del { 
@@ -1707,6 +1713,10 @@ form {
 			font: 22px/108px "Constantine", serif;
 			color: $mainDark;  
 		}
+		&.colspan {
+			width: 294px;
+			&:first-child {width: 460px} 
+		} 
 	}
 	.select {color: #111;}
 	.header {padding-left: 60px;}
@@ -2428,11 +2438,94 @@ form {
 
 
 // mobile
-
+@media screen and (max-width: 767px) {
+	#first {
+		padding-left: 0; 
+		background-size: cover;
+		h1 {
+			font-size: 22px;
+			line-height: 32px;
+			left: 20px;
+			top: 120px;
+			right: 20px;
+			margin-top: 0;
+			padding-top: 110px;
+		}
+	}
+	#form-page form {
+		margin-top: 0;
+		box-sizing: border-box;
+		width: 100%;
+		padding: 26px 20px 38px;
+		&.register .reg {width: 100%;}
+		br {display: none}
+		.header {
+			margin-bottom: 14px;
+		}
+		.row input {margin-bottom: 10px;}
+		.fogot {
+			margin-top: 4px;
+			float: left;
+		}
+		.reg {
+			margin-bottom: 22px;
+			float: right;
+		}
+		button {margin-bottom: 13px;}
+	}
+	#cart-form form{
+		padding-bottom: 0;
+		.header {padding: 0; font-size: 18px}
+		.row.half {
+			width: 100%;
+			padding: 0 0;
+		}
+		.row {
+			.placeholder {left: 0;}
+		}
+		button {
+			width: calc(100% + 40px);
+			margin: 20px -20px 0;
+		}
+		.table {
+			display: block;
+			width: 100%;
+			.tfoot .td .summ {
+				line-height: 55px;
+			}
+			.td {border: none;}
+			.tr {
+				font-size: 0;
+				position: relative;
+				border-bottom:1px solid #E9EAEA;
+			}
+			.desc p {width: auto; padding-right: 10px;}
+			.img {width: 140px; img {max-width: 140px;} }
+			.count, .price { 
+				display: inline-block;
+				width: 140px;
+				padding-top: 20px;
+				height: 50px; 
+			}
+			.rem {
+				position: absolute;
+				display: block;
+				top: -12px;
+				right: 0;
+				.remove {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
 @media screen and (max-width: 1024px) {
 	body {min-width: 0;}
 	.dt, aside, #first .more, #menu .menu {display: none!important;}
 	#top .title:after {margin-left: -5px;}
+	#form-page #form{
+		padding-left: 0;
+	}
 	#menu {
 		transform: translate(0,0)!important;
 		bottom: auto;
@@ -2448,7 +2541,7 @@ form {
 			left: 50px;
 			right: 50px;
 			li {display: block;}
-			a {margin-bottom: 15px;} 
+			a {margin-bottom: 10px;} 
 		}
 		#user {
 			right: 15px;
@@ -2480,19 +2573,6 @@ form {
 				top: 173px;
 				width: 50px;
 			}
-		}
-	}
-	#first {
-		padding-left: 0; 
-		background-size: cover;
-		h1 {
-			font-size: 22px;
-			line-height: 32px;
-			left: 20px;
-			top: 120px;
-			right: 20px;
-			margin-top: 0;
-			padding-top: 110px;
 		}
 	}
 	.slider {
@@ -2544,6 +2624,10 @@ form {
 					top: 5px;
 				}
 			}
+		}
+		.paging {
+			padding-left: 0;
+			.next, .prev {margin: 13px 5px;}
 		}
 	}
 	#index aside {
@@ -2671,6 +2755,7 @@ form {
 		}
 	}
 	#about {
+		&:after{display: none}
 		#about-slider {
 			padding-bottom: 100px;
 			.flex-control-nav {bottom: 54px;}
@@ -2796,6 +2881,9 @@ form {
 	}
 	#about-page {
 		padding-top: 60px!important;
+		#aside-slider img {
+			max-width: 80%!important;
+		}
 		#sliders {
 			.text {
 				padding: 0 20px;
@@ -2850,6 +2938,7 @@ form {
 	}
 	#partners-page {
 		padding-top: 60px!important;
+		#top {z-index: 10;}
 		#partners-list {
 			padding-left: 0;
 			.item {
@@ -2917,8 +3006,14 @@ form {
 	}
 	#new-page {
 		padding-top: 60px!important;
+		#text .preview img {margin-bottom: 0!important;}
 		.preview {
+			padding: 60px 0;
 			margin-bottom: 24px;
+			.share {
+				top: auto;
+				bottom: 0;
+			}
 		}
 		#text {
 			width: 100%;
@@ -2944,6 +3039,9 @@ form {
 			min-width: 100%;
 			.back, .share {display: none}
 		}
+	}
+	#form-page {
+		padding-top: 60px!important;
 	}
 	#one-page {
 		padding-top: 60px!important;
@@ -3036,6 +3134,16 @@ form {
 				}
 			}
 		}
+	}
+	#cart-form form {
+		width: 728px;
+		.img img {
+			width: 165px;
+		}
+		button {
+			width: 634px;
+		}
+		.tfoot .td.colspan:first-child {width: 434px;}
 	}
 	#products-page #products-list .item {
 		width: 50%!important;

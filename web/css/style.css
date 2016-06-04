@@ -1423,6 +1423,7 @@ form {
       transform: translate(0, 0);
       font-size: 10px; }
   form button {
+    position: relative;
     line-height: 60px;
     border: none;
     font-size: 9px;
@@ -1469,10 +1470,10 @@ form {
   width: 760px;
   text-align: left; }
 
-#cart-form table {
+#cart-form .table {
+  display: table;
+  width: 100%;
   border-top: 1px solid #E9EAEA;
-  table-layout: fixed;
-  border-collapse: collapse;
   font-size: 12px;
   line-height: 24px;
   text-align: left;
@@ -1481,7 +1482,6 @@ form {
 #cart-form .what {
   position: relative;
   margin: 5px 0 0 5px;
-  font-size: 11px;
   font-size: 0;
   display: inline-block;
   vertical-align: top;
@@ -1500,7 +1500,13 @@ form {
     opacity: 1;
     transform: scale(1, 1); }
 
-#cart-form td {
+#cart-form .tr {
+  display: block;
+  width: 100%; }
+
+#cart-form .td {
+  font-size: 11px;
+  display: table-cell;
   vertical-align: middle;
   border-bottom: 1px solid #E9EAEA;
   height: 110px; }
@@ -1554,14 +1560,18 @@ form {
     right: 20px;
     position: absolute; }
 
-#cart-form tfoot td {
+#cart-form .tfoot .td {
   height: auto;
   min-height: 56px; }
-  #cart-form tfoot td .del {
+  #cart-form .tfoot .td .del {
     font: 22px/56px "Constantine", serif; }
-  #cart-form tfoot td .summ {
+  #cart-form .tfoot .td .summ {
     font: 22px/108px "Constantine", serif;
     color: #AA8A51; }
+  #cart-form .tfoot .td.colspan {
+    width: 294px; }
+    #cart-form .tfoot .td.colspan:first-child {
+      width: 460px; }
 
 #cart-form .select {
   color: #111; }
@@ -2219,6 +2229,83 @@ form {
       height: 24px;
       transform: rotate(0); } }
 
+@media screen and (max-width: 767px) {
+  #first {
+    padding-left: 0;
+    background-size: cover; }
+    #first h1 {
+      font-size: 22px;
+      line-height: 32px;
+      left: 20px;
+      top: 120px;
+      right: 20px;
+      margin-top: 0;
+      padding-top: 110px; }
+  #form-page form {
+    margin-top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 26px 20px 38px; }
+    #form-page form.register .reg {
+      width: 100%; }
+    #form-page form br {
+      display: none; }
+    #form-page form .header {
+      margin-bottom: 14px; }
+    #form-page form .row input {
+      margin-bottom: 10px; }
+    #form-page form .fogot {
+      margin-top: 4px;
+      float: left; }
+    #form-page form .reg {
+      margin-bottom: 22px;
+      float: right; }
+    #form-page form button {
+      margin-bottom: 13px; }
+  #cart-form form {
+    padding-bottom: 0; }
+    #cart-form form .header {
+      padding: 0;
+      font-size: 18px; }
+    #cart-form form .row.half {
+      width: 100%;
+      padding: 0 0; }
+    #cart-form form .row .placeholder {
+      left: 0; }
+    #cart-form form button {
+      width: calc(100% + 40px);
+      margin: 20px -20px 0; }
+    #cart-form form .table {
+      display: block;
+      width: 100%; }
+      #cart-form form .table .tfoot .td .summ {
+        line-height: 55px; }
+      #cart-form form .table .td {
+        border: none; }
+      #cart-form form .table .tr {
+        font-size: 0;
+        position: relative;
+        border-bottom: 1px solid #E9EAEA; }
+      #cart-form form .table .desc p {
+        width: auto;
+        padding-right: 10px; }
+      #cart-form form .table .img {
+        width: 140px; }
+        #cart-form form .table .img img {
+          max-width: 140px; }
+      #cart-form form .table .count, #cart-form form .table .price {
+        display: inline-block;
+        width: 140px;
+        padding-top: 20px;
+        height: 50px; }
+      #cart-form form .table .rem {
+        position: absolute;
+        display: block;
+        top: -12px;
+        right: 0; }
+        #cart-form form .table .rem .remove {
+          margin: 0; } }
+
 @media screen and (max-width: 1024px) {
   body {
     min-width: 0; }
@@ -2226,6 +2313,8 @@ form {
     display: none !important; }
   #top .title:after {
     margin-left: -5px; }
+  #form-page #form {
+    padding-left: 0; }
   #menu {
     transform: translate(0, 0) !important;
     bottom: auto;
@@ -2242,7 +2331,7 @@ form {
       #menu #main-nav li {
         display: block; }
       #menu #main-nav a {
-        margin-bottom: 15px; }
+        margin-bottom: 10px; }
     #menu #user {
       right: 15px;
       top: 22px;
@@ -2268,17 +2357,6 @@ form {
         left: 10px;
         top: 173px;
         width: 50px; }
-  #first {
-    padding-left: 0;
-    background-size: cover; }
-    #first h1 {
-      font-size: 22px;
-      line-height: 32px;
-      left: 20px;
-      top: 120px;
-      right: 20px;
-      margin-top: 0;
-      padding-top: 110px; }
   .slider {
     z-index: 10; }
   #index aside, #about-page aside, #contacts-page aside, #partners-page aside,
@@ -2325,6 +2403,10 @@ form {
         float: none; }
         #gal-page #gal-list .list > li .bg {
           top: 5px; }
+    #gal-page .paging {
+      padding-left: 0; }
+      #gal-page .paging .next, #gal-page .paging .prev {
+        margin: 13px 5px; }
   #index aside .content {
     padding-top: 170px; }
   #index aside .btn-group {
@@ -2422,6 +2504,8 @@ form {
         max-width: 270px; }
       #banners .banner-list li .cell .btn {
         margin-top: 8px; }
+  #about:after {
+    display: none; }
   #about #about-slider {
     padding-bottom: 100px; }
     #about #about-slider .flex-control-nav {
@@ -2527,6 +2611,8 @@ form {
           width: 100%; }
   #about-page {
     padding-top: 60px !important; }
+    #about-page #aside-slider img {
+      max-width: 80% !important; }
     #about-page #sliders .text {
       padding: 0 20px; }
     #about-page #sliders .slider {
@@ -2568,6 +2654,8 @@ form {
             top: 43px; }
   #partners-page {
     padding-top: 60px !important; }
+    #partners-page #top {
+      z-index: 10; }
     #partners-page #partners-list {
       padding-left: 0; }
       #partners-page #partners-list .item {
@@ -2621,8 +2709,14 @@ form {
         margin: 0 auto; }
   #new-page {
     padding-top: 60px !important; }
+    #new-page #text .preview img {
+      margin-bottom: 0 !important; }
     #new-page .preview {
+      padding: 60px 0;
       margin-bottom: 24px; }
+      #new-page .preview .share {
+        top: auto;
+        bottom: 0; }
     #new-page #text {
       width: 100%; }
       #new-page #text .box {
@@ -2640,6 +2734,8 @@ form {
       min-width: 100%; }
       #new-page .bottom-line .back, #new-page .bottom-line .share {
         display: none; }
+  #form-page {
+    padding-top: 60px !important; }
   #one-page {
     padding-top: 60px !important; }
     #one-page #about {
@@ -2710,6 +2806,14 @@ form {
       height: 260px; }
       #partners-page #partners-list .item .in {
         height: 260px; }
+  #cart-form form {
+    width: 728px; }
+    #cart-form form .img img {
+      width: 165px; }
+    #cart-form form button {
+      width: 634px; }
+    #cart-form form .tfoot .td.colspan:first-child {
+      width: 434px; }
   #products-page #products-list .item {
     width: 50% !important; }
   #gal-page #gal-list .list > li {
