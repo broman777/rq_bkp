@@ -1068,11 +1068,11 @@ aside {
       #products-page #products-list .item.hidden {
         opacity: 0;
         display: none; }
-      #products-page #products-list .item:hover {
+      #products-page #products-list .item:hover, #products-page #products-list .item.active {
         background-size: 150%; }
-        #products-page #products-list .item:hover .info {
+        #products-page #products-list .item:hover .info, #products-page #products-list .item.active .info {
           opacity: 1; }
-        #products-page #products-list .item:hover .img {
+        #products-page #products-list .item:hover .img, #products-page #products-list .item.active .img {
           transition: all 30s linear;
           transform: scale(1.2, 1.2); }
     #products-page #products-list .info {

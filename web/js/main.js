@@ -82,6 +82,12 @@ $(document).ready(function(){
 			else list.children('li').removeClass('hidden');
 		}
 	});
+	$('#products-list .item').on('click',function(){
+		if ($(window).width() <= 1024) { 
+			$("#products-list .item").not(this).removeClass('active');
+			$(this).toggleClass('active');
+		}
+	});
 });
 $(window).on('scroll',function(){
 	$('#menu').removeClass('open');
