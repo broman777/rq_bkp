@@ -84,7 +84,7 @@ $hover_text = get_field('hover_text');
                 </div>
             </div>
 
-            <div class="clearfix"></div>
+            <div class="clear"></div>
 
             <?php // flexible content ?>
             <?php get_template_part('_templates/_blocks/_flexible-content'); ?>
@@ -94,7 +94,7 @@ $hover_text = get_field('hover_text');
     </div>
 
     <?php $active_4 = get_field('active_4', 8); if($active_4): // ABOUT WATER ?>
-        <section id="about">
+        <div id="about">
             <div id="about-slider">
                 <ul class="slides">
                     <li>
@@ -123,7 +123,7 @@ $hover_text = get_field('hover_text');
                     </li>
                 </ul>
             </div>
-        </section>
+        </div>
     <?php endif; ?>
 
     <div class="bottom-line">
@@ -131,7 +131,7 @@ $hover_text = get_field('hover_text');
         <a href="#top" data-anchor class="top"><?php echo __('To the top', 'RQ'); ?></a>
         <div class="share">
             <span><?php echo __('Share', 'RQ'); ?>:</span>
-            <div class="ya-share2" data-services="facebook,vkontakte,twitter" data-description="<?php echo $description; ?>"<?php if(is_array($main_img) && count($main_img)): ?> data-image="<?php echo $main_img['sizes']['large']; ?>"<?php endif; ?> data-lang="<?php echo __('[:ru]ru[:en]en[:]'); ?>" data-title="<?php echo $title; ?>" data-url="<?php echo get_the_permalink(); ?>" data-bare></div>
+            <div class="ya-share2" data-services="facebook,vkontakte,twitter" data-description="<?php echo __('price for', 'RQ'); ?> <?php echo $pack_count; ?> <?php echo __('pcs.', 'RQ'); ?>: <?php echo $price; ?> <?php echo get_woocommerce_currency_symbol(); ?>"<?php if(is_array($img) && count($img)): ?> data-image="<?php echo $img['sizes']['large']; ?>"<?php endif; ?> data-lang="<?php echo __('[:ru]ru[:en]en[:]'); ?>" data-title="<?php echo $title; ?>" data-url="<?php echo get_the_permalink(); ?>" data-bare></div>
         </div>
     </div>
 
