@@ -2820,3 +2820,10 @@ form.login input#rememberme{
   #gal-page #gal-list .list > li {
     width: 50%;
     float: left; } }
+
+
+/* parsley */
+.parsley-errors-list{
+  display: none!important;
+}
+/* end */
