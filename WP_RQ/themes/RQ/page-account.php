@@ -21,19 +21,19 @@
 
     <?php if($customer_id): ?>
 
-        <?php if(!get_query_var('section')): ?>
+        <?php if(!get_query_var('section')): // orders ?>
             <?php get_template_part( '_templates/_account/_orders' ); ?>
-        <?php elseif(get_query_var('section')=='edit'): ?>
+        <?php elseif(get_query_var('section')=='edit'): // edit account details ?>
             <?php get_template_part( '_templates/_account/_edit' ); ?>
         <?php endif; ?>
 
     <?php else: ?>
 
-        <?php if(!get_query_var('section')): ?>
+        <?php if(!get_query_var('section')): // login form ?>
             <?php get_template_part( '_templates/_account/_login' ); ?>
-        <?php elseif(get_query_var('section')=='forgot'): ?>
+        <?php elseif(get_query_var('section')=='forgot'): // forgot password ?>
             <?php get_template_part( '_templates/_account/_forgot' ); ?>
-        <?php elseif(get_query_var('section')=='register'): ?>
+        <?php elseif(get_query_var('section')=='register'): // registering ?>
             <?php get_template_part( '_templates/_account/_register' ); ?>
         <?php endif; ?>
 
@@ -42,14 +42,40 @@
     <?php get_footer(); ?>
 </section>
 
-<?php /* WRITE SCRIPTS HERE ?>
-<script>
-    $(document).ready(function(){
-        $('input#time-mask').inputmask("hh:mm",{ "placeholder": "_" }, { "clearIncomplete": true });  // time
-        $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
-    });
-</script>
-<?php END */ ?>
+<?php /* WRITE SCRIPTS HERE */ ?>
+<?php if($customer_id): ?>
+
+    <?php if(!get_query_var('section')): // orders ?>
+        <script>
+
+        </script>
+    <?php elseif(get_query_var('section')=='edit'): // edit account details ?>
+        <script>
+
+        </script>
+    <?php endif; ?>
+
+<?php else: ?>
+
+    <?php if(!get_query_var('section')): // login form ?>
+        <script>
+
+        </script>
+    <?php elseif(get_query_var('section')=='forgot'): // forgot password ?>
+        <script>
+
+        </script>
+    <?php elseif(get_query_var('section')=='register'): // registering ?>
+        <script>
+            $(document).ready(function(){
+                $('input#time-mask').inputmask("hh:mm",{ "placeholder": "_" }, { "clearIncomplete": true });  // time
+                $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
+            });
+        </script>
+    <?php endif; ?>
+
+<?php endif; ?>
+<?php /* END */ ?>
 
 </body>
 </html>

@@ -48,7 +48,7 @@ function check_account_get($customer_id){
 			wp_redirect( wc_get_page_permalink( 'myaccount' ) ); exit; // кидаем на главную профиля
 		endif;
 	else:
-		if(get_query_var('section') && (get_query_var('section')!='forgot' || get_query_var('section')!='register')):
+		if(get_query_var('section') && (get_query_var('section')!='forgot' && get_query_var('section')!='register')):
 			wp_redirect( wc_get_page_permalink( 'myaccount' ) ); exit; // кидаем на главную профиля
 		endif;
 	endif;
