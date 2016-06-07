@@ -14,6 +14,7 @@ $img = get_field('_thumbnail_id');
 // characters
 $buttle_volume = get_field('buttle_volume');
 $pack_count = get_field('pack_count');
+$hover_text = get_field('hover_text');
 ?>
 
 <div class="item">
@@ -26,7 +27,7 @@ $pack_count = get_field('pack_count');
             <span class="vol"><?php echo $buttle_volume; ?><?php echo __('L', 'RQ'); ?></span>
         <?php endif; ?>
         <?php if($pack_count): ?>
-            <span class="qty"><?php echo $pack_count; ?> <?php echo __('pcs.', 'RQ'); ?> в упаковке</span>
+            <span class="qty"><?php echo $pack_count; ?> <?php echo __('pcs.', 'RQ'); ?> <?php echo __('in pack', 'RQ'); ?></span>
         <?php endif; ?>
     </div>
 
@@ -34,24 +35,26 @@ $pack_count = get_field('pack_count');
         <div class="cell">
             <div class="in">
                 <p class="header"><?php echo $title; ?></p>
-                
+
+                <?php if($pack_count): ?>
                 <div class="qty">
-                    12 шт. в упаковке
-                    <div class="what">?<div class="hint"><p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p></div></div>
+                    <?php echo $pack_count; ?> <?php echo __('pcs.', 'RQ'); ?> <?php echo __('in pack', 'RQ'); ?>
+                    <?php if($hover_text): ?><div class="what">?<div class="hint"><p><?php echo $hover_text; ?></p></div></div><?php endif; ?>
                 </div>
-
-                <div class="price">
-                    <span>цена за </span><a href="#qty" class="select" data-popup>12</a><span>шт</span>
-                    <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
-                    <span class="uah"><?php echo $price; ?> <?php echo get_woocommerce_currency_symbol(); ?></span>
-                    <?php endif; ?>
-                </div>
-
-                <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
-                <p><a href="javascript:void(0)" class="add">Добавить в корзину</a></p>
                 <?php endif; ?>
 
-                <a href="<?php echo $permalink; ?>" class="btn more">Подробнее о воде</a>
+                <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
+                <div class="price">
+                    <span><?php echo __('price for', 'RQ'); ?> </span><a href="#qty" class="select" data-popup><?php echo $pack_count; ?></a><span><?php echo __('pcs.', 'RQ'); ?></span>
+                    <span class="uah"><?php echo $price; ?> <?php echo get_woocommerce_currency_symbol(); ?></span>
+                </div>
+                <?php endif; ?>
+
+                <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
+                <p><a href="javascript:void(0)" class="add"><?php echo __('Add to cart', 'RQ'); ?></a></p>
+                <?php endif; ?>
+
+                <a href="<?php echo $permalink; ?>" class="btn more"><?php echo __('Read more about water', 'RQ'); ?></a>
             </div>
         </div>
     </div>
