@@ -13,9 +13,9 @@ function swallowError (error) {
 
 var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
-        html: 'web/',
-        css: 'web/css/',
-        js: 'web/js/'
+        html: 'WP_RQ/themes/RQ/',
+        css: 'WP_RQ/themes/RQ/css/',
+        js: 'WP_RQ/themes/RQ/js/'
     },
     src: { //Пути откуда брать исходники
         html: 'src/*.html',
@@ -23,12 +23,12 @@ var path = {
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         html: 'src/**/*.html',
-        style: 'src/css/**/*.scss',
-        js: 'web/js/**/*.js',
+        style: 'WP_RQ/themes/RQ/css/**/*.css',
+        js: 'WP_RQ/themes/RQ/js/**/*.js',
     }
 };
 var config = {
-    server: {baseDir: "./web"},
+    server: {baseDir: "./WP_RQ/themes/RQ/"},
     tunnel: false,
     host: 'localhost',
     port: 9000,
@@ -51,8 +51,7 @@ gulp.task('style:build', function () {
 });
 
 gulp.task('build', [
-    'html:build',
-    'style:build'
+    'html:build'
 ]);
 
 gulp.task('webserver', function () {
@@ -65,7 +64,7 @@ gulp.task('watch', function(){
         gulp.start('html:build');
     });
     watch([path.watch.style], function(event, cb) {
-        gulp.start('style:build');
+        gulp.src(path.watch.style).pipe(browserSync.stream())
     });
     watch([path.watch.js], function(event, cb) {
         gulp.src(path.watch.js).pipe(browserSync.stream())

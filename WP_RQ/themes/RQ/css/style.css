@@ -9,15 +9,15 @@ body {
   min-width: 1260px;
   letter-spacing: 0.05em;
   background-color: #EAE9E8;
-  color: #1a1a1a; }
-
+  color: #1a1a1a; 
+}
 section {
   position: relative;
   margin: 0 20% 0 60px; }
 
 .left {
-  float: left; }
-
+  float: left;
+}
 .right {
   float: right; }
 
