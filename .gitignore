@@ -28,4 +28,4 @@ phpunit.phar
 
 node_modules
 WP_RQ/themes/RQ/*.html
-WP_RQ/themes/RQ/img
+WP_RQ/themes/RQ/img/
