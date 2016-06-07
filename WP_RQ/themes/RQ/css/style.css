@@ -1376,6 +1376,12 @@ form {
   background-color: #FFF;
   padding: 60px 179px 95px;
   text-align: center; }
+
+form.login input#rememberme{
+  display: none!important;
+}
+
+
   form.register .head-img {
     background-position: 100% 0; }
   form .head-img {
