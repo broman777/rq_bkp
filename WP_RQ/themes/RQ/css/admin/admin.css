@@ -1,0 +1,100 @@
+/* WP */
+#wp-admin-bar-wp-logo,
+#wp-admin-bar-comments,
+#wp-admin-bar-new-content,
+#footer-left,
+#update-nag,
+.update-nag,
+#bulk-action-selector-top option[value="edit"],
+#pageparentdiv,
+#postimagediv,
+#tagsdiv-type{
+    display: none!important;
+}
+.row-actions .inline, .row-actions .duplicate{
+    display: none!important;
+}
+.wp-list-table th#img, .wp-list-table th#thumb, table.wp-list-table .column-thumb{
+    width: 60px!important;
+}
+.wp-list-table td.img img, .wp-list-table td.thumb img{
+    width: 100%!important;
+    height: auto!important;
+    max-width: 100%!important;
+    max-height: none!important;
+}
+.post-type-partners .row-actions .view, .post-type-gallery .row-actions .view{
+    display: none!important;
+}
+
+/* LOCO TRANSLATE */
+/* disable plugin tranlsating */
+.loco-admin .dashicons-admin-plugins,
+.loco-admin .loco-list-plugins,
+.loco-admin .dashicons-admin-settings,
+.loco-admin .nav-tab-loco{
+    display: none!important;
+}
+
+/* QTRANSLATE */
+#wp-admin-bar-language,
+#qtranxs-meta-box-lsb,
+.post-php .qtranxs-lang-switch-wrap,
+.post-new-php .qtranxs-lang-switch-wrap{
+    display: none!important;
+}
+#post-body-content .qtranxs-lang-switch-wrap:first-child{
+    display: block!important;
+    margin-bottom: 20px;
+}
+
+/* ACF */
+.acf-field .acf-label{
+    margin-bottom: 5px;
+}
+.acf-fields > .acf-field{
+    padding: 12px;
+}
+.acf-field.line{
+    border-bottom: #CCCCCC solid 3px;
+    margin-bottom: 15px!important;
+}
+.acf-field.clear{
+    clear: both!important;
+}
+.acf-field.subtitle .acf-label, .acf-field.subtitle label{
+    margin: 0;
+}
+.acf-field.subtitle label{
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #999;
+}
+.acf-field.subtitle label:before {
+    content: "\f05a";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    margin-right: 5px;
+}
+
+
+/* WOOCOMMERCE */
+#woocommerce-product-data, #woocommerce-product-images, #woocommerce_dashboard_recent_reviews{
+    display: none!important;
+}
+/* type of products */
+.post-type-product #dropdown_product_type,
+.post-type-product #woocommerce-product-data .type_box{
+    display: none!important;
+}
+/* comments */
+.post-type-product #commentsdiv{
+    display: none!important;
+}
+/**/
+.post-type-product td.column-price{
+    font-weight: bold;
+}
