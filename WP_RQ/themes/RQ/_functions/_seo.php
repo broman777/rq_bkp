@@ -1,25 +1,5 @@
 <?php
 
-/* REMOVE URL PARTS */
-/*add_filter( 'post_type_link', 'custom_remove_cpt_slug', 10, 3 );
-function custom_remove_cpt_slug( $post_link, $post, $leavename ) {
-    if ( 'product' != $post->post_type || 'publish' != $post->post_status ) {return $post_link;}
-    $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
-    return $post_link;
-}
-add_action( 'pre_get_posts', 'custom_parse_request_tricksy' );
-function custom_parse_request_tricksy( $query ) {
-    // Only noop the main query
-    if ( ! $query->is_main_query() ) return;
-    // Only noop our very specific rewrite rule match
-    if ( 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {return;}
-    // 'name' will be set if post permalinks are just post_name, otherwise the page rule will match
-    if ( ! empty( $query->query['name'] ) ) {
-        $query->set( 'post_type', array('product') );
-    }
-}*/
-/* END */
-
 /* SEO TITLE AND DESCRIPTION */
 // return seo value
 // fields names must be: SLUG_section, SLUG_seo_title, SLUG_seo_description
