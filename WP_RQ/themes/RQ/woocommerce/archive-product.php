@@ -18,337 +18,23 @@
 		<?php endif; ?>
 	</div>
 
-	<div id="products-list">
-		<!-- product start -->
-		<div class="item">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
+	<?php if(have_posts() ) : ?>
+		<div id="products-list">
+			<div class="loading_of_ajax">
+				<?php while (have_posts()) : the_post(); ?>
+					<?php get_template_part('_templates/_archive-product'); ?>
+				<?php endwhile; wp_reset_query(); ?>
 			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
+			<div class="clear"></div>
 		</div>
-		<!-- product finish -->
-		<!-- product start -->
-		<div class="item">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
-			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- product finish -->
-		<!-- product start -->
-		<div class="item">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
-			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- product finish -->
-		<!-- product start -->
-		<div class="item">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
-			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- product finish -->
-		<!-- product start -->
-		<div class="item">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
-			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- product finish -->
-		<!-- product start -->
-		<div class="item">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
-			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- product finish -->
-		<!-- product start -->
-		<div class="item hidden">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
-			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- product finish -->
-		<!-- product start -->
-		<div class="item hidden">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
-			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- product finish -->
-		<!-- product start -->
-		<div class="item hidden">
-			<div class="img" style="background-image: url(img/bottle.jpg);"></div>
-			<div class="short">
-				<span class="vol">0,8l</span>
-				<span class="qty">12 шт в упаковке</span>
-			</div>
-			<div class="info">
-				<div class="cell">
-					<div class="in">
-						<p class="header">Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-						<div class="qty">
-							12 шт. в упаковке
-							<div class="what">?
-								<div class="hint">
-									<p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-								</div>
-							</div>
-						</div>
-						<div class="price">
-							<span>цена за </span>
-							<a href="#qty" class="select" data-popup>12</a>
-							<span>шт</span>
-							<span class="uah">900 р.</span>
-						</div>
-						<p><a href="#" class="add">Добавить в корзину</a></p>
-						<a href="one.html" class="btn more">Подробнее о воде</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- product finish -->
-		<div class="clear"></div>
-	</div>
-	<a href="" class="link-next"><span>загрузить еще</span></a>
+
+		<?php if($wp_query->max_num_pages > 1): // if more than 1 page ?>
+			<a href="javascript:void(0)" class="link-next load_by_ajax"><span><?php echo __('Load more', 'RQ'); ?></span></a>
+		<?php endif; ?>
+	<?php endif; ?>
 
 	<?php get_footer( 'shop' ); ?>
 </section>
-
-
--------------------------------------
-
-<?php $product_section = get_field('product_section', 32); if($product_section): ?>
-	<?php echo $product_section; ?>
-<?php endif; ?>
-<?php $product_bg = get_field('product_bg', 32); if(is_array($product_bg) && count($product_bg)): ?>
-	<?php echo $product_bg['sizes']['large']; ?>
-<?php endif; ?>
-<?php $product_title = get_field('product_title', 32); if($product_title): ?>
-	<?php echo $product_title; ?>
-<?php endif; ?>
-<?php $product_text = get_field('product_text', 32); if($product_text): ?>
-	<?php echo $product_text; ?>
-<?php endif; ?>
-
-<?php if(have_posts() ) : ?>
-
-	<div class="loading_of_ajax">
-		
-		<?php while (have_posts()) : the_post(); ?>
-			<?php get_template_part('_templates/_archive-product'); ?>
-		<?php endwhile; wp_reset_query(); ?>
-
-	</div>
-
-	<?php if($wp_query->max_num_pages > 1): // if more than 1 page ?>
-		<a href="javascript:void(0)" class="load_by_ajax"><?php echo __('Load more', 'RQ'); ?></a>
-	<?php endif; ?>
-	
-<?php else: ?>
-	<p><?php echo __('Nothing found.', 'RQ'); ?></p>
-<?php endif; ?>
-
-
 
 <?php /* WRITE SCRIPTS HERE */ ?>
 <?php if($wp_query->max_num_pages > 1): ?>
@@ -358,7 +44,7 @@
 
 		var query_vars = '<?php echo serialize($wp_query->query_vars); ?>';
 		var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-		var max_num_pages = '<?php echo $wp_query->max_num_pages; ?>';
+		var max_num_pages = <?php echo $wp_query->max_num_pages; ?>;
 
 		$(document).on('click', '.load_by_ajax', function (){
 			if(!block_load){
@@ -380,23 +66,25 @@
 					},
 					success:function(data){
 						if(data.success){
-							var $data = $(data.posts).filter(".ajax_product");
+							var $data = $(data.posts).filter(".item").hide();
 							var imgLoad = imagesLoaded($data);
 							imgLoad.on('always', function(){
-								$container.append($data);
+								$container.append($data.fadeIn(100));
 							});
-							// hide load button if last page
-							if(data.last_page){
-								$('.load_by_ajax').hide();
-							}
 						}
 					},
 					complete:function(){
-						// message
-						ajax_message(false);
-						//
+						// increase page
 						current_page++;
-						block_load = false;
+						// check if last page
+						if(current_page==max_num_pages){
+							$('.load_by_ajax').fadeOut(100);
+						}else{
+							// message
+							ajax_message(false);
+							// allow loading
+							block_load = false;
+						}
 					}
 				});
 			}
