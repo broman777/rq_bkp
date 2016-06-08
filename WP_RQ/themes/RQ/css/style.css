@@ -2137,8 +2137,6 @@ form input:hover + ul + .placeholder,
     background-color: #AA8A51; }
     .popup .btn:after, .popup .btn:before {
       display: none; }
-  .popup .qty-list {
-    margin-bottom: 34px; }
     .popup .qty-list li {
       display: inline-block;
       vertical-align: top;
