@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var menu = $('#menu'), fix = $('#fix');
-	$(document).on('click', '.toggle', function(e){
+	$('.toggle').on('click',function(e){
 		if(menu.hasClass('open')) {
 			menu.removeClass('open');
 			fix.removeClass('visible');
@@ -11,8 +11,7 @@ $(document).ready(function(){
 		}
 		e.preventDefault();
 	});
-
-	$(document).on('click', fix, function(){
+	fix.on('click',function(){
 		menu.removeClass('open');
 		fix.removeClass('visible');
 	});
@@ -42,7 +41,7 @@ $(document).ready(function(){
 			var price = parseInt($(this).data("price"));
 			if(chosen_count && product && count && price){
 				for (var i = 1; i <= 15; i++) {
-					html_string += '<li' + (chosen_count == (i*count) ? ' class="active"' : '') + ' data-product="' + product + '" data-count="' + (i*count) + '" data-price="' + (i*price) + '">' + (i*count) + '</li>';
+					html_string += '<li' + (chosen_count == (i*count) ? ' class="active"' : '') + ' data-product="' + product + '" data-count="' + (i*count) + '" data-price="' + price + '">' + (i*count) + '</li>';
 				}
 			}
 			$('#qty .header .counted').html(count);

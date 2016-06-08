@@ -62,7 +62,7 @@
 
         <div class="tr tfoot">
             <div class="td colspan"><?php echo __('Total', 'RQ'); ?>:</div>
-            <div class="td colspan"><p class="summ"><?php echo WC()->cart->get_cart_total(); ?></p></div>
+            <div class="td colspan"><p class="summ"><?php echo WC()->cart->cart_contents_total; ?> <?php echo get_woocommerce_currency_symbol(); ?></p></div>
         </div>
     </div>
 <?php else: // если корзина пуста ?>
