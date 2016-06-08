@@ -2,6 +2,7 @@
 
 <?php
 global $product;
+$id = get_the_ID();
 $title = get_the_title();
 
 // prices
@@ -54,7 +55,7 @@ $hover_text = get_field('hover_text');
                 </div>
             </div>
 
-            <div class="right top-right">
+            <div class="right top-right product_<?php echo $id; ?>">
                 <div class="order">
                     <p class="header"><?php echo $title; ?></p>
 
@@ -67,8 +68,8 @@ $hover_text = get_field('hover_text');
 
                     <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
                         <div class="price">
-                            <span><?php echo __('price for', 'RQ'); ?> </span><a href="#qty" class="select" data-count="<?php echo $pack_count; ?>" data-price="<?php echo $price; ?>" data-popup><?php echo $pack_count; ?></a><span><?php echo __('pcs.', 'RQ'); ?></span>
-                            <span class="uah"><?php echo $price; ?> <?php echo get_woocommerce_currency_symbol(); ?></span>
+                            <span><?php echo __('price for', 'RQ'); ?> </span><a href="#qty" class="select chosen_count" data-product="<?php echo $id; ?>" data-count="<?php echo $pack_count; ?>" data-price="<?php echo $price; ?>" data-popup><?php echo $pack_count; ?></a><span><?php echo __('pcs.', 'RQ'); ?></span>
+                            <span class="uah"><?php echo $pack_count * $price; ?> <?php echo get_woocommerce_currency_symbol(); ?></span>
                         </div>
                     <?php endif; ?>
 
@@ -137,11 +138,9 @@ $hover_text = get_field('hover_text');
         <a href="#top" data-anchor class="top"><?php echo __('To the top', 'RQ'); ?></a>
         <div class="share">
             <span><?php echo __('Share', 'RQ'); ?>:</span>
-            <div class="ya-share2" data-services="facebook,vkontakte,twitter" data-description="<?php echo __('price for', 'RQ'); ?> <?php echo $pack_count; ?> <?php echo __('pcs.', 'RQ'); ?>: <?php echo $price; ?> <?php echo get_woocommerce_currency_symbol(); ?>"<?php if(is_array($img) && count($img)): ?> data-image="<?php echo $img['sizes']['large']; ?>"<?php endif; ?> data-lang="<?php echo __('[:ru]ru[:en]en[:]'); ?>" data-title="<?php echo $title; ?>" data-url="<?php echo get_the_permalink(); ?>" data-bare></div>
+            <div class="ya-share2" data-services="facebook,vkontakte,twitter" data-description="<?php echo __('price for', 'RQ'); ?> <?php echo $pack_count; ?> <?php echo __('pcs.', 'RQ'); ?>: <?php echo $pack_count * $price; ?> <?php echo get_woocommerce_currency_symbol(); ?>"<?php if(is_array($img) && count($img)): ?> data-image="<?php echo $img['sizes']['large']; ?>"<?php endif; ?> data-lang="<?php echo __('[:ru]ru[:en]en[:]'); ?>" data-title="<?php echo $title; ?>" data-url="<?php echo get_the_permalink(); ?>" data-bare></div>
         </div>
     </div>
-
-    <?php endwhile; get_footer( 'shop' ); ?>
 
     <?php // POPUPS // ?>
     <div id="pop-bg"></div>
@@ -166,6 +165,8 @@ $hover_text = get_field('hover_text');
     </div>
     <?php endif; ?>
     <?php // END // ?>
+
+    <?php endwhile; get_footer( 'shop' ); ?>
 </section>
 
 <?php /* WRITE SCRIPTS HERE */ ?>
@@ -194,9 +195,20 @@ $hover_text = get_field('hover_text');
 </script>
 
 <script>
-    $('document').on('click', '.qty-list li', function(){
+    $(document).on('click', '.qty-list li', function(){
+        //
         $(".qty-list li").removeClass('active');
         $(this).addClass('active');
+        //
+        var product = parseInt($(this).data("product"));
+        var count = parseInt($(this).data("count"));
+        var price = parseInt($(this).data("price"));
+        if(product && count && price){
+            $('.product_' + product + ' .chosen_count').text(count);
+            $('.product_' + product + ' .price .uah').text(count*price + ' <?php echo get_woocommerce_currency_symbol(); ?>');
+        }
+        //
+        $('#pop-bg, .popup').removeClass('visible');
     });
 </script>
 <?php /* END */ ?>

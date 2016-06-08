@@ -36,13 +36,16 @@ $(document).ready(function(){
 		// если это попап с количеством
 		if (target=='#qty') {
 			var html_string = '';
-			var count = $(this).data("count");
-			var price = $(this).data("price");
-			if(count && price){
+			var chosen_count = parseInt($(this).text());
+			var product = parseInt($(this).data("product"));
+			var count = parseInt($(this).data("count"));
+			var price = parseInt($(this).data("price"));
+			if(chosen_count && product && count && price){
 				for (var i = 1; i <= 15; i++) {
-					html_string += '<li data-count="' + count + '" data-price="' + price + '">' + i * count + '</li>';
+					html_string += '<li' + (chosen_count == (i*count) ? ' class="active"' : '') + ' data-product="' + product + '" data-count="' + (i*count) + '" data-price="' + (i*price) + '">' + (i*count) + '</li>';
 				}
 			}
+			$('#qty .header .counted').html(count);
 			$('#qty .qty-list').html(html_string);
 		}
 	});
