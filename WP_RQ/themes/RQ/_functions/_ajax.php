@@ -2,7 +2,7 @@
 
 /* AJAX */
 
-// NEED EDITING - JSON!!!
+// AJAX LOADING OF ITEMS
 add_action( 'wp_ajax_ajax_loading_of_items', 'ajax_loading_of_items' );
 add_action( 'wp_ajax_nopriv_ajax_loading_of_items', 'ajax_loading_of_items' );
 function ajax_loading_of_items() {
@@ -29,5 +29,28 @@ function ajax_loading_of_items() {
     ));
     exit();
 }
+
+// ADD TO CART
+function add_to_minicart(){
+    global $woocommerce;
+
+    $product_id        = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_POST['product_id'] ) );
+    $quantity          = absint( $_POST['quantity'] );
+    $passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
+    $product_status    = get_post_status( $product_id );
+
+    if ( $passed_validation && WC()->cart->add_to_cart( $product_id, $quantity ) && 'publish' === $product_status ) {
+        do_action( 'woocommerce_ajax_added_to_cart', $product_id );
+        // echo
+        echo json_encode( array(
+            'success' => true
+        ));
+    }else{
+        wp_send_json_error(); // {"success":false}
+    }
+    exit();
+}
+add_action('wp_ajax_add_to_minicart', 'add_to_minicart');
+add_action('wp_ajax_nopriv_add_to_minicart', 'add_to_minicart');
 
 /* END */

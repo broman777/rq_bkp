@@ -75,7 +75,7 @@ $hover_text = get_field('hover_text');
 
                     <ul class="btn-group">
                         <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
-                            <li><a href="javascript:void(0)" class="add" data-product="<?php echo $id; ?>"><?php echo __('Add to cart', 'RQ'); ?></a></li>
+                            <li><a href="javascript:void(0)" class="add ajax_buy_button" data-product="<?php echo $id; ?>"><?php echo __('Add to cart', 'RQ'); ?></a></li>
                         <?php endif; ?>
                         <li><a href="javascript:void(0)"><?php echo __('Call back', 'RQ'); ?></a></li>
                         <li><a href="javascript:void(0)"><?php echo __('Online chat with the manager', 'RQ'); ?></a></li>

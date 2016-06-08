@@ -40,3 +40,42 @@ if($cart_terms_title && $cart_terms_text): ?>
         $('#pop-bg, .popup').removeClass('visible');
     });
 </script>
+
+<script>
+    // ADD TO CART
+    $(document).on('click', '.ajax_buy_button', function(){
+        var button = $(this);
+        var product = parseInt($(this).data('product'));
+        var count = parseInt($('.product_' + product + ' .chosen_count').text());
+        if(product && count){
+            $.ajax({
+                url: '<?php echo site_url() ?>/wp-admin/admin-ajax.php',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'action': 'add_to_minicart',
+                    'quantity' : count,
+                    'product_id': product
+                },
+                success: function(data){
+                    // сообщение
+                    if(data.success){
+                        button.text('<?php echo __('Item was added to the cart', 'RQ'); ?>');
+                    }else{
+                        button.text('<?php echo __('Adding error', 'RQ'); ?>');
+                    }
+                },
+                complete: function(){
+                    setTimeout(function(){
+                        button.text('<?php echo __('Add to cart', 'RQ'); ?>');
+                    }, 5000);
+                }
+            });
+        }else{
+            // сообщение
+            button.text('<?php echo __('Adding error', 'RQ'); ?>');
+        }
+
+        return false;
+    });
+</script>

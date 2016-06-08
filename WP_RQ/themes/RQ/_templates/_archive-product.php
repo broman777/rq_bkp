@@ -52,7 +52,7 @@ $hover_text = get_field('hover_text');
                 <?php endif; ?>
 
                 <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
-                <p><a href="javascript:void(0)" class="add" data-product="<?php echo $id; ?>"><?php echo __('Add to cart', 'RQ'); ?></a></p>
+                <p><a href="javascript:void(0)" class="add ajax_buy_button" data-product="<?php echo $id; ?>"><?php echo __('Add to cart', 'RQ'); ?></a></p>
                 <?php endif; ?>
 
                 <a href="<?php echo $permalink; ?>" class="btn more"><?php echo __('Read more about water', 'RQ'); ?></a>
