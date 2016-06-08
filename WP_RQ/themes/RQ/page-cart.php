@@ -18,7 +18,7 @@
     </div>
 
     <div id="cart-form">
-        <form action="" class="login">
+        <form class="login" id="orderform" data-parsley-validate>
             <p class="header">Ваш выбор:</p>
             <div class="table">
                 <div class="tr">
@@ -55,13 +55,13 @@
             </div>
             <div class="form-block">
                 <p class="header">Получатель:</p>
-                <div class="row half"><input type="text" required><span class="placeholder">Ваш email*</span></div>
-                <div class="row half"><input type="password" required><span class="placeholder">Пароль*</span></div>
+                <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder">Ваш email *</span></div>
+                <div class="row half"><input name="phone" type="text" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder">Телефон *</span></div>
             </div>
             <div class="form-block">
                 <p class="header">Доставка:</p>
-                <div class="row half"><input type="text" required><span class="placeholder">Адрес доставки</span></div>
-                <div class="row half"><input type="text" required><span class="placeholder">Время доставки</span></div>
+                <div class="row half"><input name="address" type="text" data-parsley-required="true" autocomplete="off"><span class="placeholder">Адрес доставки *</span></div>
+                <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder">Время доставки</span></div>
             </div>
             <div class="form-block">
                 <p class="header">Способ оплаты:</p>
@@ -94,7 +94,12 @@
 </section>
 
 <?php /* WRITE SCRIPTS HERE */ ?>
-
+<script>
+    $(document).ready(function(){
+        $('input#time-mask').inputmask("hh:mm",{ "placeholder": "_" }, { "clearIncomplete": true });  // time
+        $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
+    });
+</script>
 <?php /* END */ ?>
 
 </body>

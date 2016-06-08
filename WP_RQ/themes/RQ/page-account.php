@@ -51,7 +51,9 @@
         </script>
     <?php elseif(get_query_var('section')=='edit'): // edit account details ?>
         <script>
-
+            $(document).ready(function(){
+                $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
+            });
         </script>
     <?php endif; ?>
 
@@ -67,10 +69,7 @@
         </script>
     <?php elseif(get_query_var('section')=='register'): // registering ?>
         <script>
-            $(document).ready(function(){
-                $('input#time-mask').inputmask("hh:mm",{ "placeholder": "_" }, { "clearIncomplete": true });  // time
-                $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
-            });
+            
         </script>
     <?php endif; ?>
 

@@ -1416,8 +1416,10 @@ form.login input#rememberme{
     padding: 0 20px;
     box-sizing: border-box;
     margin-bottom: 20px; }
+form input:hover + .placeholder,
     form input:focus + .placeholder,
     form input.filled + .placeholder,
+form input:hover + ul + .placeholder,
     form input:focus + ul + .placeholder,
     form input.filled + ul + .placeholder{
       color: #87918e;

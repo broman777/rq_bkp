@@ -32,7 +32,7 @@ function load_scripts_on_site() {
     }
     wp_enqueue_script('main_js', $theme_uri.'/js/main.js', array('jquery'), '1.11.4', true);
 
-    if(is_page('account')){
+    if(is_page('account') || is_page('cart')){
         wp_enqueue_script('inputmask_js', $theme_uri.'/js/inputmask.min.js', array('jquery'), '3.3.2', true);
         wp_enqueue_script('jqueryinputmask_js', $theme_uri.'/js/jquery.inputmask.min.js', array('jquery'), '3.3.2', true);
         wp_enqueue_script('inputmaskdate_js', $theme_uri.'/js/inputmask.date.extensions.min.js', array('jquery'), '3.3.2', true);
