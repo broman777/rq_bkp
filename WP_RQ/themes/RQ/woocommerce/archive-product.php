@@ -34,6 +34,10 @@
 	<?php endif; ?>
 
 	<?php get_footer( 'shop' ); ?>
+
+	<?php // POPUPS // ?>
+	<?php get_template_part('_templates/_blocks/_popups'); ?>
+	<?php // END // ?>
 </section>
 
 <?php /* WRITE SCRIPTS HERE */ ?>

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var menu = $('#menu'), fix = $('#fix');
-	$('.toggle').on('click',function(e){
+	$(document).on('click', '.toggle', function(e){
 		if(menu.hasClass('open')) {
 			menu.removeClass('open');
 			fix.removeClass('visible');
@@ -12,13 +12,13 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 
-	fix.on('click',function(){
+	$(document).on('click', fix, function(){
 		menu.removeClass('open');
 		fix.removeClass('visible');
 	});
 
 	// плавная прокрутка
-	$('a[data-anchor]').on('click',function(e){
+	$(document).on('click', 'a[data-anchor]', function(e){
 		e.preventDefault();
 		var body = $("html, body"), 
 			dest = $(this).attr('href'),
@@ -28,7 +28,7 @@ $(document).ready(function(){
 	});
 
 	//
-	$('a[data-popup]').on('click',function(e){
+	$(document).on('click', 'a[data-popup]', function(e){
 		e.preventDefault();
 		var target = $(this).attr("href");
 		$(target+", #pop-bg").addClass('visible');
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		controlNav:true
 	});
 
-	$('#products-list .item').on('click',function(){
+	$(document).on('click', '#products-list .item', function(){
 		if ($(window).width() <= 1024) {
 			$("#products-list .item").not(this).removeClass('active');
 			$(this).toggleClass('active');

@@ -18,7 +18,7 @@ $pack_count = get_field('pack_count');
 $hover_text = get_field('hover_text');
 ?>
 
-<section id="one-page">
+<section id="one-page" class="product_<?php echo $id; ?>">
     <div id="top"<?php $product_bg = get_field('product_bg', 32); if(is_array($product_bg) && count($product_bg)): ?> style="background: url('<?php echo $product_bg['sizes']['large']; ?>') no-repeat 50% 50%;"<?php endif; ?>>
         <div class="box">
             <a href="<?php echo site_url(); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/ui/logo.png" alt='<?php echo get_bloginfo('name'); ?>'></a>
@@ -55,7 +55,7 @@ $hover_text = get_field('hover_text');
                 </div>
             </div>
 
-            <div class="right top-right product_<?php echo $id; ?>">
+            <div class="right top-right">
                 <div class="order">
                     <p class="header"><?php echo $title; ?></p>
 
