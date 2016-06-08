@@ -75,7 +75,7 @@ $hover_text = get_field('hover_text');
 
                     <ul class="btn-group">
                         <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
-                            <li><a href="javascript:void(0)" class="add"><?php echo __('Add to cart', 'RQ'); ?></a></li>
+                            <li><a href="javascript:void(0)" class="add" data-product="<?php echo $id; ?>"><?php echo __('Add to cart', 'RQ'); ?></a></li>
                         <?php endif; ?>
                         <li><a href="javascript:void(0)"><?php echo __('Call back', 'RQ'); ?></a></li>
                         <li><a href="javascript:void(0)"><?php echo __('Online chat with the manager', 'RQ'); ?></a></li>
@@ -142,31 +142,11 @@ $hover_text = get_field('hover_text');
         </div>
     </div>
 
-    <?php // POPUPS // ?>
-    <div id="pop-bg"></div>
-
-    <div id="qty" class="popup">
-        <a href="javascript:void(0)" class="close"></a>
-        <p class="header"><?php echo __('Choose the number of bottles', 'RQ'); ?> <br> (<?php echo __('packed by', 'RQ'); ?> <span class="counted"></span> <?php echo __('pcs.', 'RQ'); ?>)</p>
-        <div class="in">
-            <ul class="qty-list"></ul>
-        </div>
-    </div>
-
-    <?php if($cart_terms_title && $cart_terms_text): ?>
-    <div id="terms" class="popup">
-        <a href="javascript:void(0)" class="close"></a>
-        <p class="header"><?php echo $cart_terms_title; ?></p>
-        <div class="in">
-            <div class="text">
-                <p><?php echo $cart_terms_text; ?></p>
-            </div>
-        </div>
-    </div>
-    <?php endif; ?>
-    <?php // END // ?>
-
     <?php endwhile; get_footer( 'shop' ); ?>
+
+    <?php // POPUPS // ?>
+    <?php get_template_part('_templates/_blocks/_popups'); ?>
+    <?php // END // ?>
 </section>
 
 <?php /* WRITE SCRIPTS HERE */ ?>
@@ -191,24 +171,6 @@ $hover_text = get_field('hover_text');
 <script>
     $(document).ready(function(){
         $('.menu-item-190').addClass('current-menu-item');
-    });
-</script>
-
-<script>
-    $(document).on('click', '.qty-list li', function(){
-        //
-        $(".qty-list li").removeClass('active');
-        $(this).addClass('active');
-        //
-        var product = parseInt($(this).data("product"));
-        var count = parseInt($(this).data("count"));
-        var price = parseInt($(this).data("price"));
-        if(product && count && price){
-            $('.product_' + product + ' .chosen_count').text(count);
-            $('.product_' + product + ' .price .uah').text(count*price + ' <?php echo get_woocommerce_currency_symbol(); ?>');
-        }
-        //
-        $('#pop-bg, .popup').removeClass('visible');
     });
 </script>
 <?php /* END */ ?>
