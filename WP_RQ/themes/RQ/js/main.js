@@ -97,3 +97,13 @@ $(window).on('load',function(){
 	$('#loader').fadeOut(900);
 	setTimeout(function(){$('#menu, body').removeClass('hidden');}, 200);
 });
+
+//////////////////
+
+$(document).on('focusout', 'input', function(){
+	if($(this).val()){
+		$(this).addClass('filled');
+	}else{
+		$(this).removeClass('filled');
+	}
+});

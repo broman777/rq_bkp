@@ -1417,7 +1417,9 @@ form.login input#rememberme{
     box-sizing: border-box;
     margin-bottom: 20px; }
     form input:focus + .placeholder,
-    form input:valid + .placeholder {
+    form input.filled + .placeholder,
+    form input:focus + ul + .placeholder,
+    form input.filled + ul + .placeholder{
       color: #87918e;
       transform: translate(0, 0);
       font-size: 10px; }
