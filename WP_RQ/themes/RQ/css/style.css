@@ -1582,6 +1582,11 @@ form input:hover + ul + .placeholder,
 #cart-form .header, #cart-form .go_to_shop {
   padding-left: 60px; }
 
+#cart-form .go_to_shop{
+  color: #AA8A51;
+  margin-bottom: 0;
+}
+
 #cart-form .img img {
   display: block;
   width: 194px; }
