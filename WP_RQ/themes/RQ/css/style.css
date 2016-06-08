@@ -1579,7 +1579,7 @@ form input:hover + ul + .placeholder,
 #cart-form .select {
   color: #111; }
 
-#cart-form .header {
+#cart-form .header, #cart-form .go_to_shop {
   padding-left: 60px; }
 
 #cart-form .img img {
