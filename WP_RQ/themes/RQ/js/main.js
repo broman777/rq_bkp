@@ -30,16 +30,23 @@ $(document).ready(function(){
 	//
 	$('a[data-popup]').on('click',function(e){
 		e.preventDefault();
-		var target = $(this).attr("href"),
-			num = parseInt($(this).text())/12;
+		var target = $(this).attr("href");
 		$(target+", #pop-bg").addClass('visible');
-		if ($(target+' ul').is('.qty-list')) {
-			$(target).find('li').removeClass('active');
-			$(target).find('li:eq('+(num-1)+')').addClass('active');
-			window.select = this;
+
+		// если это попап с количеством
+		if (target=='#qty') {
+			var html_string = '';
+			var count = $(this).data("count");
+			var price = $(this).data("price");
+			if(count && price){
+				for (var i = 1; i <= 15; i++) {
+					html_string += '<li data-count="' + count + '" data-price="' + price + '">' + i * count + '</li>';
+				}
+			}
+			$('#qty .qty-list').html(html_string);
 		}
 	});
-	
+
 	$('#pop-bg, .popup .close , .popup .btn').on('click',function(e){ 
 		e.preventDefault();
 		$('#pop-bg, .popup').removeClass('visible');

@@ -67,7 +67,7 @@ $hover_text = get_field('hover_text');
 
                     <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
                         <div class="price">
-                            <span><?php echo __('price for', 'RQ'); ?> </span><a href="#qty" class="select" data-popup><?php echo $pack_count; ?></a><span><?php echo __('pcs.', 'RQ'); ?></span>
+                            <span><?php echo __('price for', 'RQ'); ?> </span><a href="#qty" class="select" data-count="<?php echo $pack_count; ?>" data-price="<?php echo $price; ?>" data-popup><?php echo $pack_count; ?></a><span><?php echo __('pcs.', 'RQ'); ?></span>
                             <span class="uah"><?php echo $price; ?> <?php echo get_woocommerce_currency_symbol(); ?></span>
                         </div>
                     <?php endif; ?>
