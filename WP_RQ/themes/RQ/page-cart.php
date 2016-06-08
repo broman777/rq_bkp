@@ -19,40 +19,15 @@
 
     <div id="cart-form">
         <form class="login" id="orderform" data-parsley-validate>
-            <p class="header">Ваш выбор:</p>
-            <div class="table">
-                <div class="tr">
-                    <div class="td img">
-                        <img src="img/bottle.jpg" alt="">
-                    </div>
-                    <div class="td desc">
-                        <p>Минеральная вода RusseQuelle 0,7 л (упаковка: стекло)</p>
-                    </div>
-                    <div class="td count">
-                        <p><a href="#qty" class="select" data-popup>12</a><span>шт</span></p>
-                    </div>
-                    <div class="td price">
-                        <p>900 р.</p>
-                    </div>
-                    <div class="td rem">
-                        <a href="#" class="remove"></a>
-                    </div>
-                </div>
-                <div class="tr tfoot">
-                    <div class="td colspan">Доставка
-                        <div class="what">?
-                            <div class="hint">
-                                <p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="td colspan"><p class="del">100 р.</p></div>
-                </div>
-                <div class="tr tfoot">
-                    <div class="td colspan">Итого:</div>
-                    <div class="td colspan"><p class="summ">1000 р.</p></div>
-                </div>
+            
+            <?php // CART // ?>
+            <div class="ajax_loading_of_cart">
+                <?php get_template_part('_templates/_blocks/_minicart'); ?>
             </div>
+            <?php // END // ?>
+
+            <?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?>
+                
             <div class="form-block">
                 <p class="header">Получатель:</p>
                 <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder">Ваш email *</span></div>
@@ -87,6 +62,10 @@
                 </div>
             </div>
             <button type="submit"><span>Отправить заказ</span></button>
+
+            <?php else: ?>
+                <a href="/shop/" class="go_to_shop">Перейти к покупкам</a>
+            <?php endif; ?>
         </form>
     </div>
 
@@ -98,6 +77,82 @@
     $(document).ready(function(){
         $('input#time-mask').inputmask("hh:mm",{ "placeholder": "_" }, { "clearIncomplete": true });  // time
         $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
+    });
+</script>
+
+<script>
+    // CHANGE QUANTITY/DELETING
+    function change_quantity_in_cart(cart_item_key, quantity){
+        // AJAX
+        $.ajax({
+            url: '<?php echo site_url() ?>/wp-admin/admin-ajax.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                'action': 'change_quantity_minicart',
+                'cart_item_key': cart_item_key,
+                'quantity': quantity
+            },
+            beforeSend: function () {
+                $('.ajax_status').text('<?php echo __('Please wait', 'RQ'); ?>..');
+            },
+            success: function (data) {
+                if(data.success){
+                    var counted = parseInt(data.count);
+                    // прячем/показываем кнопку
+                    if(counted){
+                        $('#orderform .form-block').show();
+                    }else{
+                        $('#orderform .form-block').hide();
+                    }
+                    // корзина
+                    $('.ajax_loading_of_cart').html(data.minicart);
+                }else{
+                    alert('<?php echo __('Error, please refresh page.', 'RQ'); ?>');
+                }
+            },
+            complete: function(){
+                $('.ajax_status').text('<?php echo __('Your choice', 'RQ'); ?>');
+            }
+        });
+    }
+
+    // изменение кол-ства в корзине
+    <?php /*$(document).on('click', '.ajax_change_count .min, .ajax_change_count .plus', function() {
+        var number_block = $(this).parent('.ajax_change_count').children('.number');
+        var rating = parseInt(number_block.text());
+
+        if($(this).hasClass('min')){ // если уменьшение
+            if(rating>1){
+                number_block.text(rating-1);
+            }
+        }else{  // увеличение
+            number_block.text(rating+1);
+        }
+
+        // ajax
+        var quantity = parseInt(number_block.text());
+        var cart_item_key = number_block.data('cart_item_key');
+        if(quantity && cart_item_key){
+            change_quantity_in_cart(cart_item_key, quantity);
+        }else{
+            alert('<?php echo __('Error, please refresh page.', 'rayban'); ?>');
+        }
+
+        return false;
+    });*/ ?>
+
+    // удаление
+    $(document).on('click', '.ajax_removing', function() {
+        // ajax
+        var quantity = 0;
+        var cart_item_key = $(this).data('cart_item_key');
+        if(cart_item_key){
+            change_quantity_in_cart(cart_item_key, quantity);
+        }else{
+            alert('<?php echo __('Error, please refresh page.', 'RQ'); ?>');
+        }
+        return false;
     });
 </script>
 <?php /* END */ ?>

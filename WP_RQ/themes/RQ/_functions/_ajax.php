@@ -30,7 +30,17 @@ function ajax_loading_of_items() {
     exit();
 }
 
+// shortcode for cart
+function minicart() {
+    ob_start();
+    get_template_part( '_templates/_blocks/_minicart' );
+    return ob_get_clean();
+}
+add_shortcode( 'minicart', 'minicart' );
+
 // ADD TO CART
+add_action('wp_ajax_add_to_minicart', 'add_to_minicart');
+add_action('wp_ajax_nopriv_add_to_minicart', 'add_to_minicart');
 function add_to_minicart(){
     global $woocommerce;
 
@@ -50,7 +60,28 @@ function add_to_minicart(){
     }
     exit();
 }
-add_action('wp_ajax_add_to_minicart', 'add_to_minicart');
-add_action('wp_ajax_nopriv_add_to_minicart', 'add_to_minicart');
+
+// CHANGE QUANTITY IN CART AND DELETING
+add_action('wp_ajax_change_quantity_minicart', 'change_quantity_minicart');
+add_action('wp_ajax_nopriv_change_quantity_minicart', 'change_quantity_minicart');
+function change_quantity_minicart(){
+    ob_start();
+    global $woocommerce;
+
+    $cart_item_key = $_POST['cart_item_key'];
+    $quantity = absint($_POST['quantity']);
+    if($cart_item_key){
+        WC()->cart->set_quantity($cart_item_key, $quantity);
+        //
+        echo json_encode( array(
+            'success' => true,
+            'count'=>$woocommerce->cart->cart_contents_count,
+            'minicart'=>do_shortcode('[minicart]')
+        ));
+    }else{
+        wp_send_json_error(); // {"success":false}
+    }
+    exit();
+}
 
 /* END */

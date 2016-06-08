@@ -44,14 +44,12 @@ $hover_text = get_field('hover_text');
                 </div>
                 <?php endif; ?>
 
-                <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
-                    <div class="price">
-                        <span><?php echo __('price for', 'RQ'); ?> </span><a href="#qty" class="select chosen_count" data-product="<?php echo $id; ?>" data-count="<?php echo $pack_count; ?>" data-price="<?php echo $price; ?>" data-popup><?php echo $pack_count; ?></a><span><?php echo __('pcs.', 'RQ'); ?></span>
-                        <span class="uah"><?php echo $pack_count * $price; ?> <?php echo get_woocommerce_currency_symbol(); ?></span>
-                    </div>
-                <?php endif; ?>
-
-                <?php if($price && $product->is_purchasable() && $product->is_in_stock()): ?>
+                <?php if($price && $pack_count && $product->is_purchasable() && $product->is_in_stock()): ?>
+                <div class="price">
+                    <span><?php echo __('price for', 'RQ'); ?> </span><a href="#qty" class="select chosen_count" data-product="<?php echo $id; ?>" data-count="<?php echo $pack_count; ?>" data-price="<?php echo $price; ?>" data-popup><?php echo $pack_count; ?></a><span><?php echo __('pcs.', 'RQ'); ?></span>
+                    <span class="uah"><?php echo $pack_count * $price; ?> <?php echo get_woocommerce_currency_symbol(); ?></span>
+                </div>
+                    
                 <p><a href="javascript:void(0)" class="add ajax_buy_button" data-product="<?php echo $id; ?>"><?php echo __('Add to cart', 'RQ'); ?></a></p>
                 <?php endif; ?>
 
