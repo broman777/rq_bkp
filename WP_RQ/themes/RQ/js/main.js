@@ -36,7 +36,7 @@ $(document).ready(function(){
 		if (target=='#qty') {
 			var html_string = '';
 			var chosen_count = parseInt($(this).text());
-			var product = parseInt($(this).data("product"));
+			var product = $(this).data("product");
 			var count = parseInt($(this).data("count"));
 			var price = parseInt($(this).data("price"));
 			if(chosen_count && product && count && price){

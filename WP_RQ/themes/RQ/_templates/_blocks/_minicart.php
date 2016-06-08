@@ -18,7 +18,8 @@
                 $img = get_field('_thumbnail_id', $product_id);
                 $buttle_volume = get_field('buttle_volume', $product_id);
                 $pack_count = get_field('pack_count', $product_id);
-                $price = $cart_item['line_total'];
+                $price = $_product->get_price();
+                $subprice = $cart_item['line_total'];
                 ?>
 
                 <div class="tr <?php echo $cart_item_key; ?>">
@@ -36,7 +37,7 @@
                         <?php endif; ?>
                     </div>
                     <div class="td price">
-                        <p><?php echo $price; ?> <?php echo get_woocommerce_currency_symbol(); ?></p>
+                        <p><?php echo $subprice; ?> <?php echo get_woocommerce_currency_symbol(); ?></p>
                     </div>
                     <div class="td rem">
                         <a href="javascript:void(0)" class="remove ajax_removing" data-cart_item_key="<?php echo $cart_item_key; ?>"></a>
@@ -47,18 +48,16 @@
             ?>
         <?php endforeach; ?>
 
-        <?php /*
         <div class="tr tfoot">
-            <div class="td colspan">Доставка
-                <div class="what">?
-                    <div class="hint">
-                        <p>В стандартной упаковке 12 стеклянных бутылок по 0,7 л</p>
-                    </div>
-                </div>
+            <div class="td colspan"><?php echo __('Shipping', 'RQ'); ?>
+                <?php
+                $cart_terms_text = get_field('cart_terms_text', 32);
+                if($cart_terms_text): ?>
+                    <div class="what">?<div class="hint"><p><?php echo $cart_terms_text; ?></p></div></div>
+                <?php endif; ?>
             </div>
-            <div class="td colspan"><p class="del">100 р.</p></div>
+            <div class="td colspan"><p class="del"><?php echo __('free', 'RQ'); ?></p></div>
         </div>
-        */ ?>
 
         <div class="tr tfoot">
             <div class="td colspan"><?php echo __('Total', 'RQ'); ?>:</div>

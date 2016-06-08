@@ -27,7 +27,7 @@
             <?php // END // ?>
 
             <?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?>
-                
+
             <div class="form-block">
                 <p class="header">Получатель:</p>
                 <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder">Ваш email *</span></div>
@@ -68,6 +68,17 @@
             <?php endif; ?>
         </form>
     </div>
+
+    <?php // POPUPS // ?>
+    <div id="pop-bg"></div>
+    <div id="qty" class="popup">
+        <a href="javascript:void(0)" class="close"></a>
+        <p class="header"><?php echo __('Choose the number of bottles', 'RQ'); ?> <br> (<?php echo __('packed by', 'RQ'); ?> <span class="counted"></span> <?php echo __('pcs.', 'RQ'); ?>)</p>
+        <div class="in">
+            <ul class="qty-list"></ul>
+        </div>
+    </div>
+    <?php // END // ?>
 
     <?php get_footer(); ?>
 </section>
@@ -118,29 +129,21 @@
     }
 
     // изменение кол-ства в корзине
-    <?php /*$(document).on('click', '.ajax_change_count .min, .ajax_change_count .plus', function() {
-        var number_block = $(this).parent('.ajax_change_count').children('.number');
-        var rating = parseInt(number_block.text());
-
-        if($(this).hasClass('min')){ // если уменьшение
-            if(rating>1){
-                number_block.text(rating-1);
-            }
-        }else{  // увеличение
-            number_block.text(rating+1);
-        }
-
-        // ajax
-        var quantity = parseInt(number_block.text());
-        var cart_item_key = number_block.data('cart_item_key');
-        if(quantity && cart_item_key){
-            change_quantity_in_cart(cart_item_key, quantity);
+    $(document).on('click', '.qty-list li', function(){
+        //
+        $(".qty-list li").removeClass('active');
+        $(this).addClass('active');
+        //
+        var cart_item_key = $(this).data("product");
+        var count = parseInt($(this).data("count"));
+        if(cart_item_key && count){
+            change_quantity_in_cart(cart_item_key, count);
         }else{
-            alert('<?php echo __('Error, please refresh page.', 'rayban'); ?>');
+            alert('<?php echo __('Error, please refresh page.', 'RQ'); ?>');
         }
-
-        return false;
-    });*/ ?>
+        //
+        $('#pop-bg, .popup').removeClass('visible');
+    });
 
     // удаление
     $(document).on('click', '.ajax_removing', function() {
