@@ -40,13 +40,13 @@ function mgt_dequeue_stylesandscripts() {
 }
 
 // change currency symbol
-/*add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
+add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
 function change_existing_currency_symbol( $currency_symbol, $currency ) {
     switch( $currency ) {
-        case 'UAH': $currency_symbol = 'UAH'; break;
+        case 'RUB': $currency_symbol = 'р.'; break;
     }
     return $currency_symbol;
-}*/
+}
 
 // remove WP fields
 add_action('admin_init', 'admin_init');

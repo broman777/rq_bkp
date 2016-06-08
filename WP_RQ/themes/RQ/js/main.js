@@ -39,31 +39,9 @@ $(document).ready(function(){
 			window.select = this;
 		}
 	});
-
-	$(".qty-list li").on('click',function(){
-		$(".qty-list li").removeClass('active');
-		$(this).addClass('active');
-	});
-
+	
 	$('#pop-bg, .popup .close , .popup .btn').on('click',function(e){ 
 		e.preventDefault();
-		if ($('.visible .qty-list').length) {
-			var num = $(".qty-list .active").index()+1,
-			priceEl = $(window.select).siblings('.uah'),
-			price = 900*num;
-			if (!priceEl.length) {
-				priceEl = $(window.select).parents('td').next('td').children('p');
-				priceEl.text(price+' р.');
-				var summ = 0;
-				$('#cart-form tbody .price p').each(function(){
-					summ = summ + parseInt($(this).text());
-				});
-				summ = summ + parseInt($('#cart-form .del').text());
-				$('#cart-form .summ').text(summ+' р.');
-			}
-			$(window.select).text(num*12);
-			priceEl.text(price+' р.');
-		}
 		$('#pop-bg, .popup').removeClass('visible');
 	});
 
