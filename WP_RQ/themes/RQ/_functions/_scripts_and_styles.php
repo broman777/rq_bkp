@@ -46,7 +46,7 @@ function load_scripts_on_site() {
         wp_enqueue_script('share_js', '//yastatic.net/share2/share.js', array('jquery'), '1.0.0', true);
     }
     if(is_post_type_archive('gallery')){
-        wp_enqueue_script('pagination_js', $theme_uri.'/js/pagination.min.js', array('jquery'), '2.0.7', true);
+        wp_enqueue_script('simplePagination_js', $theme_uri.'/js/jquery.simplePagination.js', array('jquery'), '1.6.0', true);
     }
 }
 add_action('wp_enqueue_scripts', 'load_scripts_on_site');

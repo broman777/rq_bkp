@@ -871,7 +871,7 @@ aside {
   font: italic 14px/14px 'Times New Roman', sans-serif;
   padding: 23px 0;
   transition: background-color 0.4s ease; }
-  .link-next span, .paging span {
+  .link-next span {
     display: inline-block;
     vertical-align: top;
     padding-left: 44px;
@@ -890,7 +890,7 @@ aside {
     position: relative;
     height: 40px;
     margin: 0 2px; }
-  .paging a {
+  .paging a, .paging span {
     display: block;
     cursor: pointer;
     line-height: 40px;
@@ -901,12 +901,16 @@ aside {
     border: 1px solid transparent;
     border-radius: 50%;
     transition: border-color 0.3s ease; }
-    .paging a:active {
+    .paging a:active, .paging span.current {
       cursor: default;
       border-color: #fff; }
     .paging a:hover {
       border-color: #fff; }
+.paging .disabled {
+  opacity: 0!important;
+   }
   .paging .next, .paging .prev {
+    text-indent: -9999px;
     width: 43px;
     height: 14px;
     margin: 13px 20px;

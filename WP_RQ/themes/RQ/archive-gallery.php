@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php global $wp_query; ?>
 
 <section id="gal-page">
     <div id="top"<?php $gallery_bg = get_field('gallery_bg', 32); if(is_array($gallery_bg) && count($gallery_bg)): ?> style="background: url('<?php echo $gallery_bg['sizes']['large']; ?>') no-repeat 50% 50%;"<?php endif; ?>>
@@ -47,7 +48,7 @@
         <?php if(have_posts() ) : ?>
         <ul class="list">
             <?php while (have_posts()) : the_post(); $type = get_field('type'); ?>
-            <li data-term_id="<?php echo $type; ?>"<?php if($type==8): ?> class="video"<?php endif; ?>>
+            <li<?php if($type==8): ?> class="video"<?php endif; ?>>
                 <?php get_template_part('_templates/_archive-gallery'); ?>
                 <img src="<?php echo get_template_directory_uri(); ?>/img/ui/4x3.png" alt="">
             </li>
@@ -56,15 +57,8 @@
         <?php endif; ?>
         <div class="clear"></div>
     </div>
-    
-    <ul class="paging">
-        <li><a href="#" class="prev"></a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#" class="active">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#" class="next"></a></li>
-    </ul>
+
+    <ul class="paging"></ul>
 
     <?php get_template_part('_templates/_blocks/_aside'); ?>
 </section>
@@ -102,7 +96,12 @@
 
 <script>
     // pagination
-
+    $(function() {
+        $('.paging').pagination({
+            items: <?php echo $wp_query->post_count; ?>,
+            itemsOnPage: 1
+        });
+    });
 </script>
 <?php /* END */ ?>
 
