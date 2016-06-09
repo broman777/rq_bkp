@@ -18,7 +18,9 @@
     </div>
 
     <div id="gal-list">
-        <?php $types = get_terms(
+        <?php
+        $current = get_query_var('type');
+        $types = get_terms(
             array(
                 'taxonomy' => 'type',
                 'hierarchical' => false
@@ -26,9 +28,18 @@
         ); ?>
         <?php if(is_array($types) && count($types)): ?>
         <ul class="types">
-            <li class="active" data-mode="0">Все</li>
+            <?php if(get_query_var('type')): ?>
+                <li><a href="/gallery/">Все</a></li>
+            <?php else: ?>
+                <li class="active">Все</li>
+            <?php endif; ?>
+
             <?php foreach ( $types as $type ): ?>
-                <li data-term_id="<?php echo $type->term_id; ?>"><a href="/gallery/"><?php echo $type->name; ?></a></li>
+                <?php if(get_query_var('type')==$type->slug): ?>
+                    <li class="active"><?php echo $type->name; ?></li>
+                <?php else: ?>
+                    <li><a href="/gallery/<?php echo $type->slug; ?>/"><?php echo $type->name; ?></a></li>
+                <?php endif; ?>
             <?php endforeach; ?>
         </ul>
         <?php endif; ?>
@@ -90,22 +101,8 @@
 </script>
 
 <script>
-    // set pages
-    var posts_per_page = 2;
-    function set_pages(posts_per_page){ // posts per page
-        var i = 1;
-        var next = true;
-        $('ul.list li').each(function(){
+    // pagination
 
-        });
-    }
-
-    $(document).on('click', '.types li', function(){
-        //
-        $('.types').children('li').removeClass('active');
-        $(this).addClass('active');
-        //
-    });
 </script>
 <?php /* END */ ?>
 

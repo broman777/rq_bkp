@@ -7,6 +7,7 @@ add_filter( 'query_vars', 'add_query_vars_filter' );
 function add_query_vars_filter( $vars ) {
     // account
     $vars[] = "section";
+
     return $vars;
 }
 

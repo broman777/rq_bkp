@@ -1223,6 +1223,10 @@ aside {
         color: #87918e;
         cursor: pointer;
         border-bottom: 1px solid transparent; }
+#gal-page #gal-list .types li a {
+  color: #87918e;
+  text-decoration: none;
+}
         #gal-page #gal-list .types li.active {
           cursor: default;
           border-color: #AA8A51;
