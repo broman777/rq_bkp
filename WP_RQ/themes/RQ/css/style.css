@@ -2274,6 +2274,12 @@ form input:hover + ul + .placeholder,
     #cart-form form .header {
       padding: 0;
       font-size: 18px; }
+
+  #cart-form form .go_to_shop{
+    padding-left: 0;
+    padding-bottom: 20px;
+  }
+
     #cart-form form .row.half {
       width: 100%;
       padding: 0 0; }

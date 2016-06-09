@@ -28,44 +28,45 @@
 
             <?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?>
 
-            <div class="form-block">
-                <p class="header">Получатель:</p>
-                <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder">Ваш email *</span></div>
-                <div class="row half"><input name="phone" type="text" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder">Телефон *</span></div>
-            </div>
-            <div class="form-block">
-                <p class="header">Доставка:</p>
-                <div class="row half"><input name="address" type="text" data-parsley-required="true" autocomplete="off"><span class="placeholder">Адрес доставки *</span></div>
-                <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder">Время доставки</span></div>
-            </div>
-            <div class="form-block">
-                <p class="header">Способ оплаты:</p>
-                <div class="row half">
-                    <div class="checkbox">
-                        <input type="radio" name="pay" checked><label>Наличными</label>
-                        <div class="what">?
-                            <div class="hint">
-                                <p>Оплата наличными при получении заказа</p>
+            <div class="ajax_order_form">
+                <div class="form-block">
+                    <p class="header">Получатель:</p>
+                    <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder">Ваш email *</span></div>
+                    <div class="row half"><input name="phone" type="text" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder">Телефон *</span></div>
+                </div>
+                <div class="form-block">
+                    <p class="header">Доставка:</p>
+                    <div class="row half"><input name="address" type="text" data-parsley-required="true" autocomplete="off"><span class="placeholder">Адрес доставки *</span></div>
+                    <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder">Время доставки</span></div>
+                </div>
+                <div class="form-block">
+                    <p class="header">Способ оплаты:</p>
+                    <div class="row half">
+                        <div class="checkbox">
+                            <input type="radio" name="pay" checked><label>Наличными</label>
+                            <div class="what">?
+                                <div class="hint">
+                                    <p>Оплата наличными при получении заказа</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row half">
+                        <div class="checkbox">
+                            <input type="radio" name="pay"><label>Онлайн</label>
+                            <div class="what">?
+                                <div class="hint">
+                                    <p>Оплата онлайн</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row half">
-                    <div class="checkbox">
-                        <input type="radio" name="pay"><label>Онлайн</label>
-                        <div class="what">?
-                            <div class="hint">
-                                <p>Оплата онлайн</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button type="submit"><span>Отправить заказ</span></button>
             </div>
-            <button type="submit"><span>Отправить заказ</span></button>
-
-            <?php else: ?>
-                <a href="/shop/" class="go_to_shop">Перейти к покупкам</a>
             <?php endif; ?>
+
+            <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>Перейти к покупкам</a>
         </form>
     </div>
 
@@ -112,9 +113,11 @@
                     var counted = parseInt(data.count);
                     // прячем/показываем кнопку
                     if(counted){
-                        $('#orderform .form-block').show();
+                        $('#orderform .ajax_order_form').show();
+                        $('#orderform .go_to_shop').hide();
                     }else{
-                        $('#orderform .form-block').hide();
+                        $('#orderform .ajax_order_form').hide();
+                        $('#orderform .go_to_shop').show();
                     }
                     // корзина
                     $('.ajax_loading_of_cart').html(data.minicart);
