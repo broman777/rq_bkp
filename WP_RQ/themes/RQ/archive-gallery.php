@@ -36,7 +36,7 @@
         <?php if(have_posts() ) : ?>
         <ul class="list">
             <?php $n = 1; while (have_posts()) : the_post(); $type = get_field('type'); ?>
-            <li data-term_id="<?php echo $type; ?>"<?php if($type==8): ?> class="video<?php if($n>1): ?> hidden<?php endif; ?>"<?php endif; ?>>
+            <li data-term_id="<?php echo $type; ?>" class="<?php if($type==8): ?>video <?php endif; ?><?php if($n>1): ?>hidden<?php endif; ?>">
                 <?php get_template_part('_templates/_archive-gallery'); ?>
                 <img src="<?php echo get_template_directory_uri(); ?>/img/ui/4x3.png" alt="">
             </li>
