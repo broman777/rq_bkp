@@ -35,9 +35,12 @@
 
         <?php if(have_posts() ) : ?>
         <ul class="list">
-            <?php while (have_posts()) : the_post(); ?>
+            <?php $n = 1; while (have_posts()) : the_post(); $type = get_field('type'); ?>
+            <li data-term_id="<?php echo $type; ?>"<?php if($type==8): ?> class="video<?php if($n>1): ?> hidden<?php endif; ?>"<?php endif; ?>>
                 <?php get_template_part('_templates/_archive-gallery'); ?>
-            <?php endwhile; wp_reset_query(); ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/img/ui/4x3.png" alt="">
+            </li>
+            <?php $n++; endwhile; wp_reset_query(); ?>
         </ul>
         <?php endif; ?>
         <div class="clear"></div>

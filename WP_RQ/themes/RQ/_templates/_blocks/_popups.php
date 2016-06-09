@@ -68,7 +68,7 @@ if($cart_terms_title && $cart_terms_text): ?>
                 complete: function(){
                     setTimeout(function(){
                         button.text('<?php echo __('Add to cart', 'RQ'); ?>');
-                    }, 5000);
+                    }, 3000);
                 }
             });
         }else{

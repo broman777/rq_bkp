@@ -21,7 +21,7 @@ function mgt_dequeue_stylesandscripts() {
     wp_deregister_script('select2');
     wp_deregister_script('jquery-blockui');
     wp_deregister_script('jquery-payment');
-    //wp_deregister_script('jquery-cookie');
+    wp_deregister_script('jquery-cookie');
     wp_deregister_script('wc-credit-card-form');
     wp_deregister_script('wc-add-to-cart-variation');
     wp_deregister_script('wc-single-product');

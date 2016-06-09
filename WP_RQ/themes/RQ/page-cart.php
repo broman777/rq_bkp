@@ -66,7 +66,7 @@
             </div>
             <?php endif; ?>
 
-            <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>Перейти к покупкам</a>
+            <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>Перейти в каталог</a>
         </form>
     </div>
 
