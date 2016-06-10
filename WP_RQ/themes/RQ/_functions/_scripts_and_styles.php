@@ -23,7 +23,11 @@ function load_scripts_on_site() {
     if(is_post_type_archive('gallery')){
         wp_enqueue_style('fancybox_css', $theme_uri.'/css/vendor/jquery.fancybox.css');
     }
+    if(is_page('cart')){
+        wp_enqueue_style('datetimepicker_css', $theme_uri.'/css/jquery.datetimepicker.css');
+    }
     wp_enqueue_style('style_css', $theme_uri.'/css/style.css');
+
 
     wp_enqueue_script('flexslider_js', $theme_uri.'/js/vendor/jquery.flexslider-min.js', array('jquery'), '2.6.0', true);
     wp_enqueue_script('jqueryui_js', $theme_uri.'/js/vendor/jquery-ui.min.js', array('jquery'), '1.11.4', true);
@@ -32,11 +36,15 @@ function load_scripts_on_site() {
     }
     wp_enqueue_script('main_js', $theme_uri.'/js/main.js', array('jquery'), '1.11.4', true);
 
-    if(is_page('account') || is_page('cart')){
+    if(is_page('cart')){
         wp_enqueue_script('inputmask_js', $theme_uri.'/js/inputmask.min.js', array('jquery'), '3.3.2', true);
         wp_enqueue_script('jqueryinputmask_js', $theme_uri.'/js/jquery.inputmask.min.js', array('jquery'), '3.3.2', true);
-        wp_enqueue_script('inputmaskdate_js', $theme_uri.'/js/inputmask.date.extensions.min.js', array('jquery'), '3.3.2', true);
-
+        wp_enqueue_script('parsley_js', $theme_uri.'/js/parsley.min.js', array('jquery'), '2.3.13', true);
+        wp_enqueue_script('datetimepicker_js', $theme_uri.'/js/jquery.datetimepicker.min.js', array('jquery'), '2.4.9', true);
+    }
+    if(is_page('account')){
+        wp_enqueue_script('inputmask_js', $theme_uri.'/js/inputmask.min.js', array('jquery'), '3.3.2', true);
+        wp_enqueue_script('jqueryinputmask_js', $theme_uri.'/js/jquery.inputmask.min.js', array('jquery'), '3.3.2', true);
         wp_enqueue_script('parsley_js', $theme_uri.'/js/parsley.min.js', array('jquery'), '2.3.13', true);
     }
     if(is_post_type_archive('product') || is_post_type_archive('news') || is_post_type_archive('partners')){

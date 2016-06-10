@@ -87,8 +87,10 @@
 <?php /* WRITE SCRIPTS HERE */ ?>
 <script>
     $(document).ready(function(){
-        $('input#time-mask').inputmask("hh:mm",{ "placeholder": "_" }, { "clearIncomplete": true });  // time
-        $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
+        // time
+
+        // phone
+        $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true });
     });
 </script>
 
