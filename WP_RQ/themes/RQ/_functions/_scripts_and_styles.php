@@ -40,7 +40,7 @@ function load_scripts_on_site() {
         wp_enqueue_script('inputmask_js', $theme_uri.'/js/inputmask.min.js', array('jquery'), '3.3.2', true);
         wp_enqueue_script('jqueryinputmask_js', $theme_uri.'/js/jquery.inputmask.min.js', array('jquery'), '3.3.2', true);
         wp_enqueue_script('parsley_js', $theme_uri.'/js/parsley.min.js', array('jquery'), '2.3.13', true);
-        wp_enqueue_script('datetimepicker_js', $theme_uri.'/js/jquery.datetimepicker.min.js', array('jquery'), '2.4.9', true);
+        wp_enqueue_script('datetimepicker_js', $theme_uri.'/js/jquery.datetimepicker.full.min.js', array('jquery'), '2.4.9', true);
     }
     if(is_page('account')){
         wp_enqueue_script('inputmask_js', $theme_uri.'/js/inputmask.min.js', array('jquery'), '3.3.2', true);
