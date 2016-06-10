@@ -577,6 +577,7 @@ aside {
     top: 212px;
     margin-top: -5px; }
 
+#top.cart-top {background-image: url(../img/ui/bg_cart.jpg)!important;}
 #news-slider, #news-list {
   padding-left: 70px;
   background-color: #fff; }
@@ -1582,7 +1583,7 @@ form input:hover + ul + .placeholder,
   #cart-form .tfoot .td.colspan {
     width: 294px; }
     #cart-form .tfoot .td.colspan:first-child {
-      width: 460px; }
+      width: 400px; padding-left: 60px;}
 
 #cart-form .select {
   color: #111; }
@@ -2270,11 +2271,13 @@ form input:hover + ul + .placeholder,
     #form-page form .row input {
       margin-bottom: 10px; }
     #form-page form .fogot {
-      margin-top: 4px;
+      margin-top: 3px;
       float: left; }
     #form-page form .reg {
-      margin-bottom: 22px;
-      float: right; }
+      margin: 4px 0 0;
+      float: right; 
+      font-size: 11px;
+      line-height: 14px;}
     #form-page form button {
       margin-bottom: 13px; }
   #cart-form form {
@@ -2344,7 +2347,7 @@ form input:hover + ul + .placeholder,
     #menu .soc {
       top: auto;
       margin-top: 0;
-      bottom: 15%; }
+      bottom: 2px; }
     #menu #main-nav {
       width: auto;
       left: 50px;
@@ -2363,7 +2366,7 @@ form input:hover + ul + .placeholder,
         display: inline-block;
         vertical-align: top; }
       #menu #user a {
-        margin: 0 11px 60px; }
+        margin: 0 11px 40px; }
     #menu .toggle {
       width: 60px;
       transition: width 0.3s ease; }
@@ -2592,6 +2595,18 @@ form input:hover + ul + .placeholder,
       z-index: 11; }
     #products-page #products-list {
       padding-left: 0; }
+      #products-page .formob {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        display: none;
+      }
+      #products-page .loading .formob {
+        display: block;
+      }
       #products-page #products-list .item {
         height: 290px;
         width: 100% !important; }

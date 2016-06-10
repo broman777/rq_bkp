@@ -18,7 +18,7 @@ $pack_count = get_field('pack_count');
 $hover_text = get_field('hover_text');
 ?>
 
-<div class="item product_<?php echo $id; ?>">
+<div class="item product_<?php echo $id; ?> loading">
     <?php if(is_array($img) && count($img)): ?>
         <div class="img" style="background-image: url('<?php echo $img['sizes']['600x0']; ?>');"></div>
     <?php endif; ?>
@@ -33,6 +33,7 @@ $hover_text = get_field('hover_text');
     </div>
 
     <div class="info">
+        <div class="formob"></div>
         <div class="cell">
             <div class="in">
                 <p class="header"><?php echo $title; ?></p>

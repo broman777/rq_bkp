@@ -61,9 +61,12 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click', '#products-list .item', function(){
+		var item = $(this);
 		if ($(window).width() <= 1024) {
 			$("#products-list .item").not(this).removeClass('active');
-			$(this).toggleClass('active');
+			item.toggleClass('active');
+			if (item.hasClass('active')) setTimeout(function(){item.removeClass('loading')}, 1000);
+			else item.addClass('loading')
 		}
 	});
 });

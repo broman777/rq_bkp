@@ -87,8 +87,12 @@
 <?php /* WRITE SCRIPTS HERE */ ?>
 <script>
     $(document).ready(function(){
+        if($('div').is('#cart-form')) $('#top').addClass('cart-top');
         // time
-
+        $("#time-mask").datetimepicker({
+                format:'d.m.Y H:i',
+              lang:'ru'
+            });
         // phone
         $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true });
     });
