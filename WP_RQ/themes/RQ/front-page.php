@@ -45,27 +45,18 @@
             <?php endif; ?>
 
             <div class="text">
-                <?php $text_1_1 = get_field('text_1_1', 89); if($text_1_1): ?>
+                <?php $text_3_1 = get_field('text_3_1'); if($text_3_1): ?>
                 <div class="col">
-                    <p><?php echo $text_1_1; ?></p>
-                    <?php $img_1 = get_field('img_1', 89); if(is_array($img_1) && count($img_1)): ?>
-                        <img src="<?php echo $img_1['sizes']['600x0']; ?>" alt='<?php the_field('sign_3'); ?>'>
-                    <?php endif; ?>
+                    <p><?php echo $text_3_1; ?></p>
                 </div>
                 <?php endif; ?>
-                <?php $text_1_2 = get_field('text_1_2', 89); if($text_1_2): ?>
+                <?php $text_3_2 = get_field('text_3_2'); if($text_3_2): ?>
                 <div class="col">
-                    <p><?php echo $text_1_2; ?></p>
+                    <p><?php echo $text_3_2; ?></p>
                     <center><a href="/about/" class="btn"><?php echo __('Read more about company', 'RQ'); ?></a></center>
                 </div>
                 <?php endif; ?>
             </div>
-
-            <?php $text_1_3 = get_field('text_1_3', 89); if($text_1_3): ?>
-            <div class="text">
-                <blockquote><?php echo $text_1_3; ?></blockquote>
-            </div>
-            <?php endif; ?>
         </div>
         <img src="<?php echo get_template_directory_uri(); ?>/img/hist.jpg" alt='<?php the_field('sign_3'); ?>'>
     </section>
@@ -76,57 +67,63 @@
         <div class="title"><a href="<?php the_field('sectionlink_4'); ?>"></a><p><span><?php the_field('sign_4'); ?></span></p></div>
         <!-- about start -->
         <div id="about-slider">
+            <?php $slides = get_field('slides'); if(is_array($slides) && count($slides)): ?>
             <ul class="slides">
+                <?php foreach($slides as $slide): ?>
                 <li>
                     <div class="bottle">
+                        <?php if(is_array($slide['table']) && count($slide['table'])): ?>
                         <div class="table">
-                            <?php for($n = 1; $n<=6; $n++): ?>
+                            <?php foreach($slide['table'] as $col): ?>
                                 <div class="cell">
-                                    <?php $cell_title = get_field('cell_'.$n.'_title'); if($cell_title): ?>
-                                        <p><?php echo $cell_title; ?></p>
+                                    <?php if($col['title']): ?>
+                                        <p><?php echo $col['title']; ?></p>
                                     <?php endif; ?>
-                                    <?php $cell_subtitle = get_field('cell_'.$n.'_subtitle'); if($cell_subtitle): ?>
-                                        <span><?php echo $cell_subtitle; ?></span>
+                                    <?php if($col['subtitle']): ?>
+                                        <span><?php echo $col['subtitle']; ?></span>
                                     <?php endif; ?>
-                                    <?php $cell_hover = get_field('cell_'.$n.'_hover'); if($cell_hover): ?>
+                                    <?php if($col['hover_text']): ?>
                                     <div class="hint">
-                                        <p><?php echo $cell_hover; ?></p>
+                                        <p><?php echo $col['hover_text']; ?></p>
                                     </div>
                                     <?php endif; ?>
                                 </div>
-                            <?php endfor; ?>
+                            <?php endforeach; ?>
                         </div>
+                        <?php endif; ?>
                     </div>
-                    <?php $text_4 = get_field('text_4'); if($text_4): ?>
-                        <p class="text"><?php echo $text_4; ?></p>
+                    <?php if($slide['text']): ?>
+                        <p class="text"><?php echo $slide['text']; ?></p>
                     <?php endif; ?>
                 </li>
+                <?php endforeach; ?>
             </ul>
+            <?php endif; ?>
         </div>
         <!-- about end -->
     </section>
     <?php endif; ?>
 
+    <?php $blocks = get_field('blocks'); if(is_array($blocks) && count($blocks)): ?>
     <section id="banners">
         <ul class="banner-list">
-            <?php for($n = 5; $n<=7; $n++): ?>
-                <?php $active = get_field('active_'.$n); if($active): ?>
-                    <li data-animate>
-                        <div class="title"><a href="<?php the_field('sectionlink_'.$n); ?>"></a><p><span><?php the_field('sign_'.$n); ?></span></p></div>
-                        <div class="cell bg"<?php $img = get_field('img_'.$n); if(is_array($img) && count($img)): ?> style="background-image: url('<?php echo $img['sizes']['650x390']; ?>');"<?php endif; ?>></div>
-                        <div class="cell text">
-                            <div class="tr">
-                                <div class="td">
-                                    <?php $title = get_field('title_'.$n); if($title): ?><p class="header"><?php echo $title; ?></p><?php endif; ?>
-                                    <?php $button = get_field('button_'.$n); if($button): ?><a href="<?php the_field('link_'.$n); ?>" class="link btn"><?php echo $button; ?></a><?php endif; ?>
-                                </div>
+            <?php foreach($blocks as $block): ?>
+                <li data-animate>
+                    <div class="title"><a href="<?php echo $block['sectionlink']; ?>"></a><p><span><?php echo $block['sign']; ?></span></p></div>
+                    <div class="cell bg"<?php if(is_array($block['img']) && count($block['img'])): ?> style="background-image: url('<?php echo $block['img']['sizes']['650x390']; ?>');"<?php endif; ?>></div>
+                    <div class="cell text">
+                        <div class="tr">
+                            <div class="td">
+                                <?php if($block['title']): ?><p class="header"><?php echo $block['title']; ?></p><?php endif; ?>
+                                <?php if($block['button']): ?><a href="<?php echo $block['link']; ?>" class="link btn"><?php echo $block['button']; ?></a><?php endif; ?>
                             </div>
                         </div>
-                    </li>
-                <?php endif; ?>
-            <?php endfor; ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </section>
+    <?php endif; ?>
 </div>
 
 <?php get_footer(); ?>

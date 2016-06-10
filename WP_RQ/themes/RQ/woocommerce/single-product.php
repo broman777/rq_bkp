@@ -103,32 +103,38 @@ $hover_text = get_field('hover_text');
     <?php $active_4 = get_field('active_4', 8); if($active_4): // ABOUT WATER ?>
         <div id="about">
             <div id="about-slider">
-                <ul class="slides">
-                    <li>
-                        <div class="bottle">
-                            <div class="table">
-                                <?php for($n = 1; $n<=6; $n++): ?>
-                                    <div class="cell">
-                                        <?php $cell_title = get_field('cell_'.$n.'_title', 8); if($cell_title): ?>
-                                            <p><?php echo $cell_title; ?></p>
-                                        <?php endif; ?>
-                                        <?php $cell_subtitle = get_field('cell_'.$n.'_subtitle', 8); if($cell_subtitle): ?>
-                                            <span><?php echo $cell_subtitle; ?></span>
-                                        <?php endif; ?>
-                                        <?php $cell_hover = get_field('cell_'.$n.'_hover', 8); if($cell_hover): ?>
-                                            <div class="hint">
-                                                <p><?php echo $cell_hover; ?></p>
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                <?php endfor; ?>
-                            </div>
-                        </div>
-                        <?php $text_4 = get_field('text_4', 8); if($text_4): ?>
-                            <p class="text"><?php echo $text_4; ?></p>
-                        <?php endif; ?>
-                    </li>
-                </ul>
+                <?php $slides = get_field('slides', 8); if(is_array($slides) && count($slides)): ?>
+                    <ul class="slides">
+                        <?php foreach($slides as $slide): ?>
+                            <li>
+                                <div class="bottle">
+                                    <?php if(is_array($slide['table']) && count($slide['table'])): ?>
+                                        <div class="table">
+                                            <?php foreach($slide['table'] as $col): ?>
+                                                <div class="cell">
+                                                    <?php if($col['title']): ?>
+                                                        <p><?php echo $col['title']; ?></p>
+                                                    <?php endif; ?>
+                                                    <?php if($col['subtitle']): ?>
+                                                        <span><?php echo $col['subtitle']; ?></span>
+                                                    <?php endif; ?>
+                                                    <?php if($col['hover_text']): ?>
+                                                        <div class="hint">
+                                                            <p><?php echo $col['hover_text']; ?></p>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <?php if($slide['text']): ?>
+                                    <p class="text"><?php echo $slide['text']; ?></p>
+                                <?php endif; ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
         </div>
     <?php endif; ?>
