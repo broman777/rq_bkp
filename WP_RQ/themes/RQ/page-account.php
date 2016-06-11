@@ -32,9 +32,10 @@
     <?php else: ?>
 
         <?php if(!get_query_var('section')): // login form ?>
-            <?php get_template_part( '_templates/_account/_login' ); ?>
+            <?php get_template_part( 'woocommerce/myaccount/form-login' ); ?>
         <?php elseif(get_query_var('section')=='forgot'): // forgot password ?>
-            <?php get_template_part( '_templates/_account/_forgot' ); ?>
+            fsgdh
+            <?php get_template_part( 'woocommerce/myaccount/form-lost-password' ); ?>
         <?php elseif(get_query_var('section')=='register'): // registering ?>
             <?php get_template_part( '_templates/_account/_register' ); ?>
         <?php endif; ?>
