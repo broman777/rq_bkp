@@ -1,5 +1,14 @@
 <?php get_header(); ?>
 
+<?php
+// доставка
+WC()->shipping->load_shipping_methods();
+$delivery = WC()->shipping->get_shipping_methods();
+
+// оплата
+$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+?>
+
 <section id="form-page">
     <div id="top"<?php $cart_bg = get_field('cart_bg', 32); if(is_array($cart_bg) && count($cart_bg)): ?> style="background-image: url('<?php echo $cart_bg['sizes']['large']; ?>');"<?php endif; ?>>
         <div class="box">
@@ -39,30 +48,26 @@
                     <div class="row half"><input name="address" type="text" data-parsley-required="true" autocomplete="off"><span class="placeholder">Адрес доставки *</span></div>
                     <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder">Время доставки</span></div>
                 </div>
-                <div class="form-block">
-                    <p class="header">Способ оплаты:</p>
-                    <div class="row half">
-                        <div class="checkbox">
-                            <input type="radio" name="pay" checked><label>Наличными</label>
-                            <div class="what">?
-                                <div class="hint">
-                                    <p>Оплата наличными при получении заказа</p>
+
+                <?php if ($available_gateways): $translate = array('cod' => 'Cash', 'cheque' => 'Online'); ?>
+                    <div class="form-block">
+                        <p class="header">Способ оплаты:</p>
+                        <?php foreach ( $available_gateways as $gateway ) : ?>
+                            <div class="row half">
+                                <div class="checkbox">
+                                    <input type="radio" value="<?php echo $gateway->id; ?>" name="pay" checked><label><?php if(get_bloginfo( 'language' )=='ru-RU'): echo $gateway->get_title(); else: echo $translate[$gateway->id]; endif; ?></label>
+                                    <?php $description = $gateway->get_description(); if($description): ?>
+                                    <div class="what">?<div class="hint"><p><?php echo $description; ?></p></div></div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <div class="row half">
-                        <div class="checkbox">
-                            <input type="radio" name="pay"><label>Онлайн</label>
-                            <div class="what">?
-                                <div class="hint">
-                                    <p>Оплата онлайн</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit"><span>Отправить заказ</span></button>
+                <?php endif; ?>
+
+                <?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
+
+                <button type="submit" class="place_order"><span>Отправить заказ</span></button>
             </div>
             <?php endif; ?>
 
@@ -171,6 +176,61 @@
             change_quantity_in_cart(cart_item_key, quantity);
         }else{
             alert('<?php echo __('Error, please refresh page.', 'RQ'); ?>');
+        }
+        return false;
+    });
+</script>
+
+<script>
+    // оформление заказа
+    $(document).on('submit', '#orderform', function() {
+        if($(this).parsley('validate')) {
+            var email = $('input[name="email"]').val(),
+                phone = $('input[name="phone"]').val(),
+                address_1 = $('input[name="address"]').val(),
+                time = $('input[name="time"]').val(),
+                wpnonce = $('#_wpnonce').val(),
+                /*delivery = ;*/
+                payment = $('input[name="pay"]').val();
+
+            $.ajax({
+                url: '/wp-admin/admin-ajax.php?action=custom_create_order',
+                data: {
+                    'billing_email': email,
+                    'billing_phone': phone,
+                    'billing_address_1': address_1,
+                    '_wpnonce': wpnonce,
+                    /*'delivery': delivery,*/
+                    'payment': payment
+                },
+                type: 'POST',
+                dataType: 'json',
+                beforeSend: function () {
+                    //page_container.html('<div class="container"><p class="title" style="text-align: center; width: 100%"><?php echo __('[:ru]Подождите минутку, пожалуйста.[:ua]Почекайте хвильку, будь ласка.[:]'); ?></p></div>');
+                },
+                success: function (data) {
+                    /*if (data.orderid) {
+                        $('.cart_button span').addClass('_hidden').html('0');
+                        if (data.online) {
+                            page_container.html('<div class="container"><p class="title" style="text-align: center; width: 100%"><?php echo __('[:ru]Спасибо за заказ.[:ua]Дякуємо за замовлення.[:]'); ?></p><p style="width: 100%; font-size: 1.125em; color: #333; text-align: center;"><?php echo __('[:ru]Если перенаправление на страницу оплаты не произошло, кликните на кнопку ниже:[:ua]Якщо перенаправлення на сторінку оплати не відбулося, натисніть кнопку нижче:[:]'); ?></p><div id="liqpay_checkout">' + data.pay_form + '</div></div>');
+                        } else {
+                            page_container.html('<div class="container"><p class="title" style="text-align: center; width: 100%"><?php echo __('[:ru]Спасибо, Ваш заказ[:ua]Спасибі, Ваше замовлення[:]'); ?> №' + data.orderid + ' <?php echo __('[:ru]принят[:ua]прийнято[:]'); ?>. </p><p style="width: 100%; font-size: 1.125em; color: #333; text-align: center;"><?php echo __('[:ru]Статус заказа можно будет проверять в[:ua]Статус замовлення можна буде перевірити в[:]'); ?> <a href="/account/?show=history" style="color: #116cd6"><?php echo __('[:ru]Личном кабинете[:ua]Особистому кабінеті[:]'); ?>.</a></p></div>');
+                        }
+
+                        // GOOGLE GOALS
+                        ga('send', 'event', 'checkout', 'buy');
+                        // END
+                    } else {
+                        page_container.html('<div class="container"><p class="title" style="text-align: center; width: 100%"><?php echo __('[:ru]Ошибка при оформлении заказа.[:ua]Помилка при оформленні замовлення.[:]'); ?></p><p style="width: 100%; font-size: 1.125em; color: #333; text-align: center;"><?php echo __('[:ru]Попробуйте обновить страницу[:ua]Спробуйте оновити сторінку[:]'); ?></p></div>');
+                    }*/
+                },
+                complete: function () {
+                    /*var isset_form = $('#liqpay_checkout').find('form');
+                    if (isset_form.length) {
+                        $('#liqpay_checkout form').trigger('submit');
+                    }*/
+                }
+            });
         }
         return false;
     });

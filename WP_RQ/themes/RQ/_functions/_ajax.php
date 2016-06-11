@@ -83,4 +83,78 @@ function change_quantity_minicart(){
     exit();
 }
 
+// CHECKOUT
+function wp_custom_create_order(){
+    // проверка
+    if(check_ajax_referer( 'woocommerce-process_checkout', false, false )){
+
+        $address = array(
+            'email'      => wp_strip_all_tags($_POST['billing_email']),
+            'phone'      => wp_strip_all_tags($_POST['billing_phone']),
+            'address_1'  => wp_strip_all_tags($_POST['billing_address_1']),
+            'country'    => 'UA'
+        );
+        $args = array(
+            'status'        => 'processing',
+            'customer_id'   => (int)get_current_user_id(),
+            'customer_note' => $_POST['order_comment']
+        );
+        $order = wc_create_order($args);
+        foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
+            $item_id = $order->add_product(
+                $values['data'],
+                $values['quantity']
+            );
+            do_action( 'woocommerce_add_order_item_meta', $item_id, $values, $cart_item_key );
+        }
+
+        // address
+        $order->set_address( $address, 'billing' );
+        $order->set_address( $address, 'shipping' );
+
+        // discount -10%
+        /*if($_POST['want_discount']){
+            update_post_meta($order->id, '_order_custom_discount', 'yes');
+        }*/
+
+        // delivery
+        if($_POST['delivery']):
+            WC()->shipping->load_shipping_methods(); $delivery = WC()->shipping->get_shipping_methods(); foreach($delivery as $method): if($method->enabled=='yes'):
+            if($method->id==$_POST['delivery']):
+                $delivery_method = new WC_Shipping_Rate($order->id, $method->title, $method->fee, array(), $method->id);
+                $order->add_shipping($delivery_method);
+                $order->calculate_shipping();
+            endif;
+        endif; endforeach;
+        endif;
+
+        // payment
+        if($_POST['payment']):
+            if ( $available_gateways = WC()->payment_gateways->get_available_payment_gateways() ) : foreach ( $available_gateways as $gateway ) :
+                if($gateway->id==$_POST['payment']):
+                    $order->set_payment_method($gateway);
+                    // если онлайн
+                    if($gateway->id=='cheque'){
+                        update_post_meta($order->id, '_transaction_id', 'Не оплачено');
+                    }
+                endif;
+            endforeach; endif;
+        endif;
+
+        // total
+        $order->calculate_totals();
+        // status
+        $order->update_status('processing');
+        // empty cart
+        WC()->cart->empty_cart(true);
+        // return
+        echo json_encode(array('order_id'=>$order->id, 'minicart'=>do_shortcode('[minicart]')));
+    }else{
+        wp_send_json_error(); // {"success":false}
+    }
+    exit();
+}
+add_action('wp_ajax_custom_create_order', 'wp_custom_create_order');
+add_action('wp_ajax_nopriv_custom_create_order', 'wp_custom_create_order');
+
 /* END */
