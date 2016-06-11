@@ -19,7 +19,7 @@
         <?php endif; ?>
     </div>
 
-    <?php if($customer_id): ?>
+    <?php /*if($customer_id): ?>
 
         <?php if(!get_query_var('section')): // orders ?>
             <?php get_template_part( '_templates/_account/_orders' ); ?>
@@ -37,13 +37,13 @@
             <?php get_template_part( '_templates/_account/_register' ); ?>
         <?php endif; ?>
 
-    <?php endif; ?>
+    <?php endif;*/ ?>
 
     <?php get_footer(); ?>
 </section>
 
 <?php /* WRITE SCRIPTS HERE */ ?>
-<?php if($customer_id): ?>
+<?php /*if($customer_id): ?>
 
     <?php if(!get_query_var('section')): // orders ?>
         <script>
@@ -73,7 +73,7 @@
         </script>
     <?php endif; ?>
 
-<?php endif; ?>
+<?php endif;*/ ?>
 <?php /* END */ ?>
 
 </body>

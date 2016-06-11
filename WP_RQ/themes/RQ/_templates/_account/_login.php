@@ -23,7 +23,7 @@
         <?php wp_nonce_field( 'woocommerce-login' ); ?>
         <button type="submit" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>"><span><?php echo __( 'Submit', 'RQ' ); ?></span></button>
 
-        <a href="<?php echo wc_get_page_permalink( 'myaccount' ); ?>forgot/" class="fogot"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a><br>
+        <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="fogot"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a><br>
         <a href="<?php echo wc_get_page_permalink( 'myaccount' ); ?>register/" class="reg"><?php echo __( 'Register', 'RQ' ); ?></a>
     </form>
 </div>
