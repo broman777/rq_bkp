@@ -74,6 +74,10 @@
                             <?php endif; ?>
                         </div>
                         <img src="<?php echo get_template_directory_uri(); ?>/img/ui/4x3.png" alt="">
+                        <div class="share">
+                            <span><?php echo __('Share', 'RQ'); ?>:</span>
+                            <div class="ya-share2" data-services="facebook,vkontakte,twitter" data-description="<?php echo get_seo('description'); ?>"<?php if(is_array($img) && count($img)): ?> data-image="<?php echo $img['sizes']['large']; ?>"<?php endif; ?> data-lang="<?php echo __('[:ru]ru[:en]en[:]'); ?>" data-title="<?php wp_title(''); ?>" data-url="<?php echo get_post_type_archive_link('gallery'); ?>" data-bare></div>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             <?php endforeach; ?>
@@ -138,6 +142,12 @@
                 return false;
             }
         });
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.menu-item-232').addClass('current-menu-item');
     });
 </script>
 <?php /* END */ ?>

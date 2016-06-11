@@ -1254,7 +1254,7 @@ aside {
         transition: opacity .3s ease;
         opacity: 0;
         text-align: center; }
-        #gal-page #gal-list .list > li .share .share-list {
+        #gal-page #gal-list .list > li .share .share-list, #gal-page #gal-list .list > li .ya-share2 {
           width: 50%;
           padding: 0; }
         #gal-page #gal-list .list > li .share span, #gal-page #gal-list .list > li .share li {
@@ -1923,7 +1923,7 @@ form input:hover + ul + .placeholder,
   font-size: 0;
   float: right;
   background-color: #FFF; }
-  .share ul {
+  .share ul, .share .ya-share2 {
     float: right;
     background-color: #004541;
     padding: 0 15px; }
