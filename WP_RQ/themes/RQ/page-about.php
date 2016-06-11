@@ -18,29 +18,8 @@
     <?php $active_1 = get_field('active_1'); if($active_1): ?>
     <section id="hist">
         <div class="box">
-            <?php $title_1 = get_field('title_1'); if($title_1): ?>
-                <h2><?php echo $title_1; ?></h2>
-            <?php endif; ?>
-            <div class="text">
-                <?php $text_1_1 = get_field('text_1_1'); if($text_1_1): ?>
-                    <div class="col">
-                        <p><?php echo $text_1_1; ?></p>
-                        <?php $img_1 = get_field('img_1'); if(is_array($img_1) && count($img_1)): ?>
-                            <img src="<?php echo $img_1['sizes']['600x0']; ?>" alt='<?php echo get_the_title(); ?>'>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-                <?php $text_1_2 = get_field('text_1_2'); if($text_1_2): ?>
-                    <div class="col">
-                        <p><?php echo $text_1_2; ?></p>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <?php $text_1_3 = get_field('text_1_3'); if($text_1_3): ?>
-                <div class="text">
-                    <blockquote><?php echo $text_1_3; ?></blockquote>
-                </div>
-            <?php endif; ?>
+            <?php // flexible content ?>
+            <?php get_template_part('_templates/_blocks/_flexible-content'); ?>
         </div>
         <img src="<?php echo get_template_directory_uri(); ?>/img/hist.jpg" alt='<?php echo get_the_title(); ?>'>
     </section>

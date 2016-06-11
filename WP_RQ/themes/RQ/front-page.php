@@ -40,8 +40,8 @@
     <section id="hist">
         <div class="title"><a href="<?php the_field('sectionlink_3'); ?>"></a><p><span><?php the_field('sign_3'); ?></span></p></div>
         <div class="box">
-            <?php $title_1 = get_field('title_1', 89); if($title_1): ?>
-            <h2><?php echo $title_1; ?></h2>
+            <?php $title_3 = get_field('title_3'); if($title_3): ?>
+            <h2><?php echo $title_3; ?></h2>
             <?php endif; ?>
 
             <div class="text">

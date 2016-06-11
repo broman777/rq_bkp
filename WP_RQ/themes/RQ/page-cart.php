@@ -89,9 +89,8 @@
     $(document).ready(function(){
         if($('div').is('#cart-form')) $('#top').addClass('cart-top');
         // date & time
-        $.datetimepicker.setLocale('ru');
+        $.datetimepicker.setLocale('<?php echo __('[:ru]ru[:en]en[:]'); ?>');
         $("#time-mask").datetimepicker({
-            lang:'ru',
             timepicker:true,
             datepicker: true,
             scrollMonth: false,

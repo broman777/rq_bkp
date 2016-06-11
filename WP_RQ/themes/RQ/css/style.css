@@ -58,7 +58,7 @@ footer .menu li:first-child{
   width: 870px;
   margin: 0 auto;
   font-size: 0; }
-  .box h2 {
+  .box h2, .box h3 {
     font-size: 34px;
     line-height: 42px;
     color: #AA8A51;
@@ -577,7 +577,6 @@ aside {
     top: 212px;
     margin-top: -5px; }
 
-#top.cart-top {background-image: url(../img/ui/bg_cart.jpg)!important;}
 #news-slider, #news-list {
   padding-left: 70px;
   background-color: #fff; }
@@ -818,7 +817,7 @@ aside {
       background-color: #AA8A51;
       margin: 0 auto 40px;
       display: block; }
-    #top .box h2 {
+    #top .box h2, #top .box h3 {
       margin-bottom: 32px; }
   #top:before {
     z-index: 1;
@@ -2463,7 +2462,7 @@ form input:hover + ul + .placeholder,
     box-sizing: border-box;
     width: 100%;
     padding: 35px 20px 0; }
-    #hist .box h2, #new-page h2, #text h2 {
+    #hist .box h2, #new-page h2, #text h2, #hist .box h3 {
       font-size: 26px;
       line-height: 32px;
       margin-bottom: 25px; }
