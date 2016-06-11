@@ -40,13 +40,13 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
             <div class="ajax_order_form">
                 <div class="form-block">
                     <p class="header">Получатель:</p>
-                    <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder">Ваш email *</span></div>
-                    <div class="row half"><input name="phone" type="text" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder">Телефон *</span></div>
+                    <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span></div>
+                    <div class="row half"><input name="phone" type="text" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Phone', 'RQ' ); ?> *</span></div>
                 </div>
                 <div class="form-block">
                     <p class="header">Доставка:</p>
-                    <div class="row half"><input name="address" type="text" data-parsley-required="true" autocomplete="off"><span class="placeholder">Адрес доставки *</span></div>
-                    <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder">Время доставки</span></div>
+                    <div class="row half"><input name="address" type="text" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping address', 'RQ' ); ?> *</span></div>
+                    <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping time', 'RQ' ); ?></span></div>
                 </div>
 
                 <?php if ($available_gateways): $translate = array('cod' => 'Cash', 'cheque' => 'Online'); ?>

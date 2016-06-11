@@ -157,4 +157,62 @@ function wp_custom_create_order(){
 add_action('wp_ajax_custom_create_order', 'wp_custom_create_order');
 add_action('wp_ajax_nopriv_custom_create_order', 'wp_custom_create_order');
 
+// ACCOUNT UPDATE
+function save_account_details() {
+    check_ajax_referer( 'save_details', 'details_security' );
+
+    // ACCOUNT INFO
+    $user_id = (int)$_POST['user_id'];
+    //
+    $email = wp_strip_all_tags($_POST['email'], true);
+    $phone = wp_strip_all_tags($_POST['phone'], true);
+    $address = wp_strip_all_tags($_POST['address'], true);
+    //
+    $result = 'success';
+
+    if($user_id && $email && $phone && $address){
+        // емейл
+        $satinize_email = sanitize_email($_POST['email']);
+        $update_result = wp_update_user( array( 'ID' => $user_id, 'user_email' => $satinize_email ) );
+        update_user_meta($user_id, 'billing_email', $satinize_email);
+        // телефон
+        update_user_meta($user_id, 'billing_phone', sanitize_text_field($phone));
+        // адрес
+        update_user_meta($user_id, 'billing_address_1', sanitize_text_field($_POST['address']));
+        // check
+        if ( is_wp_error( $update_result ) ) {
+            $result = 'error';
+        }
+    }else{
+        $result = 'error';
+    }
+
+    // PASSWORD
+    $old_password = wp_strip_all_tags($_POST['old_password'], true);
+    $password = wp_strip_all_tags($_POST['password'], true);
+
+    if($user_id && $old_password && $password){
+        $result = 'success';
+        // проверяем старый пароль
+        $user = get_user_by('id', $user_id);
+        if($user){
+            $check_old_pass = wp_check_password( $old_password, $user->data->user_pass, $user->ID );
+            if($check_old_pass){
+                // ставим новый
+                $update_user = wp_update_user( array ( 'ID' => $user->ID, 'user_pass' => $password ) );
+                if(is_wp_error( $update_user )){
+                    $result = 'error';
+                }
+            }else{
+                $result = 'error';
+            }
+        }else{
+            $result = 'error';
+        }
+    }
+
+    wp_redirect(wc_get_page_permalink( 'myaccount' ).'edit/?result='.$result); exit();
+}
+add_action('wp_ajax_save_account_details', 'save_account_details');
+
 /* END */
