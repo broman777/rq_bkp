@@ -1401,6 +1401,9 @@ form.login input#rememberme{
   form .header {
     font: 22px/30px "Constantine", serif;
     margin-bottom: 32px; }
+.woocommerce-error{
+  margin-bottom: 32px;
+}
   form .row {
     position: relative;
     display: block; }
@@ -2267,6 +2270,9 @@ form input:hover + ul + .placeholder,
       display: none; }
     #form-page form .header {
       margin-bottom: 14px; }
+  .woocommerce-error{
+    margin-bottom: 14px;
+  }
     #form-page form .row input {
       margin-bottom: 10px; }
     #form-page form .fogot {
@@ -2856,9 +2862,21 @@ form input:hover + ul + .placeholder,
     width: 50%;
     float: left; } }
 
-
 /* parsley */
 .parsley-errors-list{
+  display: none!important;
+}
+/* end */
+
+/* woocommerce status */
+.woocommerce-error li{
+  color: #AA8A51;
+  font-size: 12px;
+}
+.woocommerce-error li strong{
+  font-weight: 400;
+}
+.woocommerce-error li a{
   display: none!important;
 }
 /* end */
