@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php global $wp_query; ?>
-<?php $posts_per_page = 6; // кол-ство на странице ?>
+<?php $posts_per_page = 12; // кол-ство на странице ?>
 
 <section id="gal-page">
     <div id="top"<?php $gallery_bg = get_field('gallery_bg', 32); if(is_array($gallery_bg) && count($gallery_bg)): ?> style="background: url('<?php echo $gallery_bg['sizes']['large']; ?>') no-repeat 50% 50%;"<?php endif; ?>>

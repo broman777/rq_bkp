@@ -18,7 +18,7 @@ function my_pre_get_posts( $query ) {
     if ( ! is_admin() && $query->is_main_query() ) {
         if(is_shop()){ // SHOP
             // posts per page
-            $query->set( 'posts_per_page', 1 );
+            $query->set( 'posts_per_page', 6 );
             // sorting
             $query->set( 'orderby', 'menu_order' );
             $query->set( 'order', 'ASC' );
@@ -32,7 +32,7 @@ function my_pre_get_posts( $query ) {
             $query->set( 'order', 'ASC' );
         } elseif ( is_post_type_archive('news') ) { // NEWS
             // posts per page
-            $query->set( 'posts_per_page', 4 );
+            $query->set( 'posts_per_page', 5 );
             // sorting
             $query->set( 'orderby', 'date' );
             $query->set( 'order', 'DESC' );
