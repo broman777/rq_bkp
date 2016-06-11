@@ -97,3 +97,12 @@ $(document).on('focusout', 'input', function(){
 		$(this).removeClass('filled');
 	}
 });
+$(document).ready(function(){
+	$('input').each(function(){
+		if($(this).val()){
+			$(this).addClass('filled');
+		}else{
+			$(this).removeClass('filled');
+		}
+	});
+});
