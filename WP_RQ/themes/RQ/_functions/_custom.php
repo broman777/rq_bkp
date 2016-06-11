@@ -41,17 +41,4 @@ function customwidgets_add_dashboard_widgets() {
 	wp_add_dashboard_widget('dashboard_widget', 'RusseQuelle', 'dashboard_widget_function');
 }
 
-// ACCOUNT PAGE REDIRECTS
-/*function check_account_get($customer_id){
-	if($customer_id):
-		if(get_query_var('section') && get_query_var('section')!='edit'):
-			wp_redirect( wc_get_page_permalink( 'myaccount' ) ); exit; // кидаем на главную профиля
-		endif;
-	else:
-		if(get_query_var('section') && (get_query_var('section')!='forgot' && get_query_var('section')!='register')):
-			wp_redirect( wc_get_page_permalink( 'myaccount' ) ); exit; // кидаем на главную профиля
-		endif;
-	endif;
-}*/
-
 /* END */

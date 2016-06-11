@@ -1,5 +1,3 @@
-<?php //$customer_id = get_current_user_id(); check_account_get($customer_id); ?>
-
 <?php get_header(); ?>
 
 <section id="form-page">
@@ -20,27 +18,6 @@
     </div>
 
     <?php echo do_shortcode('[woocommerce_my_account]'); ?>
-
-    <?php /*if($customer_id): ?>
-
-        <?php if(!get_query_var('section')): // orders ?>
-            <?php get_template_part( '_templates/_account/_orders' ); ?>
-        <?php elseif(get_query_var('section')=='edit'): // edit account details ?>
-            <?php get_template_part( '_templates/_account/_edit' ); ?>
-        <?php endif; ?>
-
-    <?php else: ?>
-
-        <?php if(!get_query_var('section')): // login form ?>
-            <?php get_template_part( 'woocommerce/myaccount/form-login' ); ?>
-        <?php elseif(get_query_var('section')=='forgot'): // forgot password ?>
-            fsgdh
-            <?php get_template_part( 'woocommerce/myaccount/form-lost-password' ); ?>
-        <?php elseif(get_query_var('section')=='register'): // registering ?>
-            <?php get_template_part( '_templates/_account/_register' ); ?>
-        <?php endif; ?>
-
-    <?php endif;*/ ?>
 
     <?php get_footer(); ?>
 </section>

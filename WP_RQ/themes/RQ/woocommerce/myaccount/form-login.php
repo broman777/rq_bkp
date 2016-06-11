@@ -64,7 +64,7 @@
 			<?php do_action( 'register_form' ); ?>
 
 			<?php wp_nonce_field( 'woocommerce-register' ); ?>
-			<button type="submit" name="register"><span><?php esc_attr_e( 'Register', 'woocommerce' ); ?></span></button>
+			<button type="submit" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><span><?php esc_attr_e( 'Register', 'woocommerce' ); ?></span></button>
 
 			<a href="<?php echo wc_get_page_permalink( 'myaccount' ); ?>" class="reg"><?php echo __( 'Do you have account?', 'RQ' ); ?></a>
 
