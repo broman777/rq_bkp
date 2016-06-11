@@ -42,7 +42,7 @@ function customwidgets_add_dashboard_widgets() {
 }
 
 // ACCOUNT PAGE REDIRECTS
-function check_account_get($customer_id){
+/*function check_account_get($customer_id){
 	if($customer_id):
 		if(get_query_var('section') && get_query_var('section')!='edit'):
 			wp_redirect( wc_get_page_permalink( 'myaccount' ) ); exit; // кидаем на главную профиля
@@ -52,6 +52,6 @@ function check_account_get($customer_id){
 			wp_redirect( wc_get_page_permalink( 'myaccount' ) ); exit; // кидаем на главную профиля
 		endif;
 	endif;
-}
+}*/
 
 /* END */

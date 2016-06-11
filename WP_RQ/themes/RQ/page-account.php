@@ -46,39 +46,11 @@
 </section>
 
 <?php /* WRITE SCRIPTS HERE */ ?>
-<?php /*if($customer_id): ?>
-
-    <?php if(!get_query_var('section')): // orders ?>
-        <script>
-
-        </script>
-    <?php elseif(get_query_var('section')=='edit'): // edit account details ?>
-        <script>
-            $(document).ready(function(){
-                $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
-            });
-        </script>
-    <?php endif; ?>
-
-<?php else: ?>
-
-    <?php if(!get_query_var('section')): // login form ?>
-        <script>
-
-        </script>
-    <?php elseif(get_query_var('section')=='forgot'): // forgot password ?>
-        <script>
-            $(document).ready(function(){
-                alert('ok');
-            });
-        </script>
-    <?php elseif(get_query_var('section')=='register'): // registering ?>
-        <script>
-            
-        </script>
-    <?php endif; ?>
-
-<?php endif;*/ ?>
+<script>
+    $(document).ready(function(){
+        $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true }); // phone
+    });
+</script>
 <?php /* END */ ?>
 
 </body>
