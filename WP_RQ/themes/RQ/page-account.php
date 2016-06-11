@@ -1,4 +1,4 @@
-<?php $customer_id = get_current_user_id(); check_account_get($customer_id); ?>
+<?php //$customer_id = get_current_user_id(); check_account_get($customer_id); ?>
 
 <?php get_header(); ?>
 
@@ -18,6 +18,8 @@
             <div class="title"><span><?php echo $account_section; ?></span></div>
         <?php endif; ?>
     </div>
+
+    <?php echo do_shortcode('[woocommerce_my_account]'); ?>
 
     <?php /*if($customer_id): ?>
 
@@ -65,7 +67,9 @@
         </script>
     <?php elseif(get_query_var('section')=='forgot'): // forgot password ?>
         <script>
-
+            $(document).ready(function(){
+                alert('ok');
+            });
         </script>
     <?php elseif(get_query_var('section')=='register'): // registering ?>
         <script>
