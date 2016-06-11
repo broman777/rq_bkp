@@ -1401,7 +1401,7 @@ form.login input#rememberme{
   form .header {
     font: 22px/30px "Constantine", serif;
     margin-bottom: 32px; }
-.woocommerce-error{
+.woocommerce-error, .woocommerce-message{
   margin-bottom: 32px;
 }
   form .row {
@@ -2270,7 +2270,7 @@ form input:hover + ul + .placeholder,
       display: none; }
     #form-page form .header {
       margin-bottom: 14px; }
-  .woocommerce-error{
+  .woocommerce-error, .woocommerce-message{
     margin-bottom: 14px;
   }
     #form-page form .row input {
@@ -2869,14 +2869,14 @@ form input:hover + ul + .placeholder,
 /* end */
 
 /* woocommerce status */
-.woocommerce-error li{
+.woocommerce-error li, .woocommerce-message{
   color: #AA8A51;
   font-size: 12px;
 }
-.woocommerce-error li strong{
+.woocommerce-error li strong, .woocommerce-message strong{
   font-weight: 400;
 }
-.woocommerce-error li a{
+.woocommerce-error li a, .woocommerce-message a{
   display: none!important;
 }
 /* end */

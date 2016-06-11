@@ -9,6 +9,8 @@
 
 			<?php wc_print_notices(); ?>
 
+			<?php do_action( 'woocommerce_login_form_start' ); ?>
+
 			<div class="row">
 				<input type="email" name="username" id="username"  value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" data-parsley-type="email" data-parsley-required="true" autocomplete="off">
 				<span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span>
@@ -19,12 +21,15 @@
 			</div>
 
 			<input name="rememberme" type="checkbox" id="rememberme" value="forever" checked>
+			<?php do_action( 'woocommerce_login_form' ); ?>
 
 			<?php wp_nonce_field( 'woocommerce-login' ); ?>
 			<button type="submit" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>"><span><?php echo __( 'Submit', 'RQ' ); ?></span></button>
 
 			<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="fogot"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a><br>
 			<a href="<?php echo wc_get_page_permalink( 'myaccount' ); ?>register/" class="reg"><?php echo __( 'Register', 'RQ' ); ?></a>
+
+			<?php do_action( 'woocommerce_login_form_end' ); ?>
 		</form>
 	</div>
 
