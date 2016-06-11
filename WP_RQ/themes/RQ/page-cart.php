@@ -88,10 +88,19 @@
 <script>
     $(document).ready(function(){
         if($('div').is('#cart-form')) $('#top').addClass('cart-top');
-        // time
+        // date & time
+        $.datetimepicker.setLocale('ru');
         $("#time-mask").datetimepicker({
-                format:'d.m.Y H:i',
-              lang:'ru'
+            lang:'ru',
+            timepicker:true,
+            datepicker: true,
+            scrollMonth: false,
+            scrollTime: false,
+            scrollInput: false,
+            closeOnDateSelect: true,
+            defaultSelect: false,
+            allowBlank: true,
+            format:'d.m.Y H:i'
             });
         // phone
         $('input#phone-mask').inputmask("(099) 999-9999", { "clearIncomplete": true });
