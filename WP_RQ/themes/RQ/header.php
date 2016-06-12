@@ -18,7 +18,7 @@
 
     <div class="line">
         <?php qtranxf_generateLanguageSelectCode('short'); ?>
-        <a href="<?php echo get_the_permalink(156); ?>" class="login"><?php echo __('Login on site', 'RQ'); ?></a>
+        <a href="<?php echo get_the_permalink(156); ?>" class="login"><?php if(get_current_user_id()): echo get_field('account_section', 32); else: echo __('Login on site', 'RQ'); endif; ?></a>
     </div>
 
     <ul id="user">
