@@ -98,3 +98,36 @@
 .post-type-product td.column-price{
     font-weight: bold;
 }
+/* orders */
+.post-type-shop_order #woocommerce-order-downloads,
+.post-type-shop_order #postcustom,
+.post-type-shop_order .order_data_column .address{
+    display: none!important;
+}
+.post-type-shop_order .order_data_column div.edit_address{
+    display: block!important;
+}
+.post-type-shop_order a.edit_address,
+.post-type-shop_order ._billing_first_name_field,
+.post-type-shop_order ._billing_last_name_field,
+.post-type-shop_order ._billing_company_field,
+.post-type-shop_order ._billing_city_field,
+.post-type-shop_order ._billing_postcode_field,
+.post-type-shop_order ._billing_country_field,
+.post-type-shop_order ._billing_state_field,
+.post-type-shop_order ._shipping_first_name_field,
+.post-type-shop_order ._shipping_last_name_field,
+.post-type-shop_order ._shipping_company_field,
+.post-type-shop_order ._shipping_address_1_field,
+.post-type-shop_order ._shipping_address_2_field,
+.post-type-shop_order ._shipping_city_field,
+.post-type-shop_order ._shipping_postcode_field,
+.post-type-shop_order ._shipping_country_field,
+.post-type-shop_order ._shipping_state_field{
+    display: none!important;
+}
+.post-type-shop_order ._billing_address_1_field,
+.post-type-shop_order ._billing_address_2_field{
+    float: left!important;
+    width: 100%!important;
+}

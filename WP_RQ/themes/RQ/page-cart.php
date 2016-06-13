@@ -199,6 +199,7 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
                     'billing_email': email,
                     'billing_phone': phone,
                     'billing_address_1': address_1,
+                    'billing_address_2': time,
                     '_wpnonce': wpnonce,
                     /*'delivery': delivery,*/
                     'payment': payment

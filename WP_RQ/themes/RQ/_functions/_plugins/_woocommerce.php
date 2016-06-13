@@ -103,5 +103,4 @@ function columns_content_only_product($column_name, $post_ID) {
     }
 }
 
-
 /* END */

@@ -43,10 +43,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( $_product ) : ?>
 			<a target="_blank" href="<?php echo esc_url( admin_url( 'post.php?post=' . absint( $_product->id ) . '&action=edit' ) ); ?>">
-				<?php echo esc_html( $item['name'] ); ?>
+				<?php //echo esc_html( $item['name'] ); ?>
+				<?php echo get_the_title($_product->id); ?>
 			</a>
 		<?php else : ?>
-			<?php echo esc_html( $item['name'] ); ?>
+			<?php //echo esc_html( $item['name'] ); ?>
+			<?php echo get_the_title($_product->id); ?>
 		<?php endif; ?>
 
 		<input type="hidden" class="order_item_id" name="order_item_id[]" value="<?php echo esc_attr( $item_id ); ?>" />

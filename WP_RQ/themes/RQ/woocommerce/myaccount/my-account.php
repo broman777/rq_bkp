@@ -83,6 +83,10 @@
 						<?php endforeach; ?>
 						</tbody>
 					</table>
+				<?php else: ?>
+					<ul class="woocommerce-error">
+						<li><?php echo __( 'You don\'t have orders yet.', 'RQ' ); ?></li>
+					</ul>
 				<?php endif; ?>
 
 				<a href="<?php echo wc_get_page_permalink( 'myaccount' ); ?>edit/" class="reg"><?php echo __( 'Edit personal information', 'RQ' ); ?></a><br>
