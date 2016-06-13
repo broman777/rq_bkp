@@ -17,36 +17,47 @@
 		</tr>
 	<?php endif; ?>
 
-	
+	<?php $shipping_address = get_post_meta($order->id, '_billing_address_1', true); if($shipping_address): ?>
+		<tr>
+			<th><?php echo __( 'Shipping address', 'RQ' ); ?>:</th>
+			<td><?php echo $shipping_address; ?></td>
+		</tr>
+	<?php endif; ?>
+
+	<?php $shipping_time = get_post_meta($order->id, '_billing_address_2', true); if($shipping_time): ?>
+		<tr>
+			<th><?php echo __( 'Shipping time', 'RQ' ); ?>:</th>
+			<td><?php echo $shipping_time; ?></td>
+		</tr>
+	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
 </table>
 
-<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
 
-<div class="col2-set addresses">
-	<div class="col-1">
+<h2><?php echo __( 'Payment details', 'RQ' ); ?></h2>
 
-<?php endif; ?>
+<table class="shop_table customer_details">
+	<?php $_payment_method = get_post_meta($order->id, '_payment_method', true); if($_payment_method): ?>
+		<tr>
+			<th><?php echo __( 'Payment method', 'RQ' ); ?>:</th>
+			<?php
+			$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+			foreach ( $available_gateways as $gateway ) :
+				if($gateway->id==$_payment_method): ?>
+					<td><?php echo $gateway->get_title(); ?></td>
+				<?php endif;
+			endforeach;
+			?>
+		</tr>
+	<?php endif; ?>
 
-<header class="title">
-	<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
-</header>
-<address>
-	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
-</address>
+	<?php $_transaction_id = get_post_meta($order->id, '_transaction_id', true); if($_transaction_id): ?>
+		<tr>
+			<th><?php echo __( 'Payment status', 'RQ' ); ?>:</th>
+			<td><?php echo $_transaction_id; ?></td>
+		</tr>
+	<?php endif; ?>
 
-<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
-
-	</div><!-- /.col-1 -->
-	<div class="col-2">
-		<header class="title">
-			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
-		</header>
-		<address>
-			<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
-		</address>
-	</div><!-- /.col-2 -->
-</div><!-- /.col2-set -->
-
-<?php endif; ?>
+	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
+</table>
