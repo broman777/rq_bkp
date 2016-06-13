@@ -42,22 +42,23 @@
 		<tr>
 			<th><?php echo __( 'Payment method', 'RQ' ); ?>:</th>
 			<?php
+			$translate = array('cod' => 'Cash', 'cheque' => 'Online');
 			$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 			foreach ( $available_gateways as $gateway ) :
 				if($gateway->id==$_payment_method): ?>
-					<td><?php echo $gateway->get_title(); ?></td>
+					<td><?php if(get_bloginfo( 'language' )=='ru-RU'): echo $gateway->get_title(); else: echo $translate[$gateway->id]; endif; ?></td>
 				<?php endif;
 			endforeach;
 			?>
 		</tr>
 	<?php endif; ?>
 
-	<?php $_transaction_id = get_post_meta($order->id, '_transaction_id', true); if($_transaction_id): ?>
+	<?php /*$_transaction_id = get_post_meta($order->id, '_transaction_id', true); if($_transaction_id): ?>
 		<tr>
 			<th><?php echo __( 'Payment status', 'RQ' ); ?>:</th>
 			<td><?php echo $_transaction_id; ?></td>
 		</tr>
-	<?php endif; ?>
+	<?php endif;*/ ?>
 
 	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
 </table>

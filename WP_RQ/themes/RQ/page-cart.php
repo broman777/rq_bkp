@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 
 <?php
+// мин.суммы для заказа
+$minimal_pay_sum = (int)get_field('minimal_pay_sum', 32);
+$minimal_free_sum = (int)get_field('minimal_free_sum', 32);
+
 // доставка
 WC()->shipping->load_shipping_methods();
 $delivery = WC()->shipping->get_shipping_methods();
@@ -35,13 +39,7 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
             </div>
             <?php // END // ?>
 
-            <ul class="woocommerce-error"<?php if ( ! WC()->cart->is_empty() && WC()->cart->cart_contents_total>2500 ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
-                <li>1</li>
-            </ul>
-
-            <?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?>
-
-            <div class="ajax_order_form">
+            <div class="ajax_order_form"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total<$minimal_pay_sum) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
                 <div class="form-block">
                     <p class="header"><?php echo __('Customer', 'RQ'); ?>:</p>
                     <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span></div>
@@ -73,9 +71,12 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 
                 <button type="submit" class="place_order"><span><?php echo __('Send order', 'RQ'); ?></span></button>
             </div>
-            <?php endif; ?>
 
-            <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>><?php echo __('To the catalog', 'RQ'); ?></a>
+            <ul class="woocommerce-error"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total>=$minimal_pay_sum ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
+                <li style="text-align: center"><?php echo __('Minimal sum of order', 'RQ'); ?> - <?php echo $minimal_pay_sum; ?> <?php echo get_woocommerce_currency_symbol(); ?></li>
+            </ul>
+
+            <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() && WC()->cart->cart_contents_total>=$minimal_pay_sum ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>><?php echo __('To the catalog', 'RQ'); ?></a>
         </form>
     </div>
 

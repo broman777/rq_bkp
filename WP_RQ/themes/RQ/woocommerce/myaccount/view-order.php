@@ -7,8 +7,8 @@
 			<i class="head-img"></i>
 			<p class="header"><?php echo __( 'Order', 'RQ' ); ?> №<?php echo $order->get_order_number(); ?></p>
 
-			<p class="order_date">Дата заказа: <span><?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?></span></p>
-			<p class="order_status">Статус заказа: <span><?php echo wc_get_order_status_name( $order->get_status() ); ?></span></p>
+			<p class="order_date"><?php echo __( 'Order date', 'RQ' ); ?>: <span><?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?></span></p>
+			<p class="order_status"><?php echo __( 'Order status', 'RQ' ); ?>: <span><?php echo wc_get_order_status_name( $order->get_status() ); ?></span></p>
 
 			<?php do_action( 'woocommerce_view_order', $order_id ); ?>
 

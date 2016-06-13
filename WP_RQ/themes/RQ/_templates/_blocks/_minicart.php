@@ -1,5 +1,11 @@
 <?php if (!defined('ABSPATH')){exit;} ?>
 
+<?php
+// мин.суммы для заказа
+$minimal_pay_sum = (int)get_field('minimal_pay_sum', 32);
+$minimal_free_sum = (int)get_field('minimal_free_sum', 32);
+?>
+
 <?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?>
     <p class="header ajax_status"><?php echo __('Your choice', 'RQ'); ?>:</p>
     <div class="table">
@@ -48,6 +54,7 @@
             ?>
         <?php endforeach; ?>
 
+        <?php if(WC()->cart->cart_contents_total>=$minimal_pay_sum): ?>
         <div class="tr tfoot">
             <div class="td colspan"><?php echo __('Shipping', 'RQ'); ?>
                 <?php
@@ -58,6 +65,7 @@
             </div>
             <div class="td colspan"><p class="del"><?php echo __('free', 'RQ'); ?></p></div>
         </div>
+        <?php endif; ?>
 
         <div class="tr tfoot">
             <div class="td colspan"><?php echo __('Total', 'RQ'); ?>:</div>
