@@ -99,6 +99,7 @@ function wp_custom_create_order(){
                 'email'      => wp_strip_all_tags($_POST['billing_email']),
                 'phone'      => wp_strip_all_tags($_POST['billing_phone']),
                 'address_1'  => wp_strip_all_tags($_POST['billing_address_1']),
+                'address_2'  => wp_strip_all_tags($_POST['billing_address_2']),
                 'country'    => 'UA'
             );
             $args = array(
@@ -123,10 +124,10 @@ function wp_custom_create_order(){
             WC()->shipping->load_shipping_methods();
             $delivery = WC()->shipping->get_shipping_methods();
             //
-            if(WC()->cart->cart_contents_total>$minimal_free_sum): // если бесплатная доставка
+            if(WC()->cart->cart_contents_total>=$minimal_free_sum): // если бесплатная доставка
                 $delivery_method_code = 'free_shipping';
             else: // если платная
-                $delivery_method_code = 'flat_rate';
+                $delivery_method_code = 'local_delivery';
             endif;
             //
             foreach($delivery as $method):
@@ -155,13 +156,28 @@ function wp_custom_create_order(){
             $order->update_status('processing');
             // empty cart
             WC()->cart->empty_cart(true);
+
+            // SEND ADMIN EMAIL
+            if(isset($order->id)){
+                $WC_Emails = new WC_Emails();
+                $WC_Email_New_Order = new WC_Email_New_Order();
+                $WC_Email_New_Order->trigger($order->id);
+            }
+
             // return
-            echo json_encode(array('order_id'=>$order->id, 'minicart'=>do_shortcode('[minicart]')));
+            $orderid = (isset($order->id) ? $order->id : '');
+            $online = ($_POST['payment']=='cheque' ? true : false);
+            $pay_form = '';
+            if($online && $orderid){
+                $init_LiqPay = new init_LiqPay();
+                $pay_form = $init_LiqPay->get_link($orderid);
+            }
+            echo json_encode(array('error'=>false, 'order_id'=>$orderid, 'online'=>$online, 'pay_form'=>$pay_form));
 
         }else{
 
             // return
-            echo json_encode(array('error'=>'minimal_sum_error'));
+            echo json_encode(array('error'=>true));
 
         }
 

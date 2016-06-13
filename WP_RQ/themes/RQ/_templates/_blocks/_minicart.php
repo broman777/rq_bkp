@@ -54,22 +54,41 @@ $minimal_free_sum = (int)get_field('minimal_free_sum', 32);
             ?>
         <?php endforeach; ?>
 
-        <?php if(WC()->cart->cart_contents_total>=$minimal_pay_sum): ?>
-        <div class="tr tfoot">
-            <div class="td colspan"><?php echo __('Shipping', 'RQ'); ?>
-                <?php
-                $cart_terms_text = get_field('cart_terms_text', 32);
-                if($cart_terms_text): ?>
-                    <div class="what">?<div class="hint"><p><?php echo $cart_terms_text; ?></p></div></div>
-                <?php endif; ?>
-            </div>
-            <div class="td colspan"><p class="del"><?php echo __('free', 'RQ'); ?></p></div>
-        </div>
+        <?php $delivery_fee = 0; if(WC()->cart->cart_contents_total>=$minimal_pay_sum): ?>
+            <?php
+            // delivery
+            WC()->shipping->load_shipping_methods();
+            $delivery = WC()->shipping->get_shipping_methods();
+            //
+            if(WC()->cart->cart_contents_total>=$minimal_free_sum): // если бесплатная доставка
+                $delivery_method_code = 'free_shipping';
+            else: // если платная
+                $delivery_method_code = 'local_delivery';
+            endif;
+            //
+            foreach($delivery as $method):
+                if($method->enabled=='yes'):
+                    if($method->id==$delivery_method_code): ?>
+                        <?php $delivery_fee = $method->fee; ?>
+                        <div class="tr tfoot">
+                            <div class="td colspan"><?php echo __('Shipping', 'RQ'); ?>
+                                <?php
+                                $cart_terms_text = get_field('cart_terms_text', 32);
+                                if($cart_terms_text): ?>
+                                    <div class="what">?<div class="hint"><p><?php echo $cart_terms_text; ?></p></div></div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="td colspan"><p class="del"><?php echo ($method->fee ? $method->fee .' '.  get_woocommerce_currency_symbol() : __('free', 'RQ') ); ?></p></div>
+                        </div>
+                    <?php endif;
+                endif;
+            endforeach;
+            ?>
         <?php endif; ?>
 
         <div class="tr tfoot">
             <div class="td colspan"><?php echo __('Total', 'RQ'); ?>:</div>
-            <div class="td colspan"><p class="summ"><?php echo WC()->cart->cart_contents_total; ?> <?php echo get_woocommerce_currency_symbol(); ?></p></div>
+            <div class="td colspan"><p class="summ"><?php echo WC()->cart->cart_contents_total + $delivery_fee; ?> <?php echo get_woocommerce_currency_symbol(); ?></p></div>
         </div>
     </div>
 <?php else: // если корзина пуста ?>

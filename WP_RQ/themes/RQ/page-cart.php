@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
 <?php
+//
+$customer_id = get_current_user_id();
+
 // мин.суммы для заказа
 $minimal_pay_sum = (int)get_field('minimal_pay_sum', 32);
 $minimal_free_sum = (int)get_field('minimal_free_sum', 32);
@@ -42,28 +45,28 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
             <div class="ajax_order_form"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total<$minimal_pay_sum) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
                 <div class="form-block">
                     <p class="header"><?php echo __('Customer', 'RQ'); ?>:</p>
-                    <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span></div>
-                    <div class="row half"><input name="phone" type="text" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Phone', 'RQ' ); ?> *</span></div>
+                    <div class="row half"><input name="email" type="email" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_email : ''); ?>" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span></div>
+                    <div class="row half"><input name="phone" type="text" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_phone : ''); ?>" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Phone', 'RQ' ); ?> *</span></div>
                 </div>
                 <div class="form-block">
                     <p class="header"><?php echo __('Shipping details', 'RQ'); ?>:</p>
-                    <div class="row half"><input name="address" type="text" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping address', 'RQ' ); ?> *</span></div>
+                    <div class="row half"><input name="address" type="text" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_address_1 : ''); ?>" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping address', 'RQ' ); ?> *</span></div>
                     <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping time', 'RQ' ); ?></span></div>
                 </div>
 
                 <?php if ($available_gateways): $translate = array('cod' => 'Cash', 'cheque' => 'Online'); ?>
                     <div class="form-block">
                         <p class="header"><?php echo __('Payment method', 'RQ'); ?>:</p>
-                        <?php foreach ( $available_gateways as $gateway ) : ?>
+                        <?php $n = 1; foreach ( $available_gateways as $gateway ) : ?>
                             <div class="row half">
                                 <div class="checkbox">
-                                    <input type="radio" value="<?php echo $gateway->id; ?>" name="pay" checked><label><?php if(get_bloginfo( 'language' )=='ru-RU'): echo $gateway->get_title(); else: echo $translate[$gateway->id]; endif; ?></label>
+                                    <input type="radio" value="<?php echo $gateway->id; ?>" name="pay"<?php if($n==1): ?> checked<?php endif; ?>><label><?php if(get_bloginfo( 'language' )=='ru-RU'): echo $gateway->get_title(); else: echo $translate[$gateway->id]; endif; ?></label>
                                     <?php $description = $gateway->get_description(); if($description): ?>
                                     <div class="what">?<div class="hint"><p><?php echo $description; ?></p></div></div>
                                     <?php endif; ?>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
+                        <?php $n++; endforeach; ?>
                     </div>
                 <?php endif; ?>
 
@@ -134,13 +137,18 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
             },
             success: function (data) {
                 if(data.success){
-                    var counted = parseInt(data.count);
+                    var sum = parseInt(data.sum);
                     // прячем/показываем кнопку
-                    if(counted){
-                        $('#orderform .ajax_order_form').show();
-                        $('#orderform .go_to_shop').hide();
-                    }else{
-                        $('#orderform .ajax_order_form').hide();
+                    if(sum){
+                        if(sum>=<?php echo $minimal_pay_sum; ?>){
+                            $('#orderform .ajax_order_form').show();
+                            $('#orderform .go_to_shop, .minimal_sum_error').hide();
+                        }else{
+                            $('#orderform .ajax_order_form').hide();
+                            $('#orderform .go_to_shop, .minimal_sum_error').show();
+                        }
+                    }else{ // если корзина пуста
+                        $('#orderform .ajax_order_form, .minimal_sum_error').hide();
                         $('#orderform .go_to_shop').show();
                     }
                     // корзина
@@ -195,7 +203,7 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
                 address_1 = $('input[name="address"]').val(),
                 time = $('input[name="time"]').val(),
                 wpnonce = $('#_wpnonce').val(),
-                payment = $('input[name="pay"]').val();
+                payment = $('input[name="pay"]:checked').val();
 
             $.ajax({
                 url: '/wp-admin/admin-ajax.php?action=custom_create_order',
@@ -210,29 +218,29 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
                 type: 'POST',
                 dataType: 'json',
                 beforeSend: function () {
-                    //page_container.html('<div class="container"><p class="title" style="text-align: center; width: 100%"><?php echo __('[:ru]Подождите минутку, пожалуйста.[:ua]Почекайте хвильку, будь ласка.[:]'); ?></p></div>');
+                    //
+                    $('#orderform .place_order').text('<?php echo __('Please wait', 'RQ') ?>');
                 },
                 success: function (data) {
-                    /*if (data.orderid) {
-                        $('.cart_button span').addClass('_hidden').html('0');
-                        if (data.online) {
-                            page_container.html('<div class="container"><p class="title" style="text-align: center; width: 100%"><?php echo __('[:ru]Спасибо за заказ.[:ua]Дякуємо за замовлення.[:]'); ?></p><p style="width: 100%; font-size: 1.125em; color: #333; text-align: center;"><?php echo __('[:ru]Если перенаправление на страницу оплаты не произошло, кликните на кнопку ниже:[:ua]Якщо перенаправлення на сторінку оплати не відбулося, натисніть кнопку нижче:[:]'); ?></p><div id="liqpay_checkout">' + data.pay_form + '</div></div>');
-                        } else {
-                            page_container.html('<div class="container"><p class="title" style="text-align: center; width: 100%"><?php echo __('[:ru]Спасибо, Ваш заказ[:ua]Спасибі, Ваше замовлення[:]'); ?> №' + data.orderid + ' <?php echo __('[:ru]принят[:ua]прийнято[:]'); ?>. </p><p style="width: 100%; font-size: 1.125em; color: #333; text-align: center;"><?php echo __('[:ru]Статус заказа можно будет проверять в[:ua]Статус замовлення можна буде перевірити в[:]'); ?> <a href="/account/?show=history" style="color: #116cd6"><?php echo __('[:ru]Личном кабинете[:ua]Особистому кабінеті[:]'); ?>.</a></p></div>');
-                        }
-
-                        // GOOGLE GOALS
-                        ga('send', 'event', 'checkout', 'buy');
-                        // END
+                    if (data.error || !data.order_id) {
+                        $('#orderform').html('<p class="header"><?php echo __('Unknown order error.', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
                     } else {
-                        page_container.html('<div class="container"><p class="title" style="text-align: center; width: 100%"><?php echo __('[:ru]Ошибка при оформлении заказа.[:ua]Помилка при оформленні замовлення.[:]'); ?></p><p style="width: 100%; font-size: 1.125em; color: #333; text-align: center;"><?php echo __('[:ru]Попробуйте обновить страницу[:ua]Спробуйте оновити сторінку[:]'); ?></p></div>');
-                    }*/
+                        if (data.online) {
+                            $('#orderform').html('<p class="header"><?php echo __('Thanks for your order!', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
+                        } else {
+                            $('#orderform').html('<p class="header"><?php echo __('Thanks for your order!', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
+                        }
+                    }
                 },
                 complete: function () {
-                    /*var isset_form = $('#liqpay_checkout').find('form');
-                    if (isset_form.length) {
-                        $('#liqpay_checkout form').trigger('submit');
-                    }*/
+                    setTimeout(function(){
+                        //var isset_form = $('#liqpay_checkout').find('form');
+                        //if (isset_form.length) {
+                            //$('#liqpay_checkout form').trigger('submit');
+                        //}
+                    }, 3000);
+                    //
+                    $('#orderform .place_order').text('<?php echo __('Send order', 'RQ') ?>');
                 }
             });
         }
