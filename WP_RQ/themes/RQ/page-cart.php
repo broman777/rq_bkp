@@ -39,19 +39,19 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 
             <div class="ajax_order_form">
                 <div class="form-block">
-                    <p class="header">Получатель:</p>
+                    <p class="header"><?php echo __('Customer', 'RQ'); ?>:</p>
                     <div class="row half"><input name="email" type="email" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span></div>
                     <div class="row half"><input name="phone" type="text" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Phone', 'RQ' ); ?> *</span></div>
                 </div>
                 <div class="form-block">
-                    <p class="header">Доставка:</p>
+                    <p class="header"><?php echo __('Shipping details', 'RQ'); ?>:</p>
                     <div class="row half"><input name="address" type="text" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping address', 'RQ' ); ?> *</span></div>
                     <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping time', 'RQ' ); ?></span></div>
                 </div>
 
                 <?php if ($available_gateways): $translate = array('cod' => 'Cash', 'cheque' => 'Online'); ?>
                     <div class="form-block">
-                        <p class="header">Способ оплаты:</p>
+                        <p class="header"><?php echo __('Payment method', 'RQ'); ?>:</p>
                         <?php foreach ( $available_gateways as $gateway ) : ?>
                             <div class="row half">
                                 <div class="checkbox">
@@ -67,11 +67,11 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 
                 <?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
 
-                <button type="submit" class="place_order"><span>Отправить заказ</span></button>
+                <button type="submit" class="place_order"><span><?php echo __('Send order', 'RQ'); ?></span></button>
             </div>
             <?php endif; ?>
 
-            <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>Перейти в каталог</a>
+            <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>><?php echo __('To the catalog', 'RQ'); ?></a>
         </form>
     </div>
 
