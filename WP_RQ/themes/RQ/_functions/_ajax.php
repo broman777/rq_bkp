@@ -168,10 +168,10 @@ function wp_custom_create_order(){
             $orderid = (isset($order->id) ? $order->id : '');
             $online = ($_POST['payment']=='cheque' ? true : false);
             $pay_form = '';
-            if($online && $orderid){
+            /*if($online && $orderid){
                 $init_LiqPay = new init_LiqPay();
                 $pay_form = $init_LiqPay->get_link($orderid);
-            }
+            }*/
             echo json_encode(array('error'=>false, 'order_id'=>$orderid, 'online'=>$online, 'pay_form'=>$pay_form));
 
         }else{

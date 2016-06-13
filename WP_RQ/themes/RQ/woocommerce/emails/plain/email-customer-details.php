@@ -23,6 +23,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo strtoupper( __( 'Customer details', 'woocommerce' ) ) . "\n\n";
 
-foreach ( $fields as $field ) {
-    echo wp_kses_post( $field['label'] ) . ': ' . wp_kses_post( $field['value'] ) . "\n";
-}
+if ( $order->billing_email ) :
+    echo __( 'Email:', 'woocommerce' ). esc_html( $order->billing_email );
+endif;
+if ( $order->billing_phone ) :
+    echo __( 'Telephone:', 'woocommerce' ). esc_html( $order->billing_phone );
+endif;
+$shipping_address = get_post_meta($order->id, '_billing_address_1', true); if($shipping_address):
+    echo __( 'Shipping address', 'RQ' ). ': ' . $shipping_address;
+endif;
+$shipping_time = get_post_meta($order->id, '_billing_address_2', true); if($shipping_time):
+    echo __( 'Shipping time', 'RQ' ). ': ' . $shipping_time;
+endif;

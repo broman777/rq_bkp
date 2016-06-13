@@ -19,19 +19,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-?><table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top;" border="0">
-	<tr>
-		<td class="td" style="text-align:left; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" valign="top" width="50%">
-			<h3><?php _e( 'Billing address', 'woocommerce' ); ?></h3>
+?>
 
-			<p class="text"><?php echo $order->get_formatted_billing_address(); ?></p>
-		</td>
-		<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && ( $shipping = $order->get_formatted_shipping_address() ) ) : ?>
-			<td class="td" style="text-align:left; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" valign="top" width="50%">
-				<h3><?php _e( 'Shipping address', 'woocommerce' ); ?></h3>
+<h2><?php _e( 'Customer details', 'woocommerce' ); ?></h2>
 
-				<p class="text"><?php echo $shipping; ?></p>
-			</td>
-		<?php endif; ?>
-	</tr>
-</table>
+<ul>
+	<?php if ( $order->billing_email ) : ?>
+		<li>
+			<strong><?php _e( 'Email:', 'woocommerce' ); ?></strong>
+			<span class="text"><?php echo esc_html( $order->billing_email ); ?></span>
+		</li>
+	<?php endif; ?>
+
+	<?php if ( $order->billing_phone ) : ?>
+		<li>
+			<strong><?php _e( 'Telephone:', 'woocommerce' ); ?></strong>
+			<span class="text"><?php echo esc_html( $order->billing_phone ); ?></span>
+		</li>
+	<?php endif; ?>
+
+	<?php $shipping_address = get_post_meta($order->id, '_billing_address_1', true); if($shipping_address): ?>
+		<li>
+			<strong><?php echo __( 'Shipping address', 'RQ' ); ?>:</strong>
+			<span class="text"><?php echo $shipping_address; ?></span>
+		</li>
+	<?php endif; ?>
+
+	<?php $shipping_time = get_post_meta($order->id, '_billing_address_2', true); if($shipping_time): ?>
+		<li>
+			<strong><?php echo __( 'Shipping time', 'RQ' ); ?>:</strong>
+			<span class="text"><?php echo $shipping_time; ?></span>
+		</li>
+	<?php endif; ?>
+</ul>
