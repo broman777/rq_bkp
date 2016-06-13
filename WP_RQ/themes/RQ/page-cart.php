@@ -35,6 +35,10 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
             </div>
             <?php // END // ?>
 
+            <ul class="woocommerce-error"<?php if ( ! WC()->cart->is_empty() && WC()->cart->cart_contents_total>2500 ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
+                <li>1</li>
+            </ul>
+
             <?php if ( ! WC()->cart->is_empty() ) : // если корзина не пуста ?>
 
             <div class="ajax_order_form">
@@ -190,7 +194,6 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
                 address_1 = $('input[name="address"]').val(),
                 time = $('input[name="time"]').val(),
                 wpnonce = $('#_wpnonce').val(),
-                /*delivery = ;*/
                 payment = $('input[name="pay"]').val();
 
             $.ajax({
@@ -201,7 +204,6 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
                     'billing_address_1': address_1,
                     'billing_address_2': time,
                     '_wpnonce': wpnonce,
-                    /*'delivery': delivery,*/
                     'payment': payment
                 },
                 type: 'POST',

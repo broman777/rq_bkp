@@ -53,16 +53,14 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 		<?php do_action( 'woocommerce_order_items_table', $order ); ?>
 	</tbody>
 	<tfoot>
-		<?php
-			foreach ( $order->get_order_item_totals() as $key => $total ) {
-				?>
-				<tr>
-					<th scope="row"><?php echo $total['label']; ?></th>
-					<td><?php echo $total['value']; ?></td>
-				</tr>
-				<?php
-			}
-		?>
+		<tr>
+			<th scope="row"><?php echo __('Shipping', 'RQ'); ?></th>
+			<td><?php echo $order->get_total_shipping(); ?> <?php echo get_woocommerce_currency_symbol(); ?></td>
+		</tr>
+		<tr>
+			<th scope="row"><?php echo __('Total', 'RQ'); ?></th>
+			<td><?php echo $order->get_total(); ?> <?php echo get_woocommerce_currency_symbol(); ?></td>
+		</tr>
 	</tfoot>
 </table>
 
