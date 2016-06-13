@@ -99,11 +99,10 @@ function wp_custom_create_order(){
                 'email'      => wp_strip_all_tags($_POST['billing_email']),
                 'phone'      => wp_strip_all_tags($_POST['billing_phone']),
                 'address_1'  => wp_strip_all_tags($_POST['billing_address_1']),
-                'address_2'  => wp_strip_all_tags($_POST['billing_address_2']),
-                'country'    => 'UA'
+                'address_2'  => wp_strip_all_tags($_POST['billing_address_2'])
             );
             $args = array(
-                'status'        => 'processing',
+                'status'        => 'pending',
                 'customer_id'   => (int)get_current_user_id(),
                 'customer_note' => $_POST['order_comment']
             );
@@ -153,15 +152,20 @@ function wp_custom_create_order(){
             // total
             $order->calculate_totals();
             // status
-            $order->update_status('processing');
+            //$order->update_status('processing');
             // empty cart
             WC()->cart->empty_cart(true);
 
-            // SEND ADMIN EMAIL
+            // emails
             if(isset($order->id)){
+                // SEND ADMIN EMAIL
                 $WC_Emails = new WC_Emails();
                 $WC_Email_New_Order = new WC_Email_New_Order();
                 $WC_Email_New_Order->trigger($order->id);
+
+                // SEND USER EMAIL
+                $WC_Email_Customer_Processing_Order = new WC_Email_Customer_Processing_Order();
+                $WC_Email_Customer_Processing_Order->trigger($order->id);
             }
 
             // return
