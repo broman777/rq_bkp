@@ -72,7 +72,7 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
                 <button type="submit" class="place_order"><span><?php echo __('Send order', 'RQ'); ?></span></button>
             </div>
 
-            <ul class="woocommerce-error"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total>=$minimal_pay_sum ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
+            <ul class="woocommerce-error minimal_sum_error"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total>=$minimal_pay_sum ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
                 <li style="text-align: center"><?php echo __('Minimal sum of order', 'RQ'); ?> - <?php echo $minimal_pay_sum; ?> <?php echo get_woocommerce_currency_symbol(); ?></li>
             </ul>
 
