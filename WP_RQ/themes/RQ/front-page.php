@@ -6,14 +6,18 @@
     <h1><?php echo $slogan_1; ?></h1>
     <?php endif; ?>
 
-    <?php if($bg_type_1=='video'): ?>
+<?php if($bg_type_1=='video'): ?>
+    <div id="videobg">
+        <video muted autoplay>
         <?php $video_1_mp4 = get_field('video_1_mp4'); if($video_1_mp4): ?>
-            <?php echo $video_1_mp4; ?>
+          <source src="<?php echo $video_1_mp4; ?>" type="video/mp4">
         <?php endif; ?>
         <?php $video_1_webm = get_field('video_1_webm'); if($video_1_webm): ?>
-            <?php echo $video_1_webm; ?>
+          <source src="<?php echo $video_1_webm; ?>" type="video/webm">
         <?php endif; ?>
-    <?php endif; ?>
+        </video> 
+    </div>
+<?php endif; ?>
 
     <a href="#news-slider" class="more" data-anchor="800"><span><?php echo __('Learn more', 'RQ'); ?></span></a>
 </section>

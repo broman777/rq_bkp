@@ -87,7 +87,11 @@ footer .menu li:first-child{
       display: block;
       width: 100%;
       margin-bottom: 82px; }
-
+  .box .text p,
+  .box .text li {
+    font-size: 12px;
+    line-height: 24px;
+  }
 footer {
   padding-top: 207px;
   margin: 0 20% 0 60px;
