@@ -1,9 +1,20 @@
 <?php get_header(); ?>
 
+<?php $bg_type_1 = get_field('bg_type_1'); ?>
 <section id="first"<?php $bg_1 = get_field('bg_1'); if(is_array($bg_1) && count($bg_1)): ?> style="background-image: url('<?php echo $bg_1['sizes']['large']; ?>');"<?php endif; ?>>
     <?php $slogan_1 = get_field('slogan_1'); if($slogan_1): ?>
     <h1><?php echo $slogan_1; ?></h1>
     <?php endif; ?>
+
+    <?php if($bg_type_1=='video'): ?>
+        <?php $video_1_mp4 = get_field('video_1_mp4'); if($video_1_mp4): ?>
+            <?php echo $video_1_mp4; ?>
+        <?php endif; ?>
+        <?php $video_1_webm = get_field('video_1_webm'); if($video_1_webm): ?>
+            <?php echo $video_1_webm; ?>
+        <?php endif; ?>
+    <?php endif; ?>
+
     <a href="#news-slider" class="more" data-anchor="800"><span><?php echo __('Learn more', 'RQ'); ?></span></a>
 </section>
 
