@@ -1551,26 +1551,40 @@ form input:hover + ul + .placeholder,
   display: block;
   width: 100%;
 }
+#account-orders {
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+}
 #account-orders .tr {
   width: 100%;
   display: table-row;
 }
-#account-orders .table {
+#account-orders .table,
+#account-orders table {
   margin-bottom: 36px;
+  text-align: left;
+  width: 100%;
+}
+#account-orders td, #account-orders th {
+  padding: 10px 0;
+  vertical-align: middle;
+  border-bottom: 1px solid #E9EAEA;
+}
+#account-orders h2 {
+  font: 18px/24px "Constantine", serif;
+  margin-bottom: 16px;
 }
 #account-orders .amount {
   display: block;
-  font-weight: bold;
 }
 #account-orders .td {
   display: table-cell;
-  vertical-align: middle;
   width: 20%;
   height: auto;
   font-size: 12px;
   line-height: 18px;
   padding: 10px 0;
-  height: 50px;
   border-bottom: 1px solid #E9EAEA;
 }
 #account-orders .td a {
