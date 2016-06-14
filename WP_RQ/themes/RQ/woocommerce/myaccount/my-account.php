@@ -27,62 +27,72 @@
 
 				if ( $customer_orders ) : ?>
 
-					<table class="shop_table shop_table_responsive my_account_orders">
+					<div class="shop_table shop_table_responsive my_account_orders table">
 
-						<thead>
-						<tr>
+						<div class="tr heading_tr">
 							<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
-								<th class="<?php echo esc_attr( $column_id ); ?>"><span class="nobr"><?php echo esc_html( $column_name ); ?></span></th>
+								<div class="td desc col_<?php echo esc_attr( $column_id ); ?>">
+									<p><?php echo esc_html( $column_name ); ?></p>
+								</div>
 							<?php endforeach; ?>
-						</tr>
-						</thead>
+						</div>
 
-						<tbody>
 						<?php foreach ( $customer_orders as $customer_order ) :
 							$order      = wc_get_order( $customer_order );
 							$item_count = $order->get_item_count();
 							?>
-							<tr class="order">
-								<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
-									<td class="<?php echo esc_attr( $column_id ); ?>">
-										<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
-											<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
+							<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
 
-										<?php elseif ( 'order-number' === $column_id ) : ?>
+							<div class="tr col_<?php echo esc_attr( $column_id ); ?>">
+								<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
+									<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
+								<?php elseif ( 'order-number' === $column_id ) : ?>
+									<div class="td desc col_<?php echo $column_id; ?>">
+										<p>
 											<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
 												<?php echo _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number(); ?>
 											</a>
-
-										<?php elseif ( 'order-date' === $column_id ) : ?>
+										</p>
+									</div>
+								<?php elseif ( 'order-date' === $column_id ) : ?>
+									<div class="td desc col_<?php echo $column_id; ?>">
+										<p>
 											<time datetime="<?php echo date( 'Y-m-d', strtotime( $order->order_date ) ); ?>" title="<?php echo esc_attr( strtotime( $order->order_date ) ); ?>"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?></time>
-
-										<?php elseif ( 'order-status' === $column_id ) : ?>
+										</p>
+									</div>
+								<?php elseif ( 'order-status' === $column_id ) : ?>
+									<div class="td desc col_<?php echo $column_id; ?>">
+										<p>
 											<?php echo wc_get_order_status_name( $order->get_status() ); ?>
-
-										<?php elseif ( 'order-total' === $column_id ) : ?>
+										</p>
+									</div>
+								<?php elseif ( 'order-total' === $column_id ) : ?>
+									<div class="td desc col_<?php echo $column_id; ?>">
+										<p>
 											<?php echo sprintf( _n( '%s for %s item', '%s for %s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ); ?>
-
-										<?php elseif ( 'order-actions' === $column_id ) : ?>
-											<?php
-											$actions = array(
-												'view'   => array(
-													'url'  => $order->get_view_order_url(),
-													'name' => __( 'View', 'woocommerce' )
-												)
-											);
-											if ( $actions = apply_filters( 'woocommerce_my_account_my_orders_actions', $actions, $order ) ) {
-												foreach ( $actions as $key => $action ) {
-													echo '<a href="' . esc_url( $action['url'] ) . '" class="button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
-												}
+										</p>
+									</div>
+								<?php elseif ( 'order-actions' === $column_id ) : ?>
+									<div class="td rem col_<?php echo $column_id; ?>">
+										<?php
+										$actions = array(
+											'view'   => array(
+												'url'  => $order->get_view_order_url(),
+												'name' => __( 'View', 'woocommerce' )
+											)
+										);
+										if ( $actions = apply_filters( 'woocommerce_my_account_my_orders_actions', $actions, $order ) ) {
+											foreach ( $actions as $key => $action ) {
+												echo '<a href="' . esc_url( $action['url'] ) . '" class="button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 											}
-											?>
-										<?php endif; ?>
-									</td>
-								<?php endforeach; ?>
-							</tr>
+										}
+										?>
+									</div>
+								<?php endif; ?>
+							</div>
+							<?php endforeach; ?>
 						<?php endforeach; ?>
-						</tbody>
-					</table>
+					</div>
 				<?php else: ?>
 					<ul class="woocommerce-error">
 						<li><?php echo __( 'You don\'t have orders yet.', 'RQ' ); ?></li>
