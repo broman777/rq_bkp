@@ -1346,7 +1346,9 @@ aside {
         width: 100%; }
       #gal-page #gal-list .list > li:hover .bg a, #gal-page #gal-list .list > li:hover .bg:before, #gal-page #gal-list .list > li:hover .bg:after, #gal-page #gal-list .list > li:hover .share {
         opacity: 1; }
-
+.parsley-error {
+  border-color: red!important;
+}
 .select {
   position: relative;
   display: inline-block;
@@ -1383,7 +1385,8 @@ ol {
     ol li:before {
       position: absolute;
       left: 0;
-      top: 0;
+      margin-top: -22px;
+      top: 50%;
       width: 39px;
       height: 44px;
       padding-left: 5px;
@@ -1502,12 +1505,12 @@ form input:hover + ul + .placeholder,
   form .reg {
     color: #AA8A51; }
 
-#cart-form form {
+#cart-form form, #account-orders {
   padding: 56px 20px;
   width: 760px;
   text-align: left; }
 
-#cart-form .table {
+#cart-form .table, #account-orders .table {
   display: table;
   width: 100%;
   border-top: 1px solid #E9EAEA;
@@ -1537,10 +1540,6 @@ form input:hover + ul + .placeholder,
     opacity: 1;
     transform: scale(1, 1); }
 
-#cart-form .tr {
-  display: block;
-  width: 100%; }
-
 #cart-form .td {
   font-size: 11px;
   display: table-cell;
@@ -1548,8 +1547,45 @@ form input:hover + ul + .placeholder,
   border-bottom: 1px solid #E9EAEA;
   height: 110px; }
 
+#cart-form .tr {
+  display: block;
+  width: 100%;
+}
+#account-orders .tr {
+  width: 100%;
+  display: table-row;
+}
+#account-orders .table {
+  margin-bottom: 36px;
+}
+#account-orders .amount {
+  display: block;
+  font-weight: bold;
+}
+#account-orders .td {
+  display: table-cell;
+  vertical-align: middle;
+  width: 20%;
+  height: auto;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 10px 0;
+  height: 50px;
+  border-bottom: 1px solid #E9EAEA;
+}
+#account-orders .td a {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  color: #AA8A51;
+  margin: 0;
+}
+#account-orders .col_order-number {width: 10%;}
+#account-orders .col_order-date {width: 12%;}
+#account-orders .col_order-actions {width: 12%;}
 #cart-form .form-block {
-  font-size: 0; }
+  font-size: 0;
+}
   #cart-form .form-block .header {
     margin-bottom: 12px; }
 
