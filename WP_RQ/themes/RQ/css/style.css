@@ -2964,3 +2964,9 @@ form input:hover + ul + .placeholder,
   display: none!important;
 }
 /* end */
+
+/* add scripts */
+.jivo-state-widget, .callbackkiller.cbk-phone{
+  display: none!important;
+}
+/* end */
