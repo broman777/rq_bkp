@@ -41,9 +41,8 @@
 							$order      = wc_get_order( $customer_order );
 							$item_count = $order->get_item_count();
 							?>
+						<div class="tr col_<?php echo esc_attr( $column_id ); ?>">
 							<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
-
-							<div class="tr col_<?php echo esc_attr( $column_id ); ?>">
 								<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
 									<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
 								<?php elseif ( 'order-number' === $column_id ) : ?>
@@ -89,8 +88,8 @@
 										?>
 									</div>
 								<?php endif; ?>
-							</div>
 							<?php endforeach; ?>
+						</div>
 						<?php endforeach; ?>
 					</div>
 				<?php else: ?>

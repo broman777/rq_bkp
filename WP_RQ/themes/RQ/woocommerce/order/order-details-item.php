@@ -5,9 +5,9 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 }
 ?>
 <tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
-	<td class="product-name">
+	<th class="product-name">
 		<?php echo get_the_title($item['product_id']); ?> x <?php echo $item['qty']; ?> <?php echo __('pcs.', 'RQ'); ?>
-	</td>
+	</th>
 	<td class="product-total">
 		<?php echo $item['line_total']; ?> <?php echo get_woocommerce_currency_symbol(); ?>
 	</td>

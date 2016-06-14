@@ -31,7 +31,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 	<thead>
 		<tr>
 			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-			<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>
+			<td class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -58,8 +58,8 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 			<td><?php echo $order->get_total_shipping(); ?> <?php echo get_woocommerce_currency_symbol(); ?></td>
 		</tr>
 		<tr>
-			<th scope="row"><?php echo __('Total', 'RQ'); ?></th>
-			<td><?php echo $order->get_total(); ?> <?php echo get_woocommerce_currency_symbol(); ?></td>
+			<th scope="row"><b><?php echo __('Total', 'RQ'); ?></b></th>
+			<td><b><?php echo $order->get_total(); ?> <?php echo get_woocommerce_currency_symbol(); ?></b></td>
 		</tr>
 	</tfoot>
 </table>

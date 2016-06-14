@@ -14,8 +14,8 @@
 
         <ul class="btn-group">
             <li><a href="/shop/"><?php echo __('Order water delivery', 'RQ'); ?></a></li>
-            <li><a href="javascript:void(0)"><?php echo __('Call back', 'RQ'); ?></a></li>
-            <li><a href="javascript:void(0)"><?php echo __('Online chat with the manager', 'RQ'); ?></a></li>
+            <li><a href="#callbackwidget" class="trigger_callback"><?php echo __('Call back', 'RQ'); ?></a></li>
+            <li><a href="javascript:void(0)" class="trigger_chat" onclick="jivo_api.open();"><?php echo __('Online chat with the manager', 'RQ'); ?></a></li>
         </ul>
     </div>
 </aside>
