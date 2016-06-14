@@ -1555,6 +1555,8 @@ form input:hover + ul + .placeholder,
   font-size: 12px;
   line-height: 18px;
   text-align: center;
+  padding: 56px 40px;
+  width: 720px;
 }
 #account-orders .tr {
   width: 100%;
@@ -1571,6 +1573,9 @@ form input:hover + ul + .placeholder,
   vertical-align: middle;
   border-bottom: 1px solid #E9EAEA;
 }
+#account-orders table td {
+  text-align: right;
+}
 #account-orders h2 {
   font: 18px/24px "Constantine", serif;
   margin-bottom: 16px;
@@ -1578,6 +1583,10 @@ form input:hover + ul + .placeholder,
 #account-orders .amount {
   display: block;
 }
+#account-orders .order_status {
+  margin-bottom: 36px;
+}
+#account-orders p span {font-weight: bold;}
 #account-orders .td {
   display: table-cell;
   width: 20%;
