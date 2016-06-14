@@ -8,7 +8,7 @@
 
 <?php if($bg_type_1=='video'): ?>
     <div id="videobg">
-        <video muted autoplay>
+        <video muted autoplay loop>
         <?php $video_1_mp4 = get_field('video_1_mp4'); if($video_1_mp4): ?>
           <source src="<?php echo $video_1_mp4; ?>" type="video/mp4">
         <?php endif; ?>

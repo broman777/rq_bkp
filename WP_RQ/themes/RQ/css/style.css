@@ -415,12 +415,27 @@ aside {
       color: #fff; }
       aside .btn-group li:first-child a:before {
         background-color: #a48142; }
-
+#videobg {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  left: -1px;
+  bottom: -1px;
+  z-index: 1;;=
+}
+#videobg video {
+  display: block;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+}
 #first {
+  overflow: hidden;
   height: 100%;
   padding-left: 60px;
   margin-left: 0; }
   #first h1 {
+    z-index: 5; 
     position: absolute;
     top: 50%;
     left: 11%;
@@ -431,6 +446,7 @@ aside {
     padding-top: 133px;
     background: url("../img/ui/logo.png") no-repeat 0 0; }
   #first .more {
+    z-index: 5;
     position: absolute;
     bottom: 100px;
     left: 195px;
