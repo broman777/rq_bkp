@@ -108,7 +108,7 @@
 				<?php endif; ?>
 
 				<div class="row">
-					<input type="email" name="email" id="email" value="<?php echo get_userdata( $customer_id )->user_email; ?>" data-parsley-type="email" data-parsley-required="true" autocomplete="off">
+					<input type="email" name="email" id="email" value="<?php echo get_userdata( $customer_id )->billing_email; ?>" data-parsley-type="email" data-parsley-required="true" autocomplete="off">
 					<span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span>
 				</div>
 				<div class="row">

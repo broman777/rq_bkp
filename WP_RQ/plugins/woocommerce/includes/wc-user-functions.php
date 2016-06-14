@@ -107,6 +107,7 @@ function wc_create_new_customer( $email, $username = '', $password = '' ) {
 	) );
 
 	$customer_id = wp_insert_user( $new_customer_data );
+	update_user_meta($customer_id, 'billing_email', $email);
 
 	if ( is_wp_error( $customer_id ) ) {
 		return new WP_Error( 'registration-error', '<strong>' . __( 'ERROR', 'woocommerce' ) . '</strong>: ' . __( 'Couldn&#8217;t register you&hellip; please contact us if you continue to have problems.', 'woocommerce' ) );
