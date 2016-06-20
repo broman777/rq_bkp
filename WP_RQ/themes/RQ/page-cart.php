@@ -14,6 +14,9 @@ $delivery = WC()->shipping->get_shipping_methods();
 
 // оплата
 $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+
+// success/fail URLs
+$section = wp_strip_all_tags(get_query_var('section'), true);
 ?>
 
 <section id="form-page">
@@ -35,52 +38,67 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 
     <div id="cart-form">
         <form class="login" id="orderform" data-parsley-validate>
-            
-            <?php // CART // ?>
-            <div class="ajax_loading_of_cart">
-                <?php get_template_part('_templates/_blocks/_minicart'); ?>
-            </div>
-            <?php // END // ?>
 
-            <div class="ajax_order_form"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total<$minimal_pay_sum) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
-                <div class="form-block">
-                    <p class="header"><?php echo __('Customer', 'RQ'); ?>:</p>
-                    <div class="row half"><input name="email" type="email" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_email : ''); ?>" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span></div>
-                    <div class="row half"><input name="phone" type="text" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_phone : ''); ?>" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Phone', 'RQ' ); ?> *</span></div>
-                </div>
-                <div class="form-block">
-                    <p class="header"><?php echo __('Shipping details', 'RQ'); ?>:</p>
-                    <div class="row half"><input name="address" type="text" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_address_1 : ''); ?>" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping address', 'RQ' ); ?> *</span></div>
-                    <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping time', 'RQ' ); ?></span></div>
-                </div>
+            <?php if($section=='success'): // успешная оплата ?>
 
-                <?php if ($available_gateways): $translate = array('cod' => 'Cash', 'cheque' => 'Online'); ?>
+                <p class="header"><?php echo __('Thanks! Payment is successful.', 'RQ'); ?></p>
+                <a href="/shop/" class="go_to_shop"><?php echo __( 'History of orders', 'RQ' ); ?></a>
+
+            <?php elseif($section=='fail'): // ошибка ?>
+
+                <p class="header"><?php echo __('Sorry, payment isn\'t successful.', 'RQ'); ?></p>
+                <a href="/shop/" class="go_to_shop"><?php echo __( 'History of orders', 'RQ' ); ?></a>
+
+            <?php else: // корзина ?>
+
+                <?php // CART // ?>
+                <div class="ajax_loading_of_cart">
+                    <?php get_template_part('_templates/_blocks/_minicart'); ?>
+                </div>
+                <?php // END // ?>
+
+                <div class="ajax_order_form"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total<$minimal_pay_sum) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
                     <div class="form-block">
-                        <p class="header"><?php echo __('Payment method', 'RQ'); ?>:</p>
-                        <?php $n = 1; foreach ( $available_gateways as $gateway ) : ?>
-                            <div class="row half">
-                                <div class="checkbox">
-                                    <input type="radio" value="<?php echo $gateway->id; ?>" name="pay"<?php if($n==1): ?> checked<?php endif; ?>><label><?php if(get_bloginfo( 'language' )=='ru-RU'): echo $gateway->get_title(); else: echo $translate[$gateway->id]; endif; ?></label>
-                                    <?php $description = $gateway->get_description(); if($description): ?>
-                                    <div class="what">?<div class="hint"><p><?php echo $description; ?></p></div></div>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        <?php $n++; endforeach; ?>
+                        <p class="header"><?php echo __('Customer', 'RQ'); ?>:</p>
+                        <div class="row half"><input name="email" type="email" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_email : ''); ?>" data-parsley-type="email" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Your email', 'RQ' ); ?> *</span></div>
+                        <div class="row half"><input name="phone" type="text" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_phone : ''); ?>" id="phone-mask" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Phone', 'RQ' ); ?> *</span></div>
                     </div>
-                <?php endif; ?>
+                    <div class="form-block">
+                        <p class="header"><?php echo __('Shipping details', 'RQ'); ?>:</p>
+                        <div class="row half"><input name="address" type="text" value="<?php echo ($customer_id ? get_userdata( $customer_id )->billing_address_1 : ''); ?>" data-parsley-required="true" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping address', 'RQ' ); ?> *</span></div>
+                        <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping time', 'RQ' ); ?></span></div>
+                    </div>
 
-                <?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
+                    <?php if ($available_gateways): $translate = array('cod' => 'Cash', 'cheque' => 'Online'); ?>
+                        <div class="form-block">
+                            <p class="header"><?php echo __('Payment method', 'RQ'); ?>:</p>
+                            <?php $n = 1; foreach ( $available_gateways as $gateway ) : ?>
+                                <div class="row half">
+                                    <div class="checkbox">
+                                        <input type="radio" value="<?php echo $gateway->id; ?>" name="pay"<?php if($n==1): ?> checked<?php endif; ?>><label><?php if(get_bloginfo( 'language' )=='ru-RU'): echo $gateway->get_title(); else: echo $translate[$gateway->id]; endif; ?></label>
+                                        <?php $description = $gateway->get_description(); if($description): ?>
+                                            <div class="what">?<div class="hint"><p><?php echo $description; ?></p></div></div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <?php $n++; endforeach; ?>
+                        </div>
+                    <?php endif; ?>
 
-                <button type="submit" class="place_order"><span><?php echo __('Send order', 'RQ'); ?></span></button>
-            </div>
+                    <?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
 
-            <ul class="woocommerce-error minimal_sum_error"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total>=$minimal_pay_sum ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
-                <li style="text-align: center"><?php echo __('Minimal sum of order', 'RQ'); ?> - <?php echo $minimal_pay_sum; ?> <?php echo get_woocommerce_currency_symbol(); ?></li>
-            </ul>
+                    <button type="submit" class="place_order"><span><?php echo __('Send order', 'RQ'); ?></span></button>
+                </div>
 
-            <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() && WC()->cart->cart_contents_total>=$minimal_pay_sum ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>><?php echo __('To the catalog', 'RQ'); ?></a>
-        </form>
+                <ul class="woocommerce-error minimal_sum_error"<?php if ( WC()->cart->is_empty() || WC()->cart->cart_contents_total>=$minimal_pay_sum ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>>
+                    <li style="text-align: center"><?php echo __('Minimal sum of order', 'RQ'); ?> - <?php echo $minimal_pay_sum; ?> <?php echo get_woocommerce_currency_symbol(); ?></li>
+                </ul>
+
+                <a href="/shop/" class="go_to_shop"<?php if ( ! WC()->cart->is_empty() && WC()->cart->cart_contents_total>=$minimal_pay_sum ) : // если корзина не пуста ?> style="display: none"<?php endif; ?>><?php echo __('To the catalog', 'RQ'); ?></a>
+
+            <?php endif; ?>
+
+            </form>
     </div>
 
     <?php // POPUPS // ?>
