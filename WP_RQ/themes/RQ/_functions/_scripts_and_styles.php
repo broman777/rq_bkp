@@ -39,13 +39,13 @@ function load_scripts_on_site() {
     if(is_page('cart')){
         wp_enqueue_script('inputmask_js', $theme_uri.'/js/inputmask.min.js', array('jquery'), '3.3.2', true);
         wp_enqueue_script('jqueryinputmask_js', $theme_uri.'/js/jquery.inputmask.min.js', array('jquery'), '3.3.2', true);
-        wp_enqueue_script('parsley_js', $theme_uri.'/js/parsley.min.js', array('jquery'), '2.3.13', true);
+        wp_enqueue_script('parsley_js', $theme_uri.'/js/parsley.min.js', array('jquery'), '2.4.3', true);
         wp_enqueue_script('datetimepicker_js', $theme_uri.'/js/jquery.datetimepicker.full.min.js', array('jquery'), '2.4.9', true);
     }
     if(is_page('account')){
         wp_enqueue_script('inputmask_js', $theme_uri.'/js/inputmask.min.js', array('jquery'), '3.3.2', true);
         wp_enqueue_script('jqueryinputmask_js', $theme_uri.'/js/jquery.inputmask.min.js', array('jquery'), '3.3.2', true);
-        wp_enqueue_script('parsley_js', $theme_uri.'/js/parsley.min.js', array('jquery'), '2.3.13', true);
+        wp_enqueue_script('parsley_js', $theme_uri.'/js/parsley.min.js', array('jquery'), '2.4.3', true);
     }
     if(is_post_type_archive('product') || is_post_type_archive('news') || is_post_type_archive('partners')){
         wp_enqueue_script('imagesloaded_js', $theme_uri.'/js/imagesloaded.pkgd.min.js', array('jquery'), '4.1.0', true);
