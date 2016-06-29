@@ -77,8 +77,8 @@ $hover_text = get_field('hover_text');
                         <?php if($price && $pack_count && $product->is_purchasable() && $product->is_in_stock()): ?>
                             <li><a href="javascript:void(0)" class="add ajax_buy_button" data-product="<?php echo $id; ?>"><?php echo __('Add to cart', 'RQ'); ?></a></li>
                         <?php endif; ?>
-                        <li><a href="javascript:void(0)"><?php echo __('Call back', 'RQ'); ?></a></li>
-                        <li><a href="javascript:void(0)"><?php echo __('Online chat with the manager', 'RQ'); ?></a></li>
+                        <li><a href="#callbackwidget" class="trigger_callback"><?php echo __('Call back', 'RQ'); ?></a></li>
+                        <li><a href="javascript:void(0)" class="trigger_chat" onclick="jivo_api.open();"><?php echo __('Online chat with the manager', 'RQ'); ?></a></li>
                     </ul>
 
                     <?php
