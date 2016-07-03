@@ -753,7 +753,7 @@ By default, the error rate should not be less than ERROR.', 'wc-robokassa' ),
         $items = $order->get_items();
         foreach ( $items as $item )
         {
-            $description .= $item['name'];
+            $description .= __($item['name']);
         }
         if(count($description) > 99)
         {
@@ -863,9 +863,9 @@ By default, the error rate should not be less than ERROR.', 'wc-robokassa' ),
          * Return full form
          */
         return '<form action="'.esc_url($this->form_url).'" method="POST" id="robokassa_payment_form" accept-charset="utf-8">'."\n".
+        '<p class="header">'.__('Thanks for your order!', 'RQ').'</p>'.
         implode("\n", $args_array).
-        '<input type="submit" class="button alt" id="submit_robokassa_payment_form" value="'.__('Pay', 'wc-robokassa').
-        '" /> <a class="button cancel" href="'.$order->get_cancel_order_url().'">'.__('Cancel & return to cart', 'wc-robokassa').'</a>'."\n".
+        '<button type="submit" class="place_order" id="submit_robokassa_payment_form"><span>'.__('Pay', 'wc-robokassa').'</span></button>'."\n".
         '</form>';
     }
 
