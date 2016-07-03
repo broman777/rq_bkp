@@ -19,12 +19,6 @@ $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 $section = wp_strip_all_tags(get_query_var('section'), true);
 ?>
 
-<?php
-$WC_Robokassa = new WC_Robokassa();
-$pay_form = $WC_Robokassa->generate_form(465);
-print_r($pay_form);
-?>
-
 <section id="form-page">
     <div id="top"<?php $cart_bg = get_field('cart_bg', 32); if(is_array($cart_bg) && count($cart_bg)): ?> style="background-image: url('<?php echo $cart_bg['sizes']['large']; ?>');"<?php endif; ?>>
         <div class="box">
@@ -254,7 +248,7 @@ print_r($pay_form);
                         $('#orderform').html('<p class="header"><?php echo __('Unknown order error.', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
                     } else {
                         if (data.online && data.pay_form) {
-                            $('#cart-form').html('<p class="header"><?php echo __('Thanks for your order!', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
+                            $('#cart-form').html(data.pay_form);
                         } else {
                             $('#orderform').html('<p class="header"><?php echo __('Thanks for your order!', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
                         }

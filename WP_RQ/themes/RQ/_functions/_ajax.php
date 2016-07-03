@@ -174,7 +174,7 @@ function wp_custom_create_order(){
             $pay_form = '';
             if($online && $orderid){
                 $WC_Robokassa = new WC_Robokassa();
-                $pay_form = $WC_Robokassa->receipt_page($orderid);
+                $pay_form = $WC_Robokassa->generate_form($orderid);
             }
             echo json_encode(array('error'=>false, 'order_id'=>$orderid, 'online'=>$online, 'pay_form'=>$pay_form));
 
