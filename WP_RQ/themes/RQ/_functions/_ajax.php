@@ -170,12 +170,12 @@ function wp_custom_create_order(){
 
             // return
             $orderid = (isset($order->id) ? $order->id : '');
-            $online = ($_POST['payment']=='cheque' ? true : false);
+            $online = ($_POST['payment']=='robokassa' ? true : false);
             $pay_form = '';
-            /*if($online && $orderid){
-                $init_LiqPay = new init_LiqPay();
-                $pay_form = $init_LiqPay->get_link($orderid);
-            }*/
+            if($online && $orderid){
+                $WC_Robokassa = new WC_Robokassa();
+                $pay_form = $WC_Robokassa->receipt_page($orderid);
+            }
             echo json_encode(array('error'=>false, 'order_id'=>$orderid, 'online'=>$online, 'pay_form'=>$pay_form));
 
         }else{

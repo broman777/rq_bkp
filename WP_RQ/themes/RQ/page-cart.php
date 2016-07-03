@@ -69,7 +69,11 @@ $section = wp_strip_all_tags(get_query_var('section'), true);
                         <div class="row half"><input name="time" type="text" id="time-mask" autocomplete="off"><span class="placeholder"><?php echo __( 'Shipping time', 'RQ' ); ?></span></div>
                     </div>
 
-                    <?php if ($available_gateways): $translate = array('cod' => 'Cash', 'cheque' => 'Online'); ?>
+                    <?php if ($available_gateways): ?>
+                        <?php
+                        $translate = array('cod' => 'Cash', 'robokassa' => 'Online');
+                        $translate_descriptions = array('cod' => 'Payment of the order in cash', 'robokassa' => 'Payment of the order online');
+                        ?>
                         <div class="form-block">
                             <p class="header"><?php echo __('Payment method', 'RQ'); ?>:</p>
                             <?php $n = 1; foreach ( $available_gateways as $gateway ) : ?>
@@ -77,7 +81,7 @@ $section = wp_strip_all_tags(get_query_var('section'), true);
                                     <div class="checkbox">
                                         <input type="radio" value="<?php echo $gateway->id; ?>" name="pay"<?php if($n==1): ?> checked<?php endif; ?>><label><?php if(get_bloginfo( 'language' )=='ru-RU'): echo $gateway->get_title(); else: echo $translate[$gateway->id]; endif; ?></label>
                                         <?php $description = $gateway->get_description(); if($description): ?>
-                                            <div class="what">?<div class="hint"><p><?php echo $description; ?></p></div></div>
+                                            <div class="what">?<div class="hint"><p><?php if(get_bloginfo( 'language' )=='ru-RU'): echo $description; else: echo $translate_descriptions[$gateway->id]; endif; ?></p></div></div>
                                         <?php endif; ?>
                                     </div>
                                 </div>
