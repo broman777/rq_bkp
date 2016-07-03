@@ -247,8 +247,8 @@ $section = wp_strip_all_tags(get_query_var('section'), true);
                     if (data.error || !data.order_id) {
                         $('#orderform').html('<p class="header"><?php echo __('Unknown order error.', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
                     } else {
-                        if (data.online) {
-                            $('#orderform').html('<p class="header"><?php echo __('Thanks for your order!', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
+                        if (data.online && data.pay_form) {
+                            $('#orderform').html(data.pay_form + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
                         } else {
                             $('#orderform').html('<p class="header"><?php echo __('Thanks for your order!', 'RQ'); ?></p>' + '<a href="/shop/" class="go_to_shop"><?php echo __('To the catalog', 'RQ'); ?></a>');
                         }
