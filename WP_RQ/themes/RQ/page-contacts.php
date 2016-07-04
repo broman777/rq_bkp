@@ -16,42 +16,24 @@
     </div>
 
     <ul id="cont-list">
-        <?php $title_2 = get_field('title_2'); if($title_2): ?>
-        <li>
-            <div class="text">
-                <div class="inner">
-                    <i class="icon tel"></i>
-                    <p class="header"><?php echo $title_2; ?></p>
-                    <p><?php $phone_2 = get_field('phone_2'); if($phone_2): ?><?php echo __('Phone', 'RQ'); ?> <?php echo $phone_2; ?><br><?php endif; ?><?php $fax_2 = get_field('fax_2'); if($fax_2): ?><?php echo __('Fax', 'RQ'); ?> <?php echo $fax_2; ?><?php endif; ?></p>
-                </div>
-            </div>
-        </li>
+        <?php $classes = array('phone' => 'tel', 'address' => 'loc', 'email' => 'email'); ?>
+        <?php $blocks = get_field('blocks'); if(is_array($blocks) && count($blocks)): ?>
+            <?php foreach($blocks as $block): ?>
+                <li>
+                    <div class="text">
+                        <div class="inner">
+                            <i class="icon <?php echo $classes[$block['type']]; ?>"></i>
+                            <?php if($block['title']): ?><p class="header"><?php echo $block['title']; ?></p><?php endif; ?>
+                            <?php if($block['text']): ?><p><?php echo $block['text']; ?></p><?php endif; ?>
+                            <?php if($block['type']=='email'): ?>
+                                <?php if($block['button_email']): ?><a href="mailto:<?php echo $block['button_email']; ?>" class="more btn"><?php echo __('Write us', 'RQ'); ?></a><?php endif; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
         <?php endif; ?>
-        <?php $title_1 = get_field('title_1'); if($title_1): ?>
-        <li>
-            <div class="text">
-                <div class="inner">
-                    <i class="icon loc"></i>
-                    <p class="header"><?php echo $title_1; ?></p>
-                    <?php $address_1 = get_field('address_1'); if($address_1): ?><p><?php echo $address_1; ?></p><?php endif; ?>
-                </div>
-            </div>
-        </li>
-        <?php endif; ?>
-        <?php $title_3 = get_field('title_3'); if($title_3): ?>
-        <li>
-            <div class="text">
-                <div class="inner">
-                    <i class="icon email"></i>
-                    <p class="header"><?php echo $title_3; ?></p>
-                    <?php $email_3 = get_field('email_3'); if($email_3): ?>
-                    <p><?php echo $email_3; ?></p>
-                    <a href="mailto:<?php echo $email_3; ?>" class="more btn"><?php echo __('Write us', 'RQ'); ?></a>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </li>
-        <?php endif; ?>
+        
         <?php $title_4 = get_field('title_4'); if($title_4): ?>
         <li>
             <div class="text">
