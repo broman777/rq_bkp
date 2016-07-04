@@ -1131,7 +1131,6 @@ By default, the error rate should not be less than ERROR.', 'wc-robokassa' ),
                          * Add order note
                          */
                         $order->add_order_note(__('Order successfully paid (TEST MODE).', 'wc-robokassa'));
-
                         /**
                          * Logger notice
                          */
@@ -1161,6 +1160,8 @@ By default, the error rate should not be less than ERROR.', 'wc-robokassa' ),
                     /**
                      * Set status is payment
                      */
+                    update_post_meta($order_id, '_transaction_id', 'Оплачено');
+                    //
                     $order->payment_complete();
                     die('OK'.$order_id);
                 }

@@ -140,7 +140,7 @@ function wp_custom_create_order(){
             endforeach;
 
             // payment
-            update_post_meta($order->id, '_transaction_id', 'Не оплачено');
+            update_post_meta($order->id, '_transaction_id', '-');
             if($_POST['payment']):
                 if ( $available_gateways = WC()->payment_gateways->get_available_payment_gateways() ) : foreach ( $available_gateways as $gateway ) :
                     if($gateway->id==$_POST['payment']):
