@@ -381,15 +381,15 @@ class WC_Robokassa extends WC_Payment_Gateway
         /**
          * Check test mode and admin rights
          */
-        if ($this->test === 'yes' && !current_user_can( 'manage_options' ))
+        /*if ($this->test === 'yes' && !current_user_can( 'manage_options' ))
         {
-            $return = false;
+            $return = false;*/
 
             /**
              * Logger notice
              */
-            $this->logger->addNotice('Test mode only admins.');
-        }
+            /*$this->logger->addNotice('Test mode only admins.');
+        }*/
 
         return $return;
     }
