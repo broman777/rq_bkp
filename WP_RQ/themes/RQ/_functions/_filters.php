@@ -18,7 +18,7 @@ function my_pre_get_posts( $query ) {
     if ( ! is_admin() && $query->is_main_query() ) {
         if(is_shop()){ // SHOP
             // posts per page
-            $query->set( 'posts_per_page', 6 );
+            $query->set( 'nopaging', true );
             // sorting
             $query->set( 'orderby', 'menu_order' );
             $query->set( 'order', 'ASC' );
