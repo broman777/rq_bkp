@@ -33,7 +33,7 @@
                 </li>
             <?php endforeach; ?>
         <?php endif; ?>
-
+        
         <?php $title_4 = get_field('title_4'); if($title_4): ?>
         <li>
             <div class="text">
