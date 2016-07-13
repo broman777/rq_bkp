@@ -2,26 +2,15 @@
 
 <section id="first">
 	<div id="first-slider">
+        <?php $slider_1 = get_field('slider_1'); if(is_array($slider_1) && count($slider_1)): ?>
 		<ul class="slides">
-	        <li style="background-image: url(/wp-content/themes/RQ/img/hist.jpg)">
-			    <p class="header" style="color: #fff;">Текст №1</p>
+            <?php foreach($slider_1 as $slide): ?>
+	        <li<?php if(isset($slide['bg']['sizes']['large'])): ?> style="background-image: url('<?php echo $slide['bg']['sizes']['large']; ?>')"<?php endif; ?>>
+                <?php if(isset($slide['text'])): ?><p class="header" style="color: <?php echo $slide['color']; ?>;"><?php echo $slide['text']; ?></p><?php endif; ?>
 	        </li>
-	        <li<?php $bg_1 = get_field('bg_1'); if(is_array($bg_1) && count($bg_1)): ?> style="background-image: url('<?php echo $bg_1['sizes']['large']; ?>');"<?php endif; ?>>
-				<?php if(get_field('bg_type_1')=='video'): ?>
-				    <?php $video_1_mp4 = get_field('video_1_mp4'); $video_1_webm = get_field('video_1_webm'); if($video_1_mp4 && $video_1_webm): ?>
-				    <div id="videobg">
-				        <video muted autoplay loop>
-				          <source src="<?php echo $video_1_mp4; ?>" type="video/mp4">
-				          <source src="<?php echo $video_1_webm; ?>" type="video/webm">
-				        </video> 
-				    </div>
-				    <?php endif; ?>
-				<?php endif; ?>
-			    <?php $slogan_1 = get_field('slogan_1'); if($slogan_1): ?>
-			    <p class="header"><?php echo $slogan_1; ?></p>
-			    <?php endif; ?>
-	        </li>
+            <?php endforeach; ?>
 	    </ul>
+        <?php endif; ?>
 	</div>
     <a href="#news-slider" class="more" data-anchor="800"><span><?php echo __('Learn more', 'RQ'); ?></span></a>
 </section>
@@ -150,6 +139,12 @@
 <?php /* WRITE SCRIPTS HERE */ ?>
 <script type="text/javascript">
     $(document).ready(function(){
+        <?php $slider_1 = get_field('slider_1'); if(is_array($slider_1) && count($slider_1)): // FIRST ?>
+        $('#first-slider').flexslider({
+            directionNav: false,
+            controlNav: false
+        });
+        <?php endif; ?>
         <?php $active_2 = get_field('active_2'); if($active_2): // NEWS ?>
         $('#news-slider').flexslider({
             animation: "slide",
@@ -162,10 +157,6 @@
             animation: "slide",
             directionNav: false,
             controlNav:true
-        });
-        $('#first-slider').flexslider({
-            directionNav: false,
-            controlNav: false
         });
         <?php endif; ?>
     });
