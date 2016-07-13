@@ -1,21 +1,28 @@
 <?php get_header(); ?>
 
-<section id="first"<?php $bg_1 = get_field('bg_1'); if(is_array($bg_1) && count($bg_1)): ?> style="background-image: url('<?php echo $bg_1['sizes']['large']; ?>');"<?php endif; ?>>
-    <?php $slogan_1 = get_field('slogan_1'); if($slogan_1): ?>
-    <h1><?php echo $slogan_1; ?></h1>
-    <?php endif; ?>
-
-<?php if(get_field('bg_type_1')=='video'): ?>
-    <?php $video_1_mp4 = get_field('video_1_mp4'); $video_1_webm = get_field('video_1_webm'); if($video_1_mp4 && $video_1_webm): ?>
-    <div id="videobg">
-        <video muted autoplay loop>
-          <source src="<?php echo $video_1_mp4; ?>" type="video/mp4">
-          <source src="<?php echo $video_1_webm; ?>" type="video/webm">
-        </video> 
-    </div>
-    <?php endif; ?>
-<?php endif; ?>
-
+<section id="first">
+	<div id="first-slider">
+		<ul class="slides">
+	        <li style="background-image: url(/wp-content/themes/RQ/img/hist.jpg)">
+			    <p class="header" style="color: #fff;">Текст №1</p>
+	        </li>
+	        <li<?php $bg_1 = get_field('bg_1'); if(is_array($bg_1) && count($bg_1)): ?> style="background-image: url('<?php echo $bg_1['sizes']['large']; ?>');"<?php endif; ?>>
+				<?php if(get_field('bg_type_1')=='video'): ?>
+				    <?php $video_1_mp4 = get_field('video_1_mp4'); $video_1_webm = get_field('video_1_webm'); if($video_1_mp4 && $video_1_webm): ?>
+				    <div id="videobg">
+				        <video muted autoplay loop>
+				          <source src="<?php echo $video_1_mp4; ?>" type="video/mp4">
+				          <source src="<?php echo $video_1_webm; ?>" type="video/webm">
+				        </video> 
+				    </div>
+				    <?php endif; ?>
+				<?php endif; ?>
+			    <?php $slogan_1 = get_field('slogan_1'); if($slogan_1): ?>
+			    <p class="header"><?php echo $slogan_1; ?></p>
+			    <?php endif; ?>
+	        </li>
+	    </ul>
+	</div>
     <a href="#news-slider" class="more" data-anchor="800"><span><?php echo __('Learn more', 'RQ'); ?></span></a>
 </section>
 
@@ -155,6 +162,10 @@
             animation: "slide",
             directionNav: false,
             controlNav:true
+        });
+        $('#first-slider').flexslider({
+            directionNav: false,
+            controlNav: false
         });
         <?php endif; ?>
     });

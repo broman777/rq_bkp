@@ -434,8 +434,27 @@ aside {
   height: 100%;
   padding-left: 60px;
   margin-left: 0; }
-  #first h1 {
+#first-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+}
+#first-slider .slides,
+#first-slider .slides>li{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  position: relative;
+}
+  #first .header {
     z-index: 5; 
+    min-width: 158px;
     position: absolute;
     top: 50%;
     left: 11%;
@@ -1055,6 +1074,8 @@ aside {
 
 #products-page {
   margin: 0; }
+    #products-page #top {
+      z-index: 11; }
   #products-page footer {
     margin-right: 0; }
   #products-page #products-list {
@@ -1068,7 +1089,7 @@ aside {
       border-right: 1px solid #EBEDEC;
       border-bottom: 1px solid #EBEDEC;
       transition: all 0.5s ease-in;
-      width: 33.3%;
+      width: 25%;
       height: 440px;
       float: left;
       opacity: 1;
@@ -1085,8 +1106,6 @@ aside {
         display: block;
         transition: all 0.3s linear;
         transform: scale(1, 1); }
-      #products-page #products-list .item:nth-child(3n) {
-        width: 33.4%; }
       #products-page #products-list .item.hidden {
         opacity: 0;
         display: none; }
@@ -1109,14 +1128,14 @@ aside {
       transition: opacity 0.4s ease;
       color: #87918e; }
       #products-page #products-list .info .cell {
-        width: 414px;
+        width: 310px;
         position: relative;
         margin: 0 auto; }
       #products-page #products-list .info .in {
         display: table-cell;
         vertical-align: middle;
         text-align: center;
-        width: 414px;
+        width: 310px;
         height: 440px; }
       #products-page #products-list .info .header {
         font: 22px/30px 'Constantine', sans-serif;
@@ -2275,7 +2294,7 @@ form input:hover + ul + .placeholder,
       margin-left: 68px;
       width: 290px; }
   #products-page #products-list .info .cell, #products-page #products-list .info .in {
-    width: 374px; } }
+    width: 310px; } }
 
 @media screen and (max-width: 1366px) {
   #partners-page #partners-list .item {
@@ -2312,7 +2331,7 @@ form input:hover + ul + .placeholder,
       line-height: 20px; }
   #top .box .hr {
     height: 35px; }
-  #first h1 {
+  #first .header  {
     margin-top: -225px; }
   #first .more {
     left: 158px;
@@ -2333,7 +2352,7 @@ form input:hover + ul + .placeholder,
   #first {
     padding-left: 0;
     background-size: cover; }
-    #first h1 {
+    #first .header {
       font-size: 22px;
       line-height: 32px;
       left: 20px;
@@ -2680,8 +2699,6 @@ form input:hover + ul + .placeholder,
       padding-left: 0; }
   #products-page {
     margin-top: 60px; }
-    #products-page #top {
-      z-index: 11; }
     #products-page #products-list {
       padding-left: 0; }
       #products-page .formob {
